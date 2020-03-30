@@ -41,7 +41,7 @@ It has two main purposes:
 * To automatically start the floorcontroller programme.
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 ### floorcontroller
-**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work!**</br>
+**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0" **</br>
 This file controls whether or not your floor is activated or deactivated.</br>
 The programme automatically listens for rednet messages (via the wired connection).</br>
 If the message corresponds to the floor number, then it will activate the redstone signal and then start to listen for messages again.</br>
