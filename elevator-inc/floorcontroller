@@ -14,7 +14,7 @@ function receive()
         then
             restart()
         end
-    if message~=("Floor3" or "Cart")
+    if message~=("Floor1" or "Cart")
         then
             redstone.setOutput("back", false)
 			print("Floor Not Activated")
