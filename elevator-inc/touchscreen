@@ -1,0 +1,131 @@
+mon = peripheral.wrap("right")
+
+function main()
+while true do
+    mon.setBackgroundColor(colors.white)
+    mon.clear()
+    mon.setTextScale(1)
+    mon.setTextColor(colors.black)
+    mon.setCursorPos(5,2)
+	mon.write("Elevator")
+	mon.setCursorPos(4,3)
+    mon.write("Select Floor")
+    mon.setBackgroundColor(colors.black)
+    mon.setTextColor(colors.white)
+    mon.setCursorPos(4,5)
+    mon.write(" Ground Floor")
+    mon.setCursorPos(1,7)
+    mon.write(" Floor 1")
+    mon.setCursorPos(11,7)
+    mon.write(" Floor 2")
+    mon.setCursorPos(1,9)
+    mon.write(" Floor 3")
+    mon.setCursorPos(11,9)
+    mon.write(" Floor 4")
+    mon.setCursorPos(1,11)
+    mon.write(" Floor 5")
+    mon.setCursorPos(11,11)
+    mon.write(" Floor 6")
+    mon.setCursorPos(1,13)
+    mon.write(" Floor 7")
+	mon.setCursorPos(4,17)
+    mon.write(" Request Cart")
+    listen()
+end
+end
+ 
+function listen()
+    event, side, x, y = os.pullEvent("monitor_touch")
+    if x > 4 and x < 17 and y == 5 then
+        rednet.broadcast("GroundFloor")
+        mon.clear()
+        mon.setCursorPos(4,8)
+        mon.write("Ground Floor")
+        mon.setCursorPos(6,10)
+        mon.write("Selected") 
+        sleep(3)
+        end
+    if x > 1 and x < 9 and y == 7 then
+        rednet.broadcast("Floor1")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 1")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(2,18)
+		mon.write("MutsFM Elevator Inc.")
+        sleep(3)
+      end
+    if x > 11 and x < 19 and y == 7 then
+        rednet.broadcast("Floor2") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 2")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+    if x > 1 and x < 9 and y == 9 then
+        rednet.broadcast("Floor3") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 3")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+    if x > 11 and x < 19 and y == 9 then
+        rednet.broadcast("Floor4") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 4")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+    if x > 1 and x < 9 and y == 11 then
+        rednet.broadcast("Floor5")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 5")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+    if x > 11 and x < 19 and y == 11 then
+        rednet.broadcast("Floor6")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 6")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+	if x > 1 and x < 9 and y == 13 then
+        rednet.broadcast("Floor7")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 7")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+        sleep(3)
+        end
+    if x > 4 and x < 17 and y == 17 then
+        rednet.broadcast("Floor1") 	-- Replace "Floor1" with corresponding floor number, e.g. "Floor6"
+        rednet.broadcast("Cart")
+        mon.clear()
+        mon.setCursorPos(4,8)
+        mon.write("Cart Requested")
+        sleep(3)
+        end
+    main()
+end
+
+
+function start()
+    main()
+end
+
+start()
