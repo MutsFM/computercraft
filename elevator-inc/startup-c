@@ -9,5 +9,6 @@ rednet.open("left", true)
 sleep(1)
 print("Network Connection Established")
 print("Starting Application...")
+sleep(1)
 shell.run("floorcontroller")
 
