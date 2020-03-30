@@ -4,7 +4,7 @@ term.clear()
 term.setCursorPos(16,1)
 print("MutsFM Elevator Inc.")
 term.setCursorPos(1,4)
-print("Touchscreen Operating Software for 20 floors in numpad design")
+print("Touchscreen Operating Software for 25 floors in numpad design")
 
 function screen()
 while true do
@@ -72,6 +72,18 @@ while true do
     mon.write("19")
     mon.setCursorPos(15,13)
     mon.write("20")
+    
+    mon.setCursorPos(3,15)
+    mon.write("21")
+    mon.setCursorPos(6,15)
+    mon.write("22")
+    mon.setCursorPos(9,15)
+    mon.write("23")
+    mon.setCursorPos(12,15)
+    mon.write("24")
+    mon.setCursorPos(15,15)
+    mon.write("25")
+        
     
     mon.setCursorPos(3,17)
     mon.write(" Request Cart ")
