@@ -31,15 +31,15 @@ while true do
     
 	
 	mon.setCursorPos(2,7)
-    mon.write(" Floor 1")
+    mon.write("1")
 	mon.setCursorPos(4,7)
-    mon.write(" Floor 2")
+    mon.write("2")
     mon.setCursorPos(6,7)
-    mon.write(" Floor 3")
+    mon.write("3")
 	mon.setCursorPos(8,7)
-    mon.write(" Floor 4")
+    mon.write("4")
     mon.setCursorPos(10,7)
-    mon.write(" Floor 5")
+    mon.write("5")
     
     mon.setCursorPos(4,17)
     mon.write(" Request Cart")
