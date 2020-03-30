@@ -111,7 +111,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 3 or x == 4 and y == 7 then
+    if x == 3 and y == 7 or x == 4 and y == 7 then
         rednet.broadcast("Floor1")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -126,7 +126,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
       end
-    if x == 6 or x == 7 and y == 7 then
+    if x == 6 and y == 7 or x == 7 and y == 7 then
         rednet.broadcast("Floor2") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -141,7 +141,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 9 or x == 10 and y == 7 then
+    if x == 9 and y == 7 or x == 10 and y == 7 then
         rednet.broadcast("Floor3") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -156,7 +156,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 12 or x == 13 and y == 7 then
+    if x == 12 and y == 7 or x == 13 and y == 7 then
         rednet.broadcast("Floor4") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -171,7 +171,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 15 or x == 16 and y == 7 then
+    if x == 15 and y == 7 or x == 16 and y == 7 then
         rednet.broadcast("Floor5")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -186,7 +186,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 3 or x == 4 and y == 9 then
+    if x == 3 and y == 9 or x == 4 and y == 9 then
         rednet.broadcast("Floor6")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -202,7 +202,7 @@ function listen()
         sleep(3)
         end
 	
-    if x == 6 or x == 7 and y == 9 then
+    if x == 6 and y == 9 or x == 7 and y == 9 then
         rednet.broadcast("Floor7")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -218,7 +218,7 @@ function listen()
         sleep(3)
         end
 	
-	if x == 9 or x == 10 and y == 9 then
+	if x == 9 and y == 9 or x == 10 and y == 9 then
         rednet.broadcast("Floor8")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -234,7 +234,7 @@ function listen()
         sleep(3)
         end
 
-	if x == 12 or x == 13 and y == 9 then
+	if x == 12 and y == 9 or x == 13 and y == 9 then
         rednet.broadcast("Floor9")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -250,10 +250,10 @@ function listen()
         sleep(3)
         end	
 
-	if x == 15 or x == 16 and y == 9 then
+	if x == 15 and y == 9 or x == 16 and y == 9 then
         rednet.broadcast("Floor10")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 10")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -266,10 +266,10 @@ function listen()
         sleep(3)
         end	
 	
-    if x == 3 or x == 4 and y == 11 then
+    if x == 3 and y == 11 or x == 4 and y == 11 then
         rednet.broadcast("Floor11")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 11")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -282,10 +282,10 @@ function listen()
         sleep(3)
         end
 		
-    if x == 6 or x == 7 and y == 11 then
+    if x == 6 and y == 11 or x == 7 and y == 11 then
         rednet.broadcast("Floor12") 
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 12")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -298,10 +298,10 @@ function listen()
         sleep(3)
         end
 		
-    if x == 9 or x == 10 and y == 11 then
+    if x == 9 and y == 11 or x == 10 and y == 11 then
         rednet.broadcast("Floor13") 
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 13")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -314,10 +314,10 @@ function listen()
         sleep(3)
         end
 		
-    if x == 12 or x == 13 and y == 11 then
+    if x == 12 and y == 11 or x == 13 and y == 11 then
         rednet.broadcast("Floor14") 
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 14")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -330,10 +330,10 @@ function listen()
         sleep(3)
         end
 		
-    if x == 15 or x == 16 and y == 11 then
+    if x == 15 and y == 11 or x == 16 and y == 11 then
         rednet.broadcast("Floor15")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 15")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -346,10 +346,10 @@ function listen()
         sleep(3)
         end
 		
-    if x == 3 or x == 4 and y == 13 then
+    if x == 3 and y == 13 or x == 4 and y == 13 then
         rednet.broadcast("Floor16")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 16")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -362,10 +362,10 @@ function listen()
         sleep(3)
         end
 	
-    if x == 6 or x == 7 and y == 13 then
+    if x == 6 and y == 13 or x == 7 and y == 13 then
         rednet.broadcast("Floor17")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 17")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -378,10 +378,10 @@ function listen()
         sleep(3)
         end
 	
-	if x == 9 or x == 10 and y == 13 then
+	if x == 9 and y == 13 or x == 10 and y == 13 then
         rednet.broadcast("Floor18")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 18")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -394,10 +394,10 @@ function listen()
         sleep(3)
         end
 
-	if x == 12 or x == 13 and y == 13 then
+	if x == 12 and y == 13 or x == 13 and y == 13 then
         rednet.broadcast("Floor19")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 19")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -410,10 +410,10 @@ function listen()
         sleep(3)
         end	
 
-	if x == 15 or x == 16 and y == 13 then
+	if x == 15 and y == 13 or x == 16 and y == 13 then
         rednet.broadcast("Floor20")
         mon.clear()
-        mon.setCursorPos(7,8)
+        mon.setCursorPos(6,8)
         mon.write("Floor 20")
         mon.setCursorPos(6,10)
         mon.write("Selected")
@@ -424,9 +424,9 @@ function listen()
 		mon.setCursorPos(4,19)
 		mon.write("Incorporated")
         sleep(3)
-        end		
-
-	if x == 3 or x == 4 and y == 15 then
+        end	
+		
+	if x == 3 and y == 15 or x == 4 and y == 15 then
         rednet.broadcast("Floor21")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -440,9 +440,9 @@ function listen()
 		mon.setCursorPos(4,19)
 		mon.write("Incorporated")
         sleep(3)
-        end
+      end
 	  
-    if x == 6 or x == 7 and y == 15 then
+    if x == 6 and y == 15 or x == 7 and y == 15 then
         rednet.broadcast("Floor22") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -457,8 +457,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-		
-    if x == 9 or x == 10 and y == 15 then
+    if x == 9 and y == 15 or x == 10 and y == 15 then
         rednet.broadcast("Floor23") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -473,8 +472,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-		
-    if x == 12 or x == 13 and y == 15 then
+    if x == 12 and y == 15 or x == 13 and y == 15 then
         rednet.broadcast("Floor24") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -489,8 +487,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-		
-    if x == 15 or x == 16 and y == 15 then
+    if x == 15 and y == 15 or x == 16 and y == 15 then
         rednet.broadcast("Floor25")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -504,13 +501,14 @@ function listen()
 		mon.setCursorPos(4,19)
 		mon.write("Incorporated")
         sleep(3)
-        end	
+        end		
+	
 	
     if x > 3 and x < 16 and y == 17 then
         rednet.broadcast("Floor1") 	-- Replace "Floor1" with corresponding floor number, e.g. "Floor6"
         rednet.broadcast("Cart")
         mon.clear()
-        mon.setCursorPos(4,8)
+        mon.setCursorPos(3,8)
         mon.write("Cart Requested")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
