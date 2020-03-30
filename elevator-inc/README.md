@@ -30,17 +30,22 @@ On your controller computer, you need to install the startup-c and floorcontroll
 </br>
 ### Touchscreen Computer
 On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in line XXX of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
-**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen10 is designed for a building with 10 floors. You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If your amount of floors is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen10 is designed for a building with 10 floors. You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**NOTE:** Touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors group the floors per 10.
 **NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
+
+
 
 # Individual Files
 The explanations below are ordered by the type of computer that uses them.
+
 ## Controller Computer
 The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. It requires the following scripts:
 - startup-c
 - floorcontroller
 - activatefloor (optional)
 - deactivatefloor (optional)
+
 ### startup-c
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** </br>
 This file will be automatically loaded when your controller computer in Minecraft boots.</br>
@@ -48,6 +53,7 @@ It has two main purposes:
 * To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
 * To automatically start the floorcontroller programme.
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
+
 ### floorcontroller
 **Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
 This file controls whether or not your floor is activated or deactivated.</br>
@@ -56,9 +62,21 @@ If the message corresponds to the floor number, then it will activate the redsto
 If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. </br>
 If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. </br>
 It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.</br>
+
 ### activatefloor & deactivatefloor (optional)
 Both files are optional, and do not need to be present on the controller computer.</br>
 They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.</br>
 
+
+## Touchscreen Computer
+The Touchscreen Computer allows the players to select the floor they wish to activate via the touchscreen. It requires the following scripts:
+- startup-t
+- touchscreen
+
+### startup-t
+**Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** </br>
+It has two main purposes:
+* To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
+* To automatically start the touchscreen programme.
 
 
