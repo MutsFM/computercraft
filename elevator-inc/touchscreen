@@ -1,35 +1,51 @@
 mon = peripheral.wrap("right")
 
-function main()
+term.setCursorPos(16,1)
+print("MutsFM Elevator Inc.")
+term.setCursorPos(1,4)
+print("Touchscreen Operating")
+
+function screen()
 while true do
-    mon.setBackgroundColor(colors.white)
+    mon.setBackgroundColor(colors.white)	--Sets the touchscreen's background to white
     mon.clear()
     mon.setTextScale(1)
     mon.setTextColor(colors.black)
+    
     mon.setCursorPos(5,2)
-	mon.write("Elevator")
-	mon.setCursorPos(4,3)
+    mon.write("Elevator")
+    mon.setCursorPos(4,3)
     mon.write("Select Floor")
-    mon.setBackgroundColor(colors.black)
+    
+    mon.setBackgroundColor(colors.black)	--Sets the background for just the floor numbers to black
     mon.setTextColor(colors.white)
+    
     mon.setCursorPos(4,5)
-    mon.write(" Ground Floor")
+    mon.write(" Ground Floor")			--Extra spacing before floor for aesthetic purposes
+    
     mon.setCursorPos(1,7)
+    mon.setTextColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
     mon.write(" Floor 1")
+    mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
     mon.setCursorPos(11,7)
     mon.write(" Floor 2")
+    
     mon.setCursorPos(1,9)
     mon.write(" Floor 3")
     mon.setCursorPos(11,9)
     mon.write(" Floor 4")
+    
     mon.setCursorPos(1,11)
     mon.write(" Floor 5")
     mon.setCursorPos(11,11)
     mon.write(" Floor 6")
+    
     mon.setCursorPos(1,13)
     mon.write(" Floor 7")
-	mon.setCursorPos(4,17)
+    
+    mon.setCursorPos(4,17)
     mon.write(" Request Cart")
+    
     listen()
 end
 end
@@ -37,7 +53,7 @@ end
 function listen()
     event, side, x, y = os.pullEvent("monitor_touch")
     if x > 4 and x < 17 and y == 5 then
-        rednet.broadcast("GroundFloor")
+        rednet.broadcast("Floor0")
         mon.clear()
         mon.setCursorPos(4,8)
         mon.write("Ground Floor")
