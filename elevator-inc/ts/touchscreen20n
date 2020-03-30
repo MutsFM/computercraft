@@ -13,47 +13,69 @@ while true do
     mon.setTextScale(1)
     mon.setTextColor(colors.black)
     
-    mon.setCursorPos(6,2)
+    mon.setCursorPos(7,2)
     mon.write("Elevator")
-    mon.setCursorPos(4,3)
+    mon.setCursorPos(5,3)
     mon.write("Select Floor")
     
     mon.setBackgroundColor(colors.black)	--Sets the background for just the floor numbers to black
     mon.setTextColor(colors.white)
     
-    mon.setCursorPos(4,5)
-    mon.write(" Ground Floor")			--Extra spacing before floor for aesthetic purposes
+    mon.setCursorPos(3,5)
+    mon.write(" Ground Floor ")			--Extra spacing before floor for aesthetic purposes
     
     --mon.setCursorPos(1,7)
     --mon.setTextColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
     --mon.write(" Floor 1")
     --mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
     
-    mon.setCursorPos(4,7)
-    mon.write("1")
-    mon.setCursorPos(7,7)
-    mon.write("2")
-    mon.setCursorPos(10,7)
-    mon.write("3")
-    mon.setCursorPos(13,7)
-    mon.write("4")
-    mon.setCursorPos(16,7)
-    mon.write("5")
+    mon.setCursorPos(3,7)
+    mon.write(" 1")
+    mon.setCursorPos(6,7)
+    mon.write(" 2")
+    mon.setCursorPos(9,7)
+    mon.write(" 3")
+    mon.setCursorPos(12,7)
+    mon.write(" 4")
+    mon.setCursorPos(15,7)
+    mon.write(" 5")
     
-    mon.setCursorPos(4,10)
-    mon.write("6")
-    mon.setCursorPos(7,10)
-    mon.write("7")
-    mon.setCursorPos(10,10)
-    mon.write("8")
-    mon.setCursorPos(13,10)
-    mon.write("9")
-    mon.setCursorPos(16,10)
+    mon.setCursorPos(3,10)
+    mon.write(" 6")
+    mon.setCursorPos(6,10)
+    mon.write(" 7")
+    mon.setCursorPos(9,10)
+    mon.write(" 8")
+    mon.setCursorPos(12,10)
+    mon.write(" 9")
+    mon.setCursorPos(15,10)
     mon.write("10")
     
+    mon.setCursorPos(3,13)
+    mon.write("11")
+    mon.setCursorPos(6,13)
+    mon.write("12")
+    mon.setCursorPos(9,13)
+    mon.write("13")
+    mon.setCursorPos(12,13)
+    mon.write("14")
+    mon.setCursorPos(15,13)
+    mon.write("15")
+    
+    mon.setCursorPos(3,16)
+    mon.write("16")
+    mon.setCursorPos(6,16)
+    mon.write("17")
+    mon.setCursorPos(9,16)
+    mon.write("18")
+    mon.setCursorPos(12,16)
+    mon.write("19")
+    mon.setCursorPos(15,16)
+    mon.write("20")
     
     
-    mon.setCursorPos(4,17)
+    
+    mon.setCursorPos(4,18)
     mon.write(" Request Cart")
     
     listen()
