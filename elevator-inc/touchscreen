@@ -136,12 +136,12 @@ function listen()
         mon.write("Cart Requested")
         sleep(3)
         end
-    main()
+    screen()
 end
 
 
 function start()
-    main()
+    screen()
 end
 
 start()
