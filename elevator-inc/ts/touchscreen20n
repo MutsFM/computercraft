@@ -29,17 +29,28 @@ while true do
     --mon.write(" Floor 1")
     --mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
     
-	
-	mon.setCursorPos(2,7)
+    mon.setCursorPos(2,7)
     mon.write("1")
-	mon.setCursorPos(4,7)
+    mon.setCursorPos(4,7)
     mon.write("2")
     mon.setCursorPos(6,7)
     mon.write("3")
-	mon.setCursorPos(8,7)
+    mon.setCursorPos(8,7)
     mon.write("4")
     mon.setCursorPos(10,7)
     mon.write("5")
+    mon.setCursorPos(12,7)
+    mon.write("6")
+    mon.setCursorPos(14,7)
+    mon.write("7")
+    mon.setCursorPos(16,7)
+    mon.write("8")
+    mon.setCursorPos(18,7)
+    mon.write("9")
+    mon.setCursorPos(20,7)
+    mon.write("10")
+    
+    
     
     mon.setCursorPos(4,17)
     mon.write(" Request Cart")
