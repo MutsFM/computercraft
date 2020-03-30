@@ -1,5 +1,4 @@
 # MutsFM's Elevator Inc.
-=====
 
 This readme will first explain shortly how the elevator system works in Minecraft. Below that is an explanation on how the individual files in this repository work. 
 
@@ -31,7 +30,7 @@ On your controller computer, you need to install the startup-c and floorcontroll
 ### Touchscreen Computer
 On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
 **NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen10 is designed for a building with 10 floors. You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
-**NOTE:** Touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors group the floors per 10.
+**NOTE:** Touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors group the floors per 10.</br>
 **NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
 
 
@@ -86,7 +85,7 @@ It has two main purposes:
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
 </br>
-The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen10 is designed for a building with 10 floors. **IMPORTANT!** You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than a classical design. </br> **IMPORTANT!** You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
 The code for the touchscreen programme depends on whether you are running a 
 
