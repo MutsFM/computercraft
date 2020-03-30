@@ -26,6 +26,6 @@ Example: "startup-c" is the startup script for the controller computer and shoul
 The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. It requires the following scripts:
 - startup-c
 - receivefloor
-- activatefloor
-- floordeactivated
+- flooractivated
+- deactivatefloor
 #### startup-c
