@@ -1,0 +1,350 @@
+mon = peripheral.wrap("right")
+
+term.clear()
+term.setCursorPos(16,1)
+print("MutsFM Elevator Inc.")
+term.setCursorPos(1,4)
+print("Touchscreen Operating Software")
+term.setCursorPos(1,5)
+print("Version: 15 floors in numpad design")
+
+function screen()
+while true do
+    mon.setBackgroundColor(colors.white)	--Sets the touchscreen's background to white
+    mon.clear()
+    mon.setTextScale(1)
+    mon.setTextColor(colors.black)
+    
+    mon.setCursorPos(6,2)
+    mon.write("Elevator")
+    mon.setCursorPos(4,3)
+    mon.write("Select Floor")
+    
+    mon.setBackgroundColor(colors.black)	--Sets the background for just the floor numbers to black
+    mon.setTextColor(colors.white)
+    
+    mon.setCursorPos(3,5)
+    mon.write(" Ground Floor ")			--Extra spacing before floor for aesthetic purposes
+    
+    --mon.setCursorPos(1,7)
+    --mon.setTextColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
+    --mon.write(" Floor 1")
+    --mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
+    
+    mon.setCursorPos(3,7)
+    mon.setBackgroundColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
+    mon.write(" 1")
+    mon.setBackgroundColor(colors.black)	--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
+    mon.setCursorPos(6,7)
+    mon.write(" 2")
+    mon.setCursorPos(9,7)
+    mon.write(" 3")
+    mon.setCursorPos(12,7)
+    mon.write(" 4")
+    mon.setCursorPos(15,7)
+    mon.write(" 5")
+    
+    mon.setCursorPos(3,9)
+    mon.write(" 6")
+    mon.setCursorPos(6,9)
+    mon.write(" 7")
+    mon.setCursorPos(9,9)
+    mon.write(" 8")
+    mon.setCursorPos(12,9)
+    mon.write(" 9")
+    mon.setCursorPos(15,9)
+    mon.write("10")
+    
+    mon.setCursorPos(3,11)
+    mon.write("11")
+    mon.setCursorPos(6,11)
+    mon.write("12")
+    mon.setCursorPos(9,11)
+    mon.write("13")
+    mon.setCursorPos(12,11)
+    mon.write("14")
+    mon.setCursorPos(15,11)
+    mon.write("15")
+        
+    mon.setCursorPos(3,17)
+    mon.write(" Request Cart ")
+    
+    listen()
+end
+end
+ 
+function listen()
+    event, side, x, y = os.pullEvent("monitor_touch")
+    if x > 3 and x < 17 and y == 5 then
+        rednet.broadcast("Floor0")
+        mon.clear()
+        mon.setCursorPos(4,8)
+        mon.write("Ground Floor")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    if x == 3 and y == 7 or x == 4 and y == 7 then
+        rednet.broadcast("Floor1")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 1")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+      end
+    if x == 6 and y == 7 or x == 7 and y == 7 then
+        rednet.broadcast("Floor2") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 2")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    if x == 9 and y == 7 or x == 10 and y == 7 then
+        rednet.broadcast("Floor3") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 3")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    if x == 12 and y == 7 or x == 13 and y == 7 then
+        rednet.broadcast("Floor4") 
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 4")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    if x == 15 and y == 7 or x == 16 and y == 7 then
+        rednet.broadcast("Floor5")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 5")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    if x == 3 and y == 9 or x == 4 and y == 9 then
+        rednet.broadcast("Floor6")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 6")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+	
+    if x == 6 and y == 9 or x == 7 and y == 9 then
+        rednet.broadcast("Floor7")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 7")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+	
+	if x == 9 and y == 9 or x == 10 and y == 9 then
+        rednet.broadcast("Floor8")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 8")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+
+	if x == 12 and y == 9 or x == 13 and y == 9 then
+        rednet.broadcast("Floor9")
+        mon.clear()
+        mon.setCursorPos(7,8)
+        mon.write("Floor 9")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end	
+
+	if x == 15 and y == 9 or x == 16 and y == 9 then
+        rednet.broadcast("Floor10")
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 10")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end	
+	
+    if x == 3 and y == 11 or x == 4 and y == 11 then
+        rednet.broadcast("Floor11")
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 11")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+		
+    if x == 6 and y == 11 or x == 7 and y == 11 then
+        rednet.broadcast("Floor12") 
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 12")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+		
+    if x == 9 and y == 11 or x == 10 and y == 11 then
+        rednet.broadcast("Floor13") 
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 13")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+		
+    if x == 12 and y == 11 or x == 13 and y == 11 then
+        rednet.broadcast("Floor14") 
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 14")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+		
+    if x == 15 and y == 11 or x == 16 and y == 11 then
+        rednet.broadcast("Floor15")
+        mon.clear()
+        mon.setCursorPos(6,8)
+        mon.write("Floor 15")
+        mon.setCursorPos(6,10)
+        mon.write("Selected")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end	
+	
+    if x > 3 and x < 16 and y == 17 then
+        rednet.broadcast("Floor1") 	-- Replace "Floor1" with corresponding floor number, e.g. "Floor6"
+        rednet.broadcast("Cart")
+        mon.clear()
+        mon.setCursorPos(3,8)
+        mon.write("Cart Requested")
+		mon.setCursorPos(5,17)
+		mon.write("Powered By:")
+		mon.setCursorPos(3,18)
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(4,19)
+		mon.write("Incorporated")
+        sleep(3)
+        end
+    screen()
+end
+
+
+function start()
+    screen()
+end
+
+start()
