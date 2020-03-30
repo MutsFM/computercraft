@@ -51,6 +51,7 @@ This file will be automatically loaded when your controller computer in Minecraf
 It has two main purposes:
 * To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
 * To automatically start the floorcontroller programme.
+</br>
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### floorcontroller
@@ -77,6 +78,8 @@ The Touchscreen Computer allows the players to select the floor they wish to act
 It has two main purposes:
 * To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
 * To automatically start the touchscreen programme.
+</br>
+In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### touchscreen
 **Important! You need to enter the corresponding floor number in the line on the cart request in the listen function, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
@@ -85,7 +88,9 @@ It has two main purposes:
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
 
-The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> **IMPORTANT!** You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
+</br>
+**IMPORTANT!** You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
 The code for the touchscreen programme depends on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
 </br>
