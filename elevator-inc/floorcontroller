@@ -6,8 +6,8 @@ print("Floor Controller Operating")
 
 function receive()
     senderID, message = rednet.receive()
-    if message==("Floor1") 
-        then   
+    if message==("Floor1") 	--Replace "Floor1" with corresponding floor number, e.g. "Floor6"
+    	then   
             redstone.setOutput("back", true)
 			print("Floor Activated")
         end
@@ -15,7 +15,7 @@ function receive()
         then
             restart()
         end
-    if message~=("Floor1" or "Cart")
+    if message~=("Floor1" or "Cart") --Replace "Floor1" with corresponding floor number, e.g. "Floor6"
         then
             redstone.setOutput("back", false)
 			print("Floor Not Activated")
