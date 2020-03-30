@@ -1,0 +1,29 @@
+term.setCursorPos(16,1)
+print("MutsFM Elevator Inc.")
+term.setCursorPos(1,4)
+print("Floor Controller Operating")
+
+function receive()
+    senderID, message = rednet.receive()
+    if message==("Floor1") 
+        then   
+            redstone.setOutput("back", true)
+			print("Floor Activated")
+        end
+    if message==("Cart")
+        then
+            restart()
+        end
+    if message~=("Floor3" or "Cart")
+        then
+            redstone.setOutput("back", false)
+			print("Floor Not Activated")
+        end
+    restart()
+end
+
+function restart()
+    receive()
+end
+
+restart()
