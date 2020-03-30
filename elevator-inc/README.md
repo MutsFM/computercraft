@@ -23,7 +23,15 @@ Therefore, several files in this repository need to be titled differently on you
 Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
 
 # How the Elevator System Works
-fdsa
+Functioning and layout to be added</br>
+</br>
+### Controller Computer
+On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
+</br>
+### Touchscreen Computer
+On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in line XXX of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
+**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen10 is designed for a building with 10 floors. You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If your amount of floors is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
 
 # Individual Files
 The explanations below are ordered by the type of computer that uses them.
@@ -41,7 +49,7 @@ It has two main purposes:
 * To automatically start the floorcontroller programme.
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 ### floorcontroller
-**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0" **</br>
+**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
 This file controls whether or not your floor is activated or deactivated.</br>
 The programme automatically listens for rednet messages (via the wired connection).</br>
 If the message corresponds to the floor number, then it will activate the redstone signal and then start to listen for messages again.</br>
@@ -50,7 +58,7 @@ If the message does not correspond to the floor number, it will deactivate the r
 It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.</br>
 ### activatefloor & deactivatefloor (optional)
 Both files are optional, and do not need to be present on the controller computer.</br>
-They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.</br
+They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.</br>
 
 
 
