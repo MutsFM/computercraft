@@ -101,7 +101,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if (x == 3 or x == 4) and y == 7 then
+    if x == 3 and y == 7 or x == 4 and y == 7 then
         rednet.broadcast("Floor1")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -116,7 +116,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
       end
-    if (x == 6 or x == 7) and y == 7 then
+    if x == 6 and y == 7 or x == 7 and y == 7 then
         rednet.broadcast("Floor2") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -131,7 +131,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if (x == 9 or x == 10) and y == 7 then
+    if x == 9 and y == 7 or x == 10 and y == 7 then
         rednet.broadcast("Floor3") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -146,7 +146,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 12 or x == 13 and y == 7 then
+    if x == 12 and y == 7 or x == 13 and y == 7 then
         rednet.broadcast("Floor4") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -161,7 +161,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x == 15 or x == 16 and y == 7 then
+    if x == 15 and y == 7 or x == 16 and y == 7 then
         rednet.broadcast("Floor5")
         mon.clear()
         mon.setCursorPos(7,8)
