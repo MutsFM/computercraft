@@ -72,7 +72,9 @@ function listen()
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
 		mon.setCursorPos(2,18)
-		mon.write("MutsFM Elevator Inc.")
+		mon.write("MutsFM Elevator")
+		mon.setCursorPos(5,19)
+		mon.write("Incorporated")
         sleep(3)
       end
     if x > 11 and x < 19 and y == 7 then
