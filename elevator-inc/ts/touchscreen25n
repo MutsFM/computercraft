@@ -24,15 +24,12 @@ while true do
     mon.setTextColor(colors.white)
     
     mon.setCursorPos(3,5)
-    mon.write(" Ground Floor ")			--Extra spacing before floor for aesthetic purposes
-    
-    --mon.setCursorPos(1,7)
-    --mon.setTextColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
-    --mon.write(" Floor 1")
-    --mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
-    
+    mon.write(" Ground Floor ")				--Extra spacing before floor for aesthetic purposes
+     
     mon.setCursorPos(3,7)
+    --mon.setBackgroundColor(colors.red)		--Optional Example Floor Indicator. This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
     mon.write(" 1")
+    --mon.setBackgroundColor(colors.black)		--Optional Example Floor Indicator. This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
     mon.setCursorPos(6,7)
     mon.write(" 2")
     mon.setCursorPos(9,7)
