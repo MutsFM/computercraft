@@ -192,7 +192,7 @@ function listen()
         sleep(3)
         end
 	
-    if x == 6 or x == 7 and y == 9 then
+    if x == 6 and y == 9 or x == 7 and y == 9 then
         rednet.broadcast("Floor7")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -208,7 +208,7 @@ function listen()
         sleep(3)
         end
 	
-	if x == 9 or x == 10 and y == 9 then
+	if x == 9 and y == 9 or x == 10 and y == 9 then
         rednet.broadcast("Floor8")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -224,7 +224,7 @@ function listen()
         sleep(3)
         end
 
-	if x == 12 or x == 13 and y == 9 then
+	if x == 12 and y == 9 or x == 13 and y == 9 then
         rednet.broadcast("Floor9")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -240,7 +240,7 @@ function listen()
         sleep(3)
         end	
 
-	if x == 15 or x == 16 and y == 9 then
+	if x == 15 and y == 9 or x == 16 and y == 9 then
         rednet.broadcast("Floor10")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -256,7 +256,7 @@ function listen()
         sleep(3)
         end	
 	
-    if x == 3 or x == 4 and y == 11 then
+    if x == 3 and y == 11 or x == 4 and y == 11 then
         rednet.broadcast("Floor11")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -272,7 +272,7 @@ function listen()
         sleep(3)
         end
 		
-    if x == 6 or x == 7 and y == 11 then
+    if x == 6 and y == 11 or x == 7 and y == 11 then
         rednet.broadcast("Floor12") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -288,7 +288,7 @@ function listen()
         sleep(3)
         end
 		
-    if x == 9 or x == 10 and y == 11 then
+    if x == 9 and y == 11 or x == 10 and y == 11 then
         rednet.broadcast("Floor13") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -304,7 +304,7 @@ function listen()
         sleep(3)
         end
 		
-    if x == 12 or x == 13 and y == 11 then
+    if x == 12 and y == 11 or x == 13 and y == 11 then
         rednet.broadcast("Floor14") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -320,7 +320,7 @@ function listen()
         sleep(3)
         end
 		
-    if x == 15 or x == 16 and y == 11 then
+    if x == 15 and y == 11 or x == 16 and y == 11 then
         rednet.broadcast("Floor15")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -336,7 +336,7 @@ function listen()
         sleep(3)
         end
 		
-    if x == 3 or x == 4 and y == 13 then
+    if x == 3 and y == 13 or x == 4 and y == 13 then
         rednet.broadcast("Floor16")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -352,7 +352,7 @@ function listen()
         sleep(3)
         end
 	
-    if x == 6 or x == 7 and y == 13 then
+    if x == 6 and y == 13 or x == 7 and y == 13 then
         rednet.broadcast("Floor17")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -368,7 +368,7 @@ function listen()
         sleep(3)
         end
 	
-	if x == 9 or x == 10 and y == 13 then
+	if x == 9 and y == 13 or x == 10 and y == 13 then
         rednet.broadcast("Floor18")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -384,7 +384,7 @@ function listen()
         sleep(3)
         end
 
-	if x == 12 or x == 13 and y == 13 then
+	if x == 12 and y == 13 or x == 13 and y == 13 then
         rednet.broadcast("Floor19")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -400,7 +400,7 @@ function listen()
         sleep(3)
         end	
 
-	if x == 15 or x == 16 and y == 13 then
+	if x == 15 and y == 13 or x == 16 and y == 13 then
         rednet.broadcast("Floor20")
         mon.clear()
         mon.setCursorPos(7,8)
