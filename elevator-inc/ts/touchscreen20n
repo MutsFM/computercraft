@@ -4,7 +4,9 @@ term.clear()
 term.setCursorPos(16,1)
 print("MutsFM Elevator Inc.")
 term.setCursorPos(1,4)
-print("Touchscreen Operating Software for 20 floors in numpad design")
+print("Touchscreen Operating Software")
+term.setCursorPos(1,5)
+print("Version: 20 floors in numpad design")
 
 function screen()
 while true do
@@ -30,7 +32,9 @@ while true do
     --mon.setTextColor(colors.white)		--Optional: This line of code needs to be below the floor where the touchscreen is located. See readme for more information.
     
     mon.setCursorPos(3,7)
+    mon.setBackgroundColor(colors.red)		--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
     mon.write(" 1")
+    mon.setBackgroundColor(colors.black)	--Optional: This line of code needs to be above the floor where the touchscreen is located. See readme for more information.
     mon.setCursorPos(6,7)
     mon.write(" 2")
     mon.setCursorPos(9,7)
@@ -82,7 +86,7 @@ end
  
 function listen()
     event, side, x, y = os.pullEvent("monitor_touch")
-    if x > 4 and x < 17 and y == 5 then
+    if x > 3 and x < 17 and y == 5 then
         rednet.broadcast("Floor0")
         mon.clear()
         mon.setCursorPos(4,8)
@@ -97,7 +101,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 1 and x < 9 and y == 7 then
+    if x > 3 and x < 4 and y == 7 then
         rednet.broadcast("Floor1")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -112,7 +116,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
       end
-    if x > 11 and x < 19 and y == 7 then
+    if x > 6 and x < 7 and y == 7 then
         rednet.broadcast("Floor2") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -127,7 +131,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 1 and x < 9 and y == 9 then
+    if x > 9 and x < 10 and y == 7 then
         rednet.broadcast("Floor3") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -142,7 +146,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 11 and x < 19 and y == 9 then
+    if x > 12 and x < 13 and y == 7 then
         rednet.broadcast("Floor4") 
         mon.clear()
         mon.setCursorPos(7,8)
@@ -157,7 +161,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 1 and x < 9 and y == 11 then
+    if x > 15 and x < 16 and y == 7 then
         rednet.broadcast("Floor5")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -172,7 +176,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 11 and x < 19 and y == 11 then
+    if x > 3 and x < 4 and y == 9 then
         rednet.broadcast("Floor6")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -187,7 +191,7 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-	if x > 1 and x < 9 and y == 13 then
+	if x > 6 and x < 7 and y == 9 then
         rednet.broadcast("Floor7")
         mon.clear()
         mon.setCursorPos(7,8)
@@ -202,7 +206,11 @@ function listen()
 		mon.write("Incorporated")
         sleep(3)
         end
-    if x > 4 and x < 17 and y == 17 then
+	
+	
+	
+	
+    if x > 3 and x < 16 and y == 17 then
         rednet.broadcast("Floor1") 	-- Replace "Floor1" with corresponding floor number, e.g. "Floor6"
         rednet.broadcast("Cart")
         mon.clear()
