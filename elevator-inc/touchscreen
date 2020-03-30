@@ -1,5 +1,6 @@
 mon = peripheral.wrap("right")
 
+term.clear()
 term.setCursorPos(16,1)
 print("MutsFM Elevator Inc.")
 term.setCursorPos(1,4)
