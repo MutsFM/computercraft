@@ -13,7 +13,7 @@ while true do
     mon.setTextScale(1)
     mon.setTextColor(colors.black)
     
-    mon.setCursorPos(5,2)
+    mon.setCursorPos(6,2)
     mon.write("Elevator")
     mon.setCursorPos(4,3)
     mon.write("Select Floor")
