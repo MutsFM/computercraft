@@ -26,7 +26,7 @@ Example: "startup-c" is the startup script for the controller computer and shoul
 fdsa
 
 # Individual Files
-The explanations below are ordered by the computer that uses them.
+The explanations below are ordered by the type of computer that uses them.
 ## Controller Computer
 The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. It requires the following scripts:
 - startup-c
@@ -41,9 +41,16 @@ It has two main purposes:
 * To automatically start the floorcontroller programme.
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 ### floorcontroller
-**Important!! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work!**</br>
+**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0" **</br>
 This file controls whether or not your floor is activated or deactivated.</br>
 The programme automatically listens for rednet messages (via the wired connection).</br>
+If the message corresponds to the floor number, then it will activate the redstone signal and then start to listen for messages again.</br>
+If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. </br>
+If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. </br>
+It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.</br>
+### activatefloor & deactivatefloor (optional)
+Both files are optional, and do not need to be present on the controller computer.</br>
+They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.</br
 
 
 
