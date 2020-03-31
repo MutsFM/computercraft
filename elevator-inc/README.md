@@ -1,6 +1,6 @@
 # MutsFM's Elevator Inc.
 
-This readme will first explain shortly how the elevator system works in Minecraft. Below that is an explanation on how the individual files in this repository work. 
+This readme will first explain shortly how the "MutsFM Elevator Inc" elevator system works in Minecraft and a quick guide to setting up your own system using "MutsFM Elevator Inc" software. Below that is an explanation on how the individual files in this repository work. 
 
 Github repository files
 =====
@@ -13,7 +13,7 @@ The following files should be in the repository:
 
 IMPORTANT
 =====
-Every floor uses at least two computers: a controller computer and a touchscreen computer. Each uses its own startup script, however for clarity, the names of these scripts have, if necessary, been amended slightly to indicate which script belongs to which computer. Additionally, several scripts provided in the respository apply to the same computer and it depends on your elevator system (number of floors) which script you need.</br>
+Every floor uses at least two computers: a controller computer and a touchscreen computer. Each uses its own startup script, however for clarity, the names of these scripts have been amended slightly in this repository to indicate which script belongs to which computer. Additionally, several scripts provided in the respository apply to the same computer and it depends on the needs of your elevator system (e.g. number of floors or visual design) which script you require.</br>
 </br>
 Therefore, several files in this repository need to be titled differently on your computer in Minecraft. Each section below will indicate if this is the case.</br>
 </br>
@@ -22,8 +22,13 @@ Therefore, several files in this repository need to be titled differently on you
 Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
 
 # How the Elevator System Works
+*General Principle*
+Using Railcraft, minecarts travel upwards on redstone powered elevator tracks and conversely travel downwards on unpowered elevator tracks. If an elevator track is powered by redstone, all other elevator tracks below it are powered as well. By selecting which elevator track to power, you determine how far the minecart travels upwards or downwards.</br>
+</br>
+
 Functioning and layout to be added</br>
 </br>
+# Quick Start Guide
 ### Controller Computer
 On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
 </br>
