@@ -10,6 +10,8 @@ The following files should be in the repository:
   * floorcontroller
   * activatefloor
   * deactivatefloor
+  * startup-c
+  * touchscreen
 
 IMPORTANT
 =====
@@ -22,8 +24,17 @@ Therefore, several files in this repository need to be titled differently on you
 Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
 
 # How the Elevator System Works
-*General Principle*
+*General Principle*</br>
 Using Railcraft, minecarts travel upwards on redstone powered elevator tracks and conversely travel downwards on unpowered elevator tracks. If an elevator track is powered by redstone, all other elevator tracks below it are powered as well. By selecting which elevator track to power, you determine how far the minecart travels upwards or downwards.</br>
+</br>
+*Elevator System*</br>
+Every floor consists of a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number that is displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer influences the elevator track located at that level.</br>
+</br>
+If the floor is selected, the controller computer powers the elevator track at the floor and all elevator tracks below it, allowing for the cart to reach that floor - regardless if the cart is coming from a higher or lower floor.</br>
+</br>
+If the floor is unselected, the controller computer does not power the elevator track at the floor. It may however still be powered if a floor above the respective floor is selected. The power then however comes from the controller computer above.</br>
+</br>
+All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on a different channel, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system. Therefore a closed wired network has been chosen as the solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code in the repository's files.</br>
 </br>
 
 Functioning and layout to be added</br>
@@ -90,6 +101,7 @@ In addition, this file will replicate a computer booting - which sole purpose is
 **Important! You need to enter the corresponding floor number in the line on the cart request in the listen function, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
 This file allows your players to select a floor for the elevator.</br> 
 It has two main purposes:
+* It connects to the screen. (Make sure the monitor is placed on the right side!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
 
@@ -103,17 +115,17 @@ You may also consider changing the color of the background, or both. Regardless,
 </br>
 The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
 </br>
-*Original Design*
+*Original Design*</br>
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
 The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.</br>
 </br>
-*Original Design 10+*
+*Original Design 10+*</br>
 To be added.</br>
 </br>
-*Numpad Design*
+*Numpad Design*</br>
 Code is similar to the original design, with the major differences being that:
 * the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2");
 * a maximum of 25 floors can be displayed on the screen.</br>
 </br>
-*Numpad Design 10+*
+*Numpad Design 10+*</br>
 To be added</br>
