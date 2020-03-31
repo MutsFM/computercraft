@@ -29,7 +29,7 @@ On your controller computer, you need to install the startup-c and floorcontroll
 </br>
 ### Touchscreen Computer
 On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
-**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. </br>
 **NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
 
@@ -90,13 +90,25 @@ It has two main purposes:
 
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
 </br>
-**IMPORTANT!** You however need to title these programmes as "touchscreen" on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**IMPORTANT!** You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
-The code for the touchscreen programme depends on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
+**NOTE:** An extra feature you can implement is to indicate on which floor the player is currently standing, by changing the appearance of the floor number on the screen.</br>
+The touchscreen programmes in the repository provide an example by changing the color of the text for "Floor1". (Example in comments, to activate, you need to delete the "--" at the start of the lines above and below the line of "Floor1".)</br>
+You may also consider changing the color of the background, or both. Regardless, you need to set the command to change the color in the line about the command to write the floor, and the command to revert the color back in the line below it.</br>
+</br>
+The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
 </br>
 *Original Design*
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
-**NOTE:** An extra feature you can offer is to indicate on which floor the player is currently standing, by changing the appearance of the floor on the screen.</br>
-The programme in the repository provides an example by changing the color of the text for "Floor1". You may also consider changing the color of the background, or both. Regardless, you need to set the command to change the color in the line about the command to write the floor, and the command to revert the color back in the line below it.</br>
+The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.</br>
 </br>
-The listen function waits for the player to hit the screen, and if a player hits a floor number, then send the accompanying message over rednet.</br>
+*Original Design 10+*
+To be added.</br>
+</br>
+*Numpad Design*
+Code is similar to the original design, with the major differences being that:
+* the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2");
+* a maximum of 25 floors can be displayed on the screen.</br>
+</br>
+*Numpad Design 10+*
+To be added</br>
