@@ -10,7 +10,7 @@ The following files should be in the repository:
   * floorcontroller
   * activatefloor
   * deactivatefloor
-  * startup-c
+  * startup-t
   * touchscreen
 
 IMPORTANT
@@ -30,23 +30,33 @@ Using Railcraft, minecarts travel upwards on redstone powered elevator tracks an
 *Elevator System*</br>
 Every floor consists of a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number that is displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer influences the elevator track located at that level.</br>
 </br>
+Pictures of the elevator system are available in the Wiki. (TO BE ADDED)</br>
+</br>
 If the floor is selected, the controller computer powers the elevator track at the floor and all elevator tracks below it, allowing for the cart to reach that floor - regardless if the cart is coming from a higher or lower floor.</br>
 </br>
 If the floor is unselected, the controller computer does not power the elevator track at the floor. It may however still be powered if a floor above the respective floor is selected. The power then however comes from the controller computer above.</br>
 </br>
+*Network*</br>
 All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on a different channel, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system. Therefore a closed wired network has been chosen as the solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code in the repository's files.</br>
 </br>
 
+
 Functioning and layout to be added</br>
 </br>
-# Quick Start Guide
+# Quick Start Guide Software
 ### Controller Computer
-On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
+The back of your controller computer needs to either placed against a block against which in turn the elevator track is placed. Alternatively, the elevator track needs to be placed against the back of the controller computer.</br>
 </br>
+On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
 ### Touchscreen Computer
+The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.</br>
+</br>
 On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
+</br>
 **NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+</br>
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. </br>
+</br>
 **NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
 
 
@@ -123,9 +133,7 @@ The listen function waits for the player to hit the screen, and if a player hits
 To be added.</br>
 </br>
 *Numpad Design*</br>
-Code is similar to the original design, with the major differences being that:
-* the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2");
-* a maximum of 25 floors can be displayed on the screen.</br>
+Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.</br>
 </br>
 *Numpad Design 10+*</br>
 To be added</br>
