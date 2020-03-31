@@ -53,7 +53,7 @@ The cart dispenser feature is however optional. Should you not wish to have such
 *NOTE:* The cart dispenser system as pictured on the Wiki can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.</br>
 </br>
 
-# Quick Start Guide Software
+# Quick Start Guide for Setting Up the Software
 ### Controller Computer
 The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.</br>
 </br>
@@ -75,7 +75,8 @@ To be added</br>
 The explanations below are ordered by the type of computer that uses them.
 
 ## Controller Computer
-The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. It requires the following scripts:
+The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.</br> 
+It requires the following scripts:
 - startup-c
 - floorcontroller
 - activatefloor (optional)
@@ -91,12 +92,12 @@ It has two main purposes:
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### floorcontroller
-**Important! You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
+**Important!** You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file controls whether or not your floor is activated or deactivated.</br>
 The programme automatically listens for rednet messages (via the wired connection).</br>
-If the message corresponds to the floor number, then it will activate the redstone signal and then start to listen for messages again.</br>
-If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. </br>
-If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. </br>
+* If the message corresponds to the floor number, it will activate the redstone signal at the back of the computer and then start to listen for messages again.</br>
+* If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. </br>
+* If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. </br>
 It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.</br>
 
 ### activatefloor & deactivatefloor (optional)
@@ -118,10 +119,10 @@ It has two main purposes:
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### touchscreen
-**Important! You need to enter the corresponding floor number in the line on the cart request in the listen function, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"**</br>
+**Important!** You need to enter the corresponding floor number in the line on the cart request in the listen function, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file allows your players to select a floor for the elevator.</br> 
 It has two main purposes:
-* It connects to the screen. (Make sure the monitor is placed on the right side!),
+* It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
 
