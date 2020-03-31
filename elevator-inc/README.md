@@ -30,7 +30,7 @@ Example: "startup-c" is the startup script for the controller computer and shoul
 Using Railcraft, minecarts travel upwards on redstone powered elevator tracks and conversely travel downwards on unpowered elevator tracks. If an elevator track is powered by redstone, all other elevator tracks below it are powered as well. By selecting which elevator track to power, you determine how far the minecart travels upwards or downwards.</br>
 </br>
 *Elevator System*</br>
-Every floor consists of a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer in turn influences the elevator track located at that level.</br>
+Every floor needs to have a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer in turn influences the elevator track located at that level.</br>
 </br>
 Pictures of the elevator system's layout are available in the Wiki. (TO BE ADDED)</br>
 </br>
@@ -55,13 +55,13 @@ The cart dispenser feature is however optional. Should you not wish to have such
 
 # Quick Start Guide Software
 ### Controller Computer
-The back of your controller computer needs to either placed against a block against which in turn the elevator track is placed. Alternatively, the elevator track needs to be placed against the back of the controller computer.</br>
+The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.</br>
 </br>
 On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
 ### Touchscreen Computer
 The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.</br>
 </br>
-On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
+On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". This line is located near the bottom of the script. Note that the groundfloor should be entered as "Floor0".</br>
 </br>
 **NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
@@ -134,6 +134,8 @@ The touchscreen programmes in the repository provide an example by changing the 
 You may also consider changing the color of the background, or both. Regardless, you need to set the command to change the color in the line about the command to write the floor, and the command to revert the color back in the line below it.</br>
 </br>
 The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
+</br>
+**NOTE:** In all versions, you need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". This line is located near the bottom of the script. Note that the groundfloor should be entered as "Floor0".</br>
 </br>
 *Original Design*</br>
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
