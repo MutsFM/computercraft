@@ -12,6 +12,8 @@ The following files should be in the repository:
   * deactivatefloor
   * startup-t
   * touchscreen
+  * startup-d *to be added*
+  * cartdispenser *to be added*
 
 IMPORTANT
 =====
@@ -36,12 +38,18 @@ If the floor is selected, the controller computer powers the elevator track at t
 </br>
 If the floor is unselected, the controller computer does not power the elevator track at the floor. It may however still be powered if a floor above the respective floor is selected. The power then however comes from the controller computer above.</br>
 </br>
-*Network*</br>
-All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on a different channel, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system. Therefore a closed wired network has been chosen as the solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code in the repository's files.</br>
+For aesthetic purposes, it is advised to reserve at least a floor space of 4 blocks wide by 6 blocks long. Smaller would be possible, at the cost of aesthetics. Due to the height of the touchscreen, every floor needs to be at least 3 blocks high.</br>
 </br>
+*Network*</br>
+All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on a different channel, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system. Therefore a closed wired network has been chosen as the solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code from the computer in Minecraft.</br>
+</br>
+*Cart Dispenser*</br>
+The software comes with a feature to request an empty Minecart to be delivered to your respective floor. You would need to set up a cart dispenser system in the basement of your building for this feature to work.</br>
+</br>
+Pictures of the cart dispenser system are available in the Wiki. (TO BE ADDED)</br>
+</br>
+The cart dispenser feature is however optional. Should you not wish to have such feature, you can comment out the button in the touchscreen programme (for more information, see the individual file on the cart dispenser below).</br>
 
-
-Functioning and layout to be added</br>
 </br>
 # Quick Start Guide Software
 ### Controller Computer
