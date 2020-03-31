@@ -17,11 +17,11 @@ The following files should be in the repository:
 
 IMPORTANT
 =====
-Every floor uses at least two computers: a controller computer and a touchscreen computer. Each uses its own startup script, however for clarity, the names of these scripts have been amended slightly in this repository to indicate which script belongs to which computer. Additionally, several scripts provided in the respository apply to the same computer and it depends on the needs of your elevator system (e.g. number of floors or visual design) which script you require.</br>
+Every floor uses two computers: a controller computer and a touchscreen computer. Each uses its own startup script, however for clarity, the names of these scripts have been amended slightly in this repository to indicate which script belongs to which computer. Additionally, several scripts provided in the respository apply to the same computer and it depends on the needs of your elevator system (e.g. number of floors or visual design for your touchscreen) which script you require.</br>
 </br>
 Therefore, several files in this repository need to be titled differently on your computer in Minecraft. Each section below will indicate if this is the case.</br>
 </br>
-**If you do not title the scripts correctly on the computer in minecraft, the scripts will not work!**</br>
+**If you do not title the scripts correctly on the computer in minecraft, the system will not work!**</br>
 </br>
 Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
 
@@ -30,9 +30,9 @@ Example: "startup-c" is the startup script for the controller computer and shoul
 Using Railcraft, minecarts travel upwards on redstone powered elevator tracks and conversely travel downwards on unpowered elevator tracks. If an elevator track is powered by redstone, all other elevator tracks below it are powered as well. By selecting which elevator track to power, you determine how far the minecart travels upwards or downwards.</br>
 </br>
 *Elevator System*</br>
-Every floor consists of a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number that is displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer influences the elevator track located at that level.</br>
+Every floor consists of a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer in turn influences the elevator track located at that level.</br>
 </br>
-Pictures of the elevator system are available in the Wiki. (TO BE ADDED)</br>
+Pictures of the elevator system's layout are available in the Wiki. (TO BE ADDED)</br>
 </br>
 If the floor is selected, the controller computer powers the elevator track at the floor and all elevator tracks below it, allowing for the cart to reach that floor - regardless if the cart is coming from a higher or lower floor.</br>
 </br>
@@ -41,16 +41,18 @@ If the floor is unselected, the controller computer does not power the elevator 
 For aesthetic purposes, it is advised to reserve at least a floor space of 4 blocks wide by 6 blocks long. Smaller would be possible, at the cost of aesthetics. Due to the height of the touchscreen, every floor needs to be at least 3 blocks high.</br>
 </br>
 *Network*</br>
-All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on a different channel, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system. Therefore a closed wired network has been chosen as the solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code from the computer in Minecraft.</br>
+All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on different channels, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system to be done in Minecraft itself. Therefore, a closed wired network has been chosen as the better solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code from the computer in Minecraft.</br>
 </br>
 *Cart Dispenser*</br>
 The software comes with a feature to request an empty Minecart to be delivered to your respective floor. You would need to set up a cart dispenser system in the basement of your building for this feature to work.</br>
 </br>
 Pictures of the cart dispenser system are available in the Wiki. (TO BE ADDED)</br>
 </br>
-The cart dispenser feature is however optional. Should you not wish to have such feature, you can comment out the button in the touchscreen programme (for more information, see the individual file on the cart dispenser below).</br>
-
+The cart dispenser feature is however optional. Should you not wish to have such feature, you can comment out the button in the touchscreen programme (for more information, see the individual file on the cart dispenser below). In that case, you need to bring your own minecart with you.</br>
 </br>
+*NOTE:* The cart dispenser system as pictured on the Wiki can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.</br>
+</br>
+
 # Quick Start Guide Software
 ### Controller Computer
 The back of your controller computer needs to either placed against a block against which in turn the elevator track is placed. Alternatively, the elevator track needs to be placed against the back of the controller computer.</br>
@@ -65,9 +67,9 @@ On your touchscreen computer, you need to install the startup-t and touchscreen 
 </br>
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. </br>
 </br>
-**NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.
-
-
+**NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.</br>
+### Cart Dispenser Computer
+To be added</br>
 
 # Individual Files
 The explanations below are ordered by the type of computer that uses them.
@@ -144,4 +146,7 @@ To be added.</br>
 Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.</br>
 </br>
 *Numpad Design 10+*</br>
+To be added</br>
+</br>
+## Cart Dispenser
 To be added</br>
