@@ -131,4 +131,43 @@ In addition, this file will replicate a computer booting - which sole purpose is
 ### touchscreen
 **Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file allows your players to select a floor for the elevator.</br> 
-It has three main purposes:
+It has three main purposes:</br>
+* It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
+* It registers the input from the player on the touchscreen, and 
+* If the player selects a floor, it sends out a corresponding rednet message to controller computers.
+</br>
+The touchscreen also includes a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.</br>
+The touchscreen programme furthermore allows for easy customisation of the colors displayed on the screen. You can change the colors in the Color Customisation Options section. This is described in further detail below.</br>
+</br>
+The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
+</br>
+**IMPORTANT!** You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+</br>
+The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
+</br>
+**NOTE:** In all versions, you need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
+</br>
+*Original Design*</br>
+The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
+The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.</br>
+</br>
+Color customization. By changing the color codes in the respective lines, you can change the following elements:</br>
+- "sbckc" allows you to change the screen's background color.
+- "ttxtc" allows you to change the color of the text presented at the top of the screen.
+- "bckc" allows you to change the background color of the floor number buttons.
+- "ftxtc" allows you to change the color of the text for the floor number corresponding to the floor (as entered in the first line of the programme).
+- "txtc" allows you to change the color of the text for the other floor numbers.</br>
+You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.
+</br>
+*Original Design 10+*</br>
+To be added.</br>
+</br>
+*Numpad Design*</br>
+Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.</br>
+</br>
+*Numpad Design 10+*</br>
+To be added</br>
+</br>
+## Cart Dispenser
+To be added</br>
+Add text on commenting out the function</br>
