@@ -1,3 +1,5 @@
+floor = "Floor1"	-- Replace "Floor1" with the corresponding floor number, e.g. "Floor 6"
+
 term.clear()
 term.setCursorPos(16,1)
 print("MutsFM Elevator Inc.")
@@ -6,7 +8,7 @@ print("Floor Controller Operating")
 
 function receive()
     senderID, message = rednet.receive()
-    if message==("Floor1") 	--Replace "Floor1" with corresponding floor number, e.g. "Floor6"
+    if message==(floor)
     	then   
             redstone.setOutput("back", true)
 			print("Floor Activated")
@@ -15,7 +17,7 @@ function receive()
         then
             restart()
         end
-    if message~=("Floor1" or "Cart") --Replace "Floor1" with corresponding floor number, e.g. "Floor6"
+    if message~=(floor or "Cart")
         then
             redstone.setOutput("back", false)
 			print("Floor Not Activated")
