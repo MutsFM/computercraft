@@ -1,4 +1,18 @@
 floor = "Floor1" 				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Groundfloor should be added as "Floor0".
+
+-- Color Customisation Options
+	-- Floor Selection Screen
+sbckc = colors.white				-- Screen background color. Replace 'white' with another color code.
+ttxtc = colors.black				-- Color of the top text. Replace 'black' with another color code. 
+bckc = colors.black				-- Color of the background of the floor buttons. Replace 'black' with another color code.
+ftxtc = colors.red				-- Color of the text of the respective floor. Replace 'red' with another color code.
+txtc = colors.white				-- Color of the text of the other floors. Replace 'white' with another color code.
+
+	-- Screen with Selection Confirmation
+csbckc = colors.black				-- Screen background color. Replace 'black' with another color code.
+cstextc = colors.white				-- Color of the text on the selection confirmation screen. Replace 'white' with another color code.
+
+-- Code
 mon = peripheral.wrap("right")
 
 term.clear()
@@ -9,87 +23,87 @@ print("Touchscreen Operating")
 
 function screen()
 while true do
-    mon.setBackgroundColor(colors.white)	--Sets the touchscreen's background to white
+    mon.setBackgroundColor(sbckc)
     mon.clear()
     mon.setTextScale(1)
-    mon.setTextColor(colors.black)
+    mon.setTextColor(ttxtc)
     
     mon.setCursorPos(6,2)
     mon.write("Elevator")
     mon.setCursorPos(4,3)
     mon.write("Select Floor")
     
-    mon.setBackgroundColor(colors.black)	--Sets the background for just the floor numbers to black
-    mon.setTextColor(colors.white)
+    mon.setBackgroundColor(bckc)	 
+    mon.setTextColor(txtc)
     
     mon.setCursorPos(4,5)
     if floor == "Floor0" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Ground Floor")			--Extra spacing before floor for aesthetic purposes
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Ground Floor")
     end
     
     mon.setCursorPos(1,7)
     if floor == "Floor1" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 1")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 1")
     end	
     
     mon.setCursorPos(11,7)
     if floor == "Floor2" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 2")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 2")
     end	
     
     mon.setCursorPos(1,9)
     if floor == "Floor3" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 3")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 3")
     end	
     
     mon.setCursorPos(11,9)
     if floor == "Floor4" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 4")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 4")
     end	
     
     mon.setCursorPos(1,11)
     if floor == "Floor5" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 5")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 5")
     end	
     
     mon.setCursorPos(11,11)
     if floor == "Floor6" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 6")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 6")
     end	
     
     mon.setCursorPos(1,13)
     if floor == "Floor7" then
-    	mon.setTextColor(colors.red)
+    	mon.setTextColor(ftxtc)
     	mon.write(" Floor 7")
-	mon.setTextColor(colors.white)
+	mon.setTextColor(txtc)
     else
     	mon.write(" Floor 7")
     end	
@@ -103,6 +117,9 @@ end
  
 function listen()
     event, side, x, y = os.pullEvent("monitor_touch")
+    
+    mon.setBackgroundColor(csbckc) 
+    mon.setTextColor(cstextc)
     
     if x > 4 and x < 17 and y == 5 then
         rednet.broadcast("Floor0")
