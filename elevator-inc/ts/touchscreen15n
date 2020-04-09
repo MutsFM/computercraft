@@ -34,7 +34,7 @@ while true do
         mon.write(" Ground Floor ")
     end
     
-    -- ROW 1
+-- ROW 1
     mon.setCursorPos(3,7)
     if floor == "Floor1" then
     	mon.setBackgroundColor(colors.red)		
@@ -80,7 +80,7 @@ while true do
        mon.write(" 5")					
     end
     
-    -- ROW 2
+-- ROW 2
     mon.setCursorPos(3,9)
     if floor == "Floor6" then
     	mon.setBackgroundColor(colors.red)		
@@ -126,7 +126,7 @@ while true do
        mon.write("10")					
     end
     
-    -- ROW 3
+-- ROW 3
     mon.setCursorPos(3,11)
     if floor == "Floor11" then
     	mon.setBackgroundColor(colors.red)		
