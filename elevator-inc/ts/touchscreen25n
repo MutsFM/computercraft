@@ -1,5 +1,6 @@
-mon = peripheral.wrap("right")
 floor = "Floor1"				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Ground floor should be added as "Floor0"
+
+mon = peripheral.wrap("right")
 
 term.clear()
 term.setCursorPos(16,1)
@@ -33,7 +34,7 @@ while true do
         mon.write(" Ground Floor ")
     end
     
-    -- ROW 1
+-- ROW 1
     mon.setCursorPos(3,7)
     if floor == "Floor1" then
     	mon.setBackgroundColor(colors.red)		
@@ -79,7 +80,7 @@ while true do
        mon.write(" 5")					
     end
     
-    -- ROW 2
+-- ROW 2
     mon.setCursorPos(3,9)
     if floor == "Floor6" then
     	mon.setBackgroundColor(colors.red)		
@@ -125,7 +126,7 @@ while true do
        mon.write("10")					
     end
     
-    -- ROW 3
+-- ROW 3
     mon.setCursorPos(3,11)
     if floor == "Floor11" then
     	mon.setBackgroundColor(colors.red)		
@@ -171,7 +172,7 @@ while true do
        mon.write("15")					
     end
     
-    -- ROW 4
+-- ROW 4
     mon.setCursorPos(3,13)
     if floor == "Floor16" then
     	mon.setBackgroundColor(colors.red)		
@@ -217,7 +218,7 @@ while true do
        mon.write("20")					
     end
     
-    -- ROW 5
+-- ROW 5
     mon.setCursorPos(3,15)
     if floor == "Floor21" then
     	mon.setBackgroundColor(colors.red)		
