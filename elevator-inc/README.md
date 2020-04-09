@@ -123,7 +123,6 @@ It has two main purposes:
 * It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
-</br>
 The touchscreen also has a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.</br>
 </br>
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
