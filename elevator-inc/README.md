@@ -8,6 +8,7 @@ Github repository files
 The following files should be in the repository:
   * startup-c
   * floorcontroller
+  * floorcontroller-lf
   * activatefloor
   * deactivatefloor
   * startup-t
@@ -58,12 +59,17 @@ The cart dispenser feature is however optional. Should you not wish to have such
 The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.</br>
 </br>
 On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in the first line of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
+</br>
+On your controller computer on the **lowest** floor of your building that you want players to access, you should not install the floorcontroller programme, but rather the floorcontroller-lf programme. You however need to title the floorcontroller-lf programme as floorcontroller.</br>
+
 ### Touchscreen Computer
 The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.</br>
 </br>
 On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
 </br>
-**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
+**NOTE:** If you wish, you can customise the colors on the screen by changing the color codes in the section 'Color Customisation Options'.</br>
+</br>
+**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors and is presented in a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. </br>
 ### Cart Dispenser Computer
@@ -79,6 +85,8 @@ It requires the following scripts:
 - floorcontroller
 - activatefloor (optional)
 - deactivatefloor (optional)
+</br>
+The controller computer on the lowest floor of your building that you want the players to access, requires the floorcontroller-lf programme instead of the floorcontroller programme.<.br>
 
 ### startup-c
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** </br>
@@ -98,10 +106,14 @@ The programme automatically listens for rednet messages (via the wired connectio
 * If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. </br>
 It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.</br>
 
+### floorcontroller-lf
+**Important!** This file should be titled as followed on your controller computer in Minecraft: **floorcontroller** </br>
+This file should only be installed on the controller computer on the lowest floor of your building that you want players to access. Depending on your design, this could be the ground floor, however if you have basements, it needs to be installed on the lowest basement floor's controller computer. (Please note that at the moment basement levels require further changes to the code, besides the variables). </br>
+This programme lets the controller computer emit a continous redstone signal, with the purpose to prevent the player from going into the cart dispenser area.</br>
+
 ### activatefloor & deactivatefloor (optional)
 Both files are optional, and do not need to be present on the controller computer.</br>
 They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.</br>
-
 
 ## Touchscreen Computer
 The Touchscreen Computer allows the players to select the floor they wish to activate via the touchscreen. It requires the following scripts:
@@ -119,11 +131,12 @@ In addition, this file will replicate a computer booting - which sole purpose is
 ### touchscreen
 **Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file allows your players to select a floor for the elevator.</br> 
-It has two main purposes:
+It has three main purposes:
 * It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
-The touchscreen also has a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.</br>
+The touchscreen also includes a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.</br>
+The touchscreen programme furthermore allows for easy customisation of the colors displayed on the screen. You can change the colors in the Color Customisation Options section. This is described in further detail below.</br>
 </br>
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
 </br>
@@ -137,6 +150,13 @@ The code for the touchscreen programme differs significantly, depending on wheth
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
 The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.</br>
 </br>
+Color customization. By changing the color codes in the respective lines, you can change the following elements:</br>
+* "sbckc" allows you to change the screen's background color.
+* "ttxtc" allows you to change the color of the text presented at the top of the screen.
+* "bckc" allows you to change the background color of the floor number buttons.
+* "ftxtc" allows you to change the color of the text for the floor number corresponding to the floor (as entered in the first line of the programme).
+* "txtc" allows you to change the color of the text for the other floor numbers.</br>
+You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.</br>
 *Original Design 10+*</br>
 To be added.</br>
 </br>
