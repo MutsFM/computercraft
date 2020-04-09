@@ -57,17 +57,15 @@ The cart dispenser feature is however optional. Should you not wish to have such
 ### Controller Computer
 The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.</br>
 </br>
-On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in lines 9 and 18 of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
+On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in the first line of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".</br>
 ### Touchscreen Computer
 The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.</br>
 </br>
-On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". This line is located near the bottom of the script. Note that the groundfloor should be entered as "Floor0".</br>
+On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
 </br>
 **NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. </br>
-</br>
-**NOTE:** You can also use the touchscreen to indicate to persons on which floor they currently are, by changing the color of the floor on the screen. See the description in the individual file below for more information.</br>
 ### Cart Dispenser Computer
 To be added</br>
 
@@ -92,7 +90,7 @@ It has two main purposes:
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### floorcontroller
-**Important!** You need to enter the corresponding floor number in lines 9 and 18, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
+**Important!** You need to enter the corresponding floor number in the first line, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file controls whether or not your floor is activated or deactivated.</br>
 The programme automatically listens for rednet messages (via the wired connection).</br>
 * If the message corresponds to the floor number, it will activate the redstone signal at the back of the computer and then start to listen for messages again.</br>
@@ -119,24 +117,22 @@ It has two main purposes:
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
 ### touchscreen
-**Important!** You need to enter the corresponding floor number in the line on the cart request in the listen function, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
+**Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"</br>
 This file allows your players to select a floor for the elevator.</br> 
 It has two main purposes:
 * It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.</br>
-
+</br>
+The touchscreen also has a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.</br>
+</br>
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design. </br> 
 </br>
 **IMPORTANT!** You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.</br>
 </br>
-**NOTE:** An extra feature you can implement is to indicate on which floor the player is currently standing, by changing the appearance of the floor number on the screen.</br>
-The touchscreen programmes in the repository provide an example by changing the color of the text for "Floor1". (Example in comments, to activate, you need to delete the "--" at the start of the lines above and below the line of "Floor1".)</br>
-You may also consider changing the color of the background, or both. Regardless, you need to set the command to change the color in the line about the command to write the floor, and the command to revert the color back in the line below it.</br>
-</br>
 The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.</br>
 </br>
-**NOTE:** In all versions, you need to replace "Floor1" in the line on the cart request in the listen function in the touchscreen programme with the corresponding floor number, e.g. "Floor6". This line is located near the bottom of the script. Note that the groundfloor should be entered as "Floor0".</br>
+**NOTE:** In all versions, you need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".</br>
 </br>
 *Original Design*</br>
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.</br>
@@ -153,3 +149,4 @@ To be added</br>
 </br>
 ## Cart Dispenser
 To be added</br>
+Add text on commenting out the function</br>
