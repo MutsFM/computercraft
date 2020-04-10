@@ -27,10 +27,10 @@ Therefore, several files in this repository need to be titled differently on you
 Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
 
 # How the Elevator System Works
-*General Principle*
+#### General Principle
 Using Railcraft, minecarts travel upwards on redstone powered elevator tracks and conversely travel downwards on unpowered elevator tracks. If an elevator track is powered by redstone, all other elevator tracks below it are powered as well. By selecting which elevator track to power, you determine how far the minecart travels upwards or downwards.
 
-*Elevator System*
+#### Elevator System
 Every floor needs to have a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer in turn influences the elevator track located at that level.
 
 Pictures of the elevator system's layout are available in the Wiki. (TO BE ADDED)
@@ -41,17 +41,17 @@ If the floor is unselected, the controller computer does not power the elevator 
 
 For aesthetic purposes, it is advised to reserve at least a floor space of 4 blocks wide by 6 blocks long. Smaller would be possible, at the cost of aesthetics. Due to the height of the touchscreen, every floor needs to be at least 3 blocks high.
 
-*Network*
+#### Network
 All computers (both controller and touchscreen) in a building's elevator system are connected via network wires. Although wireless connection is a possibility in ComputerCraft, it may result in unwanted interference from other computers broadcasting on the wireless communication channel used by the elevator system. In addition, elevator systems in two adjacent buildings would need to broadcast on different channels, in order for the systems to operate separately. This would however require a lot of small changes to the code on each computer in the system to be done in Minecraft itself. Therefore, a closed wired network has been chosen as the better solution, as this can be implemented without the risk of interference and without the need to make any changes to the network code from the computer in Minecraft.
 
-*Cart Dispenser*
+#### Cart Dispenser
 The software comes with a feature to request an empty Minecart to be delivered to your respective floor. You would need to set up a cart dispenser system in the basement of your building for this feature to work.
 
 Pictures of the cart dispenser system are available in the Wiki. (TO BE ADDED)
 
 The cart dispenser feature is however optional. Should you not wish to have such feature, you can comment out the button in the touchscreen programme (for more information, see the individual file on the cart dispenser below). In that case, you need to bring your own minecart with you.
 
-*NOTE:* The cart dispenser system as pictured on the Wiki can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.
+**NOTE:** The cart dispenser system as pictured on the Wiki can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.
 
 
 # Quick Start Guide for Setting Up the Software
@@ -86,7 +86,7 @@ It requires the following scripts:
 - activatefloor (optional)
 - deactivatefloor (optional)
 
-The controller computer on the lowest floor of your building that you want the players to access, requires the floorcontroller-lf programme instead of the floorcontroller programme.<.br>
+The controller computer on the lowest floor of your building that you want the players to access, requires the floorcontroller-lf programme instead of the floorcontroller programme.
 
 ### startup-c
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** 
@@ -109,6 +109,7 @@ It uses the restart function to start to listen for messages again. This functio
 ### floorcontroller-lf
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **floorcontroller** 
 This file should only be installed on the controller computer on the lowest floor of your building that you want players to access. Depending on your design, this could be the ground floor, however if you have basements, it needs to be installed on the lowest basement floor's controller computer. (Please note that at the moment basement levels require further changes to the code, besides the variables). 
+
 This programme lets the controller computer emit a continous redstone signal, with the purpose to prevent the player from going into the cart dispenser area.
 
 ### activatefloor & deactivatefloor (optional)
@@ -147,7 +148,7 @@ The code for the touchscreen programme differs significantly, depending on wheth
 
 **NOTE:** In all versions, you need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".
 
-*Original Design*
+#### Original Design
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.
 The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.
 
@@ -159,14 +160,13 @@ Color customization. By changing the color codes in the respective lines, you ca
 - "txtc" allows you to change the color of the text for the other floor numbers.
 You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.
 
-###### Original Design
+#### Original Design 10+ Floors
 To be added.
 
-###### Numpad Design
+#### Numpad Design
 Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.
 
-*Numpad Design 10+*
-
+#### Numpad Design 25+ Floors
 To be added
 
 ## Cart Dispenser
