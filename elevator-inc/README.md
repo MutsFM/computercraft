@@ -1,6 +1,9 @@
 # MutsFM's Elevator Inc.
 
-This readme will first explain shortly how the "MutsFM Elevator Inc" elevator system works in Minecraft and a quick guide to setting up your own system using "MutsFM Elevator Inc" software. Below that is an explanation on how the individual files in this repository work. 
+This readme will first explain shortly how the "MutsFM Elevator Inc" elevator system works in Minecraft and a quick guide to setting up your own system using "MutsFM Elevator Inc" software. Below that is an explanation on how the individual files in this repository work.
+
+# Table of Contents
+[Invidual Files](README.md#individualfiles)
 
 Github repository files
 =====
@@ -53,7 +56,7 @@ The cart dispenser feature is however optional. Should you not wish to have such
 
 **NOTE:** The cart dispenser system as pictured on the Wiki can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.
 
-
+---
 # Quick Start Guide for Setting Up the Software
 ### Controller Computer
 The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.
@@ -75,9 +78,11 @@ On your touchscreen computer, you need to install the startup-t and touchscreen 
 ### Cart Dispenser Computer
 To be added
 
+---
 # Individual Files
 The explanations below are ordered by the type of computer that uses them.
 
+---
 ## Controller Computer
 The Controller Computer activates and deactivates the redstone signal as required for your minecart to reach the selected floor. The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer. 
 It requires the following scripts:
@@ -88,6 +93,7 @@ It requires the following scripts:
 
 The controller computer on the lowest floor of your building that you want the players to access, requires the floorcontroller-lf programme instead of the floorcontroller programme.
 
+---
 ### startup-c
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** 
 This file will be automatically loaded when your controller computer in Minecraft boots.
@@ -97,30 +103,36 @@ It has two main purposes:
 
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
+---
 ### floorcontroller
 **Important!** You need to enter the corresponding floor number in the first line, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"
 This file controls whether or not your floor is activated or deactivated.
 The programme automatically listens for rednet messages (via the wired connection).
 * If the message corresponds to the floor number, it will activate the redstone signal at the back of the computer and then start to listen for messages again.
 * If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. 
-* If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again. 
+* If the message does not correspond to the floor number, it will deactivate the redstone signal and then start to listen for messages again.
+
 It uses the restart function to start to listen for messages again. This function is therefore called when the programme is started.
 
+---
 ### floorcontroller-lf
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **floorcontroller** 
 This file should only be installed on the controller computer on the lowest floor of your building that you want players to access. Depending on your design, this could be the ground floor, however if you have basements, it needs to be installed on the lowest basement floor's controller computer. (Please note that at the moment basement levels require further changes to the code, besides the variables). 
 
 This programme lets the controller computer emit a continous redstone signal, with the purpose to prevent the player from going into the cart dispenser area.
 
+---
 ### activatefloor & deactivatefloor (optional)
 Both files are optional, and do not need to be present on the controller computer.
 They are useful for testing whether the redstone and tracks have been correctly installed, as they allow you to activate and deactivate the redstone signal, without having to run the full programme and using a touchscreen monitor to send the messages.
 
+---
 ## Touchscreen Computer
 The Touchscreen Computer allows the players to select the floor they wish to activate via the touchscreen. It requires the following scripts:
 - startup-t
 - touchscreen
 
+---
 ### startup-t
 **Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** 
 It has two main purposes:
@@ -129,6 +141,7 @@ It has two main purposes:
 
 In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
 
+---
 ### touchscreen
 **Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"
 This file allows your players to select a floor for the elevator. 
@@ -158,6 +171,7 @@ Color customization. By changing the color codes in the respective lines, you ca
 - "bckc" allows you to change the background color of the floor number buttons.
 - "ftxtc" allows you to change the color of the text for the floor number corresponding to the floor (as entered in the first line of the programme).
 - "txtc" allows you to change the color of the text for the other floor numbers.
+
 You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.
 
 #### Original Design 10+ Floors
@@ -169,6 +183,7 @@ Code is similar to the original design, with the major differences being that th
 #### Numpad Design 25+ Floors
 To be added
 
+---
 ## Cart Dispenser
 To be added
 Add text on commenting out the function
