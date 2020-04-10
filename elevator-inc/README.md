@@ -159,13 +159,14 @@ Color customization. By changing the color codes in the respective lines, you ca
 - "txtc" allows you to change the color of the text for the other floor numbers.
 You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.
 
-*Original Design 10+*
+###### Original Design
 To be added.
 
-*Numpad Design*
+###### Numpad Design
 Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.
 
 *Numpad Design 10+*
+
 To be added
 
 ## Cart Dispenser
