@@ -27,7 +27,7 @@ Therefore, several files in this repository need to be titled differently on you
 
 **If you do not title the scripts correctly on the computer in minecraft, the system will not work!**
 
-Example: "startup-c" is the startup script for the controller computer and should be titled "startup" on your computer in minecraft.
+Example: "startup-c" is the startup script for the controller computer and should be titled `startup` on your controller computer in minecraft.
 
 # How the Elevator System Works
 #### General Principle
@@ -61,20 +61,21 @@ The cart dispenser feature is however optional. Should you not wish to have such
 ### Controller Computer
 The back of your controller computer needs to be placed against a block against which in turn the elevator track is placed on at the other side. Alternatively, the elevator track can be placed against the back of the controller computer.
 
-On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as startup. You need to replace "Floor1" in the first line of the floorcontroller programme with the corresponding floor number, e.g. "Floor6". Note that groundfloor should be entered as "Floor0".
+On your controller computer, you need to install the startup-c and floorcontroller programmes. You need to title the startup-c programme as `startup`. You need to replace `"Floor1"` in the first line of the floorcontroller programme with the corresponding floor number, e.g. `"Floor6"`. Note that groundfloor should be entered as `"Floor0"`.
 
-On your controller computer on the **lowest** floor of your building that you want players to access, you should not install the floorcontroller programme, but rather the floorcontroller-lf programme. You however need to title the floorcontroller-lf programme as floorcontroller.
+On your controller computer on the **lowest** floor of your building that you want players to access, you should not install the floorcontroller programme, but rather the floorcontroller-lf programme. You however need to title the floorcontroller-lf programme as `floorcontroller`.
 
 ### Touchscreen Computer
 The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.
 
-On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".
+On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace `"Floor1"` in the first line of the touchscreen programme with the corresponding floor number, e.g. `"Floor6"`. Note that the groundfloor should be entered as `"Floor0"`.
 
 **NOTE:** If you wish, you can customise the colors on the screen by changing the color codes in the section 'Color Customisation Options'.
 
-**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors and is presented in a numpad design rather than the original design. You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.
+**NOTE:** The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors and is presented in a numpad design rather than the original design. You however need to title these programmes as `touchscreen` on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and then delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.
 
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. 
+
 ### Cart Dispenser Computer
 To be added
 
@@ -95,7 +96,7 @@ The controller computer on the lowest floor of your building that you want the p
 
 ---
 ### startup-c
-**Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** 
+**Important!** This file should be titled as followed on your controller computer in Minecraft: `startup` 
 This file will be automatically loaded when your controller computer in Minecraft boots.
 It has two main purposes:
 * To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
@@ -105,8 +106,10 @@ In addition, this file will replicate a computer booting - which sole purpose is
 
 ---
 ### floorcontroller
-**Important!** You need to enter the corresponding floor number in the first line, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"
+**Important!** You need to enter the corresponding floor number in the first line, on the floor's controller computer in Mincraft, for the system to work! Ground Floor should be entered as `"Floor0"`.
+
 This file controls whether or not your floor is activated or deactivated.
+
 The programme automatically listens for rednet messages (via the wired connection).
 * If the message corresponds to the floor number, it will activate the redstone signal at the back of the computer and then start to listen for messages again.
 * If the message concerns the request for a cart, it will ignore the message and starts to listen for messages again. 
@@ -116,7 +119,8 @@ It uses the restart function to start to listen for messages again. This functio
 
 ---
 ### floorcontroller-lf
-**Important!** This file should be titled as followed on your controller computer in Minecraft: **floorcontroller** 
+**Important!** This file should be titled as followed on your controller computer in Minecraft: `floorcontroller`
+
 This file should only be installed on the controller computer on the lowest floor of your building that you want players to access. Depending on your design, this could be the ground floor, however if you have basements, it needs to be installed on the lowest basement floor's controller computer. (Please note that at the moment basement levels require further changes to the code, besides the variables). 
 
 This programme lets the controller computer emit a continous redstone signal, with the purpose to prevent the player from going into the cart dispenser area.
@@ -134,7 +138,8 @@ The Touchscreen Computer allows the players to select the floor they wish to act
 
 ---
 ### startup-t
-**Important!** This file should be titled as followed on your controller computer in Minecraft: **startup** 
+**Important!** This file should be titled as followed on your controller computer in Minecraft: `startup`
+
 It has two main purposes:
 * To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
 * To automatically start the touchscreen programme.
@@ -143,42 +148,49 @@ In addition, this file will replicate a computer booting - which sole purpose is
 
 ---
 ### touchscreen
-**Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as "Floor0"
-This file allows your players to select a floor for the elevator. 
+**Important!** You need to enter the corresponding floor number in the first line, on the floor's touchscreen computer in Mincraft, for the system to work! Ground Floor should be entered as `"Floor0"`
+
+This programme allows your players to select a floor for the elevator.
+
 It has three main purposes:
 * It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
 * If the player selects a floor, it sends out a corresponding rednet message to controller computers.
 
 The touchscreen also includes a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.
+
 The touchscreen programme furthermore allows for easy customisation of the colors displayed on the screen. You can change the colors in the Color Customisation Options section. This is described in further detail below.
 
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design.  
 
-**IMPORTANT!** You however need to title these programmes as **touchscreen** on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.
+**IMPORTANT!** You however need to title these programmes as `touchscreen` on your computer in Minecraft, in order for the system to work. If the exact amount of floors for your building is not covered, it is advised to select the first higher numbered touchscreen, and delete the non-required floors from both the screen and listen functions, using the computer in Minecraft.
 
 The code for the touchscreen programme differs significantly, depending on whether you are running a programme for 10 floors or less, or a programme for more than 10 floors. In case of the latter, it also depends on whether you are running a programme for the original design or the numpad design. This readme will therefore first set out the touchscreen programme for the original design, then for touchscreen programmes for more than 10 floors with the original design, and then for touchscreen programmes for more than 10 floors running the numpad design.
 
-**NOTE:** In all versions, you need to replace "Floor1" in the first line of the touchscreen programme with the corresponding floor number, e.g. "Floor6". Note that the groundfloor should be entered as "Floor0".
+**NOTE:** In all versions, you need to replace `"Floor1"` in the first line of the touchscreen programme with the corresponding floor number, e.g. `"Floor6"`. Note that the groundfloor should be entered as `"Floor0"`.
 
 #### Original Design
 The screen function is used to draw the touchscreen, presenting the floors which the players can choose by hitting them on the screen.
+
 The listen function waits for the player to hit the screen, and if a player hits a floor number, then sends the accompanying message over rednet to the controller computers.
 
-Color customization. By changing the color codes in the respective lines, you can change the following elements:
-- "sbckc" allows you to change the screen's background color.
-- "ttxtc" allows you to change the color of the text presented at the top of the screen.
-- "bckc" allows you to change the background color of the floor number buttons.
-- "ftxtc" allows you to change the color of the text for the floor number corresponding to the floor (as entered in the first line of the programme).
-- "txtc" allows you to change the color of the text for the other floor numbers.
+*Color customization.* By changing the color codes in the respective lines, you can change the following elements:
+**TO BE MADE INTO A TABLE**
+- `sbckc` allows you to change the screen's background color.
+- `ttxtc` allows you to change the color of the text presented at the top of the screen.
+- `bckc` allows you to change the background color of the floor number buttons.
+- `ftxtc` allows you to change the color of the text for the floor number corresponding to the floor (as entered in the first line of the programme).
+- `txtc` allows you to change the color of the text for the other floor numbers.
 
-You can also change the floor selection confirmation screen's colors, by changing the color code of "csbckc" to change the screen's background color, and "cstextc" to change the color of the text.
+You can also change the floor selection confirmation screen's colors, by changing the color code of `csbckc` to change the screen's background color, and `cstextc` to change the color of the text.
 
 #### Original Design 10+ Floors
 To be added.
 
 #### Numpad Design
 Code is similar to the original design, with the major differences being that the floors are displayed as numerical buttons (e.g. "1", "2") rather than buttons including the word floor (e.g. "Floor 1", "Floor2"), and that a maximum of 25 floors can be displayed on the screen.
+
+To add colour customisation options.
 
 #### Numpad Design 25+ Floors
 To be added
