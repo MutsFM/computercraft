@@ -1,5 +1,18 @@
-floor = "Floor1"				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Ground floor should be added as "Floor0"
+floor = "Floor1" 				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Groundfloor should be added as "Floor0".
 
+-- Color Customisation Options
+	-- Floor Selection Screen
+sbckc = colors.white				-- Screen background color. Replace 'white' with another color code.
+ttxtc = colors.black				-- Color of the top text. Replace 'black' with another color code. 
+txtc = colors.white				-- Color of the floor numbers. Replace 'white' with another color code.
+fbckc = colors.red				-- Color of the background of the respective floor's number. Replace 'red' with another color code.
+bckc = colors.black				-- Color of the background of the other floor numbers. Replace 'black' with another color code.
+
+	-- Screen with Selection Confirmation
+csbckc = colors.black				-- Screen background color. Replace 'black' with another color code.
+cstextc = colors.white				-- Color of the text on the selection confirmation screen. Replace 'white' with another color code.
+
+-- Code
 mon = peripheral.wrap("right")
 
 term.clear()
@@ -12,22 +25,22 @@ print("Version: 25 floors in numpad design")
 
 function screen()
 while true do
-    mon.setBackgroundColor(colors.white)	--Sets the touchscreen's background to white
+    mon.setBackgroundColor(sbckc)	
     mon.clear()
     mon.setTextScale(1)
-    mon.setTextColor(colors.black)
+    mon.setTextColor(ttxtc)
     
     mon.setCursorPos(6,2)
     mon.write("Elevator")
     mon.setCursorPos(4,3)
     mon.write("Select Floor")
     
-    mon.setBackgroundColor(colors.black)		--Sets the background for just the floor numbers to black
-    mon.setTextColor(colors.white)
+    mon.setBackgroundColor(bckc)			
+    mon.setTextColor(txtc)
     
     mon.setCursorPos(3,5)
     if floor == "Floor0" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" Ground Floor ")			--Extra spacings for aesthetic purposes
         mon.setBackgroundColor(colors.black)
     else
@@ -37,45 +50,45 @@ while true do
 -- ROW 1
     mon.setCursorPos(3,7)
     if floor == "Floor1" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 1")					--Extra spacing for aesthetic purposes
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 1")					
     end
     
     mon.setCursorPos(6,7)
     if floor == "Floor2" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 2")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 2")					
     end
     
     mon.setCursorPos(9,7)
     if floor == "Floor3" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 3")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 3")					
     end
     
     mon.setCursorPos(12,7)
     if floor == "Floor4" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 4")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 4")					
     end
     
     mon.setCursorPos(15,7)
     if floor == "Floor5" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 5")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 5")					
     end
@@ -83,45 +96,45 @@ while true do
 -- ROW 2
     mon.setCursorPos(3,9)
     if floor == "Floor6" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 6")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 6")					
     end
     
     mon.setCursorPos(6,9)
     if floor == "Floor7" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 7")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 7")					
     end
     
     mon.setCursorPos(9,9)
     if floor == "Floor8" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 8")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 8")					
     end
     
     mon.setCursorPos(12,9)
     if floor == "Floor9" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write(" 9")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write(" 9")					
     end
     
     mon.setCursorPos(15,9)
     if floor == "Floor10" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("10")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("10")					
     end
@@ -129,45 +142,45 @@ while true do
 -- ROW 3
     mon.setCursorPos(3,11)
     if floor == "Floor11" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("11")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("11")					
     end
     
     mon.setCursorPos(6,11)
     if floor == "Floor12" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("12")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("12")					
     end
     
     mon.setCursorPos(9,11)
     if floor == "Floor13" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("13")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("13")					
     end
     
     mon.setCursorPos(12,11)
     if floor == "Floor14" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("14")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("14")					
     end
     
     mon.setCursorPos(15,11)
     if floor == "Floor15" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("15")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("15")					
     end
@@ -175,45 +188,45 @@ while true do
 -- ROW 4
     mon.setCursorPos(3,13)
     if floor == "Floor16" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("16")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("16")					
     end
     
     mon.setCursorPos(6,13)
     if floor == "Floor17" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("17")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("17")					
     end
     
     mon.setCursorPos(9,13)
     if floor == "Floor18" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("18")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("18")					
     end
     
     mon.setCursorPos(12,13)
     if floor == "Floor19" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("19")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("19")					
     end
     
     mon.setCursorPos(15,13)
     if floor == "Floor20" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("20")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("20")					
     end
@@ -221,45 +234,45 @@ while true do
 -- ROW 5
     mon.setCursorPos(3,15)
     if floor == "Floor21" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("21")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("21")					
     end
     
     mon.setCursorPos(6,15)
     if floor == "Floor22" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("22")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("22")					
     end
     
     mon.setCursorPos(9,15)
     if floor == "Floor23" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("23")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("23")					
     end
     
     mon.setCursorPos(12,15)
     if floor == "Floor24" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("24")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("24")					
     end
     
     mon.setCursorPos(15,15)
     if floor == "Floor25" then
-    	mon.setBackgroundColor(colors.red)		
+    	mon.setBackgroundColor(fbckc)		
 	mon.write("25")					
-        mon.setBackgroundColor(colors.black)
+        mon.setBackgroundColor(bckc)
     else
        mon.write("25")					
     end
@@ -273,6 +286,10 @@ end
  
 function listen()
     event, side, x, y = os.pullEvent("monitor_touch")
+    
+    mon.setBackgroundColor(csbckc) 
+    mon.setTextColor(cstextc)
+    
     if x > 3 and x < 17 and y == 5 then
         rednet.broadcast("Floor0")
         mon.clear()
