@@ -3,7 +3,7 @@
 This readme will first explain shortly how the "MutsFM Elevator Inc" elevator system works in Minecraft and a quick guide to setting up your own system using "MutsFM Elevator Inc" software. Below that is an explanation on how the individual files in this repository work.
 
 # Table of Contents
-[Invidual Files](README.md#individualfiles)
+[Invidual Files](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#individual-files)
 
 Github repository files
 =====
