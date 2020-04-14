@@ -38,6 +38,8 @@ Every floor needs to have a controller computer and a 'touchscreen' connected to
 
 Pictures of the elevator system's layout are available in the Wiki. (TO BE ADDED)
 
+![TopDownView](/images/elevator-inc/topview.png)
+
 If the floor is selected, the controller computer powers the elevator track at the floor and all elevator tracks below it, allowing for the cart to reach that floor - regardless if the cart is coming from a higher or lower floor.
 
 If the floor is unselected, the controller computer does not power the elevator track at the floor. It may however still be powered if a floor above the respective floor is selected. The power then however comes from the controller computer above.
