@@ -36,9 +36,11 @@ Using Railcraft, minecarts travel upwards on redstone powered elevator tracks an
 #### Elevator System
 Every floor needs to have a controller computer and a 'touchscreen' connected to a computer. The player clicks on a floor number displayed on the touchscreen. The touchscreen computer registers this input, and sends out a corresponding message for the selected floor over the rednet network. Controller computers listen for these messages and once they receive a message, they act accordingly by either activating or deactivating their redstone output. The redstone output from the controller computer in turn influences the elevator track located at that level.
 
-Pictures of the elevator system's layout are available in the Wiki. (TO BE ADDED)
-
+![ElevatorSkeleton](/images/elevator-inc/ElevatorSkeleton.gif)
+![PCView](/images/elevator-inc/pcview.png)
 ![TopDownView](/images/elevator-inc/topview.png)
+
+**Note:** Glass blocks added for visibility, green blocks added as contrast. Both merely serve illustrative purposes, and can be replaced by any blocks suitable for your building's interior style.
 
 If the floor is selected, the controller computer powers the elevator track at the floor and all elevator tracks below it, allowing for the cart to reach that floor - regardless if the cart is coming from a higher or lower floor.
 
@@ -70,7 +72,7 @@ On your controller computer on the **lowest** floor of your building that you wa
 ### Touchscreen Computer
 The touchscreen computer requires a 2 wide, 3 high construction of monitors, to be placed on the right side of the touchscreen computer.
 
-On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as startup. You need to replace `"Floor1"` in the first line of the touchscreen programme with the corresponding floor number, e.g. `"Floor6"`. Note that the groundfloor should be entered as `"Floor0"`.
+On your touchscreen computer, you need to install the startup-t and touchscreen programmes. You need to title the startup-t programme as `startup`. You need to replace `"Floor1"` in the first line of the touchscreen programme with the corresponding floor number, e.g. `"Floor6"`. Note that the groundfloor should be entered as `"Floor0"`.
 
 **NOTE:** If you wish, you can customise the colors on the screen by changing the color codes in the section 'Color Customisation Options'.
 
@@ -79,7 +81,9 @@ On your touchscreen computer, you need to install the startup-t and touchscreen 
 **NOTE:** In the original design, touchscreen programmes for up to 10 floors display all available floors on the screen. Touchscreen programmes for more than 10 floors use multiple pages to display all floors. In the numpad design, a maximum of 25 floors is displayed at one page, with the possiblity to display more than 25 floors by using multiple pages. 
 
 ### Cart Dispenser Computer
-To be added
+The cart dispenser computer requires a cart dispenser placed at the back of if, with its opening faceing towards the tracks. A booster track, powered by redstone, is required to be placed on the first track from the cart dispener. (The two additional tracks as pictured in the image above are not required, merely the booster track.)
+
+On your cart dispenser computer, you need to install the startup-d and cart dispenser programmes. You need to title the startup-d programme as `startup`. You need to fill the cart dispenser with minecarts. You need to connect the cart dispenser computer with a wired modem and cables to your elevator system.
 
 ---
 # Individual Files
@@ -157,11 +161,14 @@ This programme allows your players to select a floor for the elevator.
 It has three main purposes:
 * It connects to the screen. (Make sure the monitor is placed on the right side of the computer!),
 * It registers the input from the player on the touchscreen, and 
-* If the player selects a floor, it sends out a corresponding rednet message to controller computers.
+* If the player selects a floor, it sends out a corresponding rednet message to controller computers, or
+* If the player selects "request cart", it sends out a corresponding rednet message to the cart dispenser computer.
 
 The touchscreen also includes a feature that displays the corresponding floor number differently from the other floors, allowing players to identify on which floor they are.
 
 The touchscreen programme furthermore allows for easy customisation of the colors displayed on the screen. You can change the colors in the Color Customisation Options section. This is described in further detail below.
+
+**Note:** The cart request function and system is optional. The elevator system will still work, even if the cart dispense function is not installed. In such case, the 'cart request' button on the touchscreen will merely not result in a cart to be delivered to the floor. If desired, you could delete or comment out the respective sections in the touchscreen programme. Touchscreen programmes without a cart request function are currently considered for a future release of Elevator-Inc.
 
 The touchscreen programme in this repository is for a 7 floor building, however in the folder "ts" you can find additional touchscreen programmes for buildings with more floors and with different designs. The number behind "touchscreen" indicates for how many floors that programme is designed. For example, touchscreen20n is designed for a building with 20 floors with a numpad design rather than the original design.  
 
@@ -199,5 +206,22 @@ To be added
 
 ---
 ## Cart Dispenser
-To be added
-Add text on commenting out the function
+The Cart Dispenser Computer dispenses a cart upon request by the player. It requires the following scripts:
+- startup-d
+- cartdispenser
+
+**Note:** The cart request function and system is optional. The elevator system will still work, even if the cart dispense function is not installed. In such case, the 'cart request' button on the touchscreen will merely not result in a cart to be delivered to the floor. If desired, you could delete or comment out the respective sections in the touchscreen programme. Touchscreen programmes without a cart request function are currently considered for a future release of Elevator-Inc.
+
+---
+### startup-d
+**Important!** This file should be titled as followed on your controller computer in Minecraft: `startup`
+
+It has two main purposes:
+* To connect your computer to the rednet network. (Make sure you connect the wired modem on the left side of the monitor.)
+* To automatically start the cartdispenser programme.
+
+In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
+
+---
+### cartdispenser
+Upon receiving a "cart request" rednet message, this programme applies a redstone to the cart dispenser, making it dispense one cart, which is then propelled by the redstone powered booster track towards the elevator tracks.
