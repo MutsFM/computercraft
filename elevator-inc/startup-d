@@ -1,5 +1,5 @@
 print("MutsFM Elevator Inc.")
-print("ControllerOS")
+print("Cart Dispense Software")
 print("Version 1.0")
 write("Loading Software.")
 sleep(1)
@@ -22,5 +22,4 @@ write("Starting Application.")
 sleep(1)
 write(".")
 sleep(1)
-shell.run("floorcontroller")
-
+shell.run("cartdispenser")
