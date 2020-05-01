@@ -33,7 +33,7 @@ The traffic light for vehicles comes with 4 different lighting sequences and wit
 
 | **The Standard Sequence** | **The UK/German Sequence** | **Warning Sequence** | **Stop Sequence** |
 |:------------- |:-------------:|:-------------:|:-----:|
-| ![StandardSequence](/images/trafficlights/StandardSequence.gif=190x330) | ![GermanSequence](/images/trafficlights/GermanSequence.gif=190x330) | To Be added | To Be Added |
+| ![StandardSequence](/images/trafficlights/StandardSequence.gif) | ![GermanSequence](/images/trafficlights/GermanSequence.gif) | To Be added | To Be Added |
 | The standard green-yellow-red traffic light sequence. | A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green. | A yellow/orange flashing warning sequence | A flashing sequence for the red light, which in some countries indicate the traffic light should be seen as a stop sign. |
 
 
