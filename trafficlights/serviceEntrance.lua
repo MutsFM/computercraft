@@ -168,6 +168,7 @@ end
 
 
 function start()
+	closeDoor()
 	writeTop()
 	askNaP()
 end
