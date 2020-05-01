@@ -31,10 +31,10 @@ The traffic light for vehicles comes with 4 different lighting sequences and wit
 
 ### Sequences
 
-| **The Standard Sequence** | **The UK/German Sequence** | Cool  |
-| ------------- |:-------------:| -----:|
-| ![StandardSequence](/trafficlights/gifs/StandardSequence.gif) | right-aligned | $1600 |
-| The standard green-yellow-red traffic light sequence. | A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green. |   $12 |
+| **The Standard Sequence** | **The UK/German Sequence** | **Warning Sequence** | **Stop Sequence** |
+|:------------- |:-------------:|:-------------:|:-----:|
+| ![StandardSequence](/images/trafficlights/StandardSequence.gif=190x330) | ![GermanSequence](/images/trafficlights/GermanSequence.gif=190x330) | To Be added | To Be Added |
+| The standard green-yellow-red traffic light sequence. | A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green. | A yellow/orange flashing warning sequence | A flashing sequence for the red light, which in some countries indicate the traffic light should be seen as a stop sign. |
 
 
 
@@ -42,7 +42,7 @@ The traffic light for vehicles comes with 4 different lighting sequences and wit
 **The Standard Sequence**  
 The standard green-yellow-red traffic light sequence.
 
-![StandardSequence](/trafficlights/gifs/StandardSequence.gif)
+![GermanSequence](/images/trafficlights/GermanSequence.gif)
 
 **The UK/German Sequence**  
 A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green.
