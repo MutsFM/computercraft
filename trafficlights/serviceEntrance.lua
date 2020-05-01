@@ -168,7 +168,7 @@ end
 
 
 function start()
-	closeDoor()
+	redstone.setOutput(doorSide, false)
 	writeTop()
 	askNaP()
 end
