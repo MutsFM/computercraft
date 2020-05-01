@@ -2,7 +2,7 @@
 
 This readme explains how the ArchiTech traffic lights function and can be installed in Minecraft. It requires the Computer Craft (CC:Tweaked) mod.
 
-This readme will first show the different traffic lights and auxiliary equipment. The traffic lights are customisable and come with different lighting sequences, icons to be displayed, and colours to be chosen.
+This readme will first show the different traffic lights and auxiliary equipment. The traffic lights are customisable and come with different lighting sequences, icons to be displayed, and colours to choose from.
 
 # Table of Contents
 
@@ -27,4 +27,22 @@ ArchiTech Traffic Lights provides traffic lights for several main use cases:
 How to set up the traffic lights for these use cases is described in more detail below in the section **"Use Cases"**.
 
 ## Traffic Lights for Vehicles
-The traffic light for vehicles comes with 4 different lighting sequences and with
+The traffic light for vehicles comes with 4 different lighting sequences and with 5 icons.
+
+### Sequences
+
+| **The Standard Sequence** | **The UK/German Sequence** | Cool  |
+| ------------- |:-------------:| -----:|
+| ![StandardSequence](/trafficlights/gifs/StandardSequence.gif) | right-aligned | $1600 |
+| The standard green-yellow-red traffic light sequence. | A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green. |   $12 |
+
+
+
+
+**The Standard Sequence**  
+The standard green-yellow-red traffic light sequence.
+
+![StandardSequence](/trafficlights/gifs/StandardSequence.gif)
+
+**The UK/German Sequence**  
+A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green.
