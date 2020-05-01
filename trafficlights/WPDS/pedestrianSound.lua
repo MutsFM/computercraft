@@ -1,4 +1,5 @@
 local bundleSide = "right"				-- side to which the redstone bundled wires are attached
+local speakerSide = "left"				-- side to which the speaker is attached
 
 -- Sound Customisation
 -- Enter 1 for Click
@@ -12,7 +13,7 @@ local volume = 1
 -- CODE BELOW IS NOT ADJUSTABLE!!
 -- ******************************
 
-local speaker = peripheral.wrap("left")
+local speaker = peripheral.wrap(speakerSide)
 local selectedSound
 
 -- Listening Function

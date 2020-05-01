@@ -11,7 +11,11 @@ pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
 local sequence = 1
 
 -- traffic light shape
--- enter 1 for block, enter 2 for arrow left, enter 3 for arrow forward, enter 4 for arrow right, enter 5 for round
+-- enter 1 for block
+-- enter 2 for arrow left
+-- enter 3 for arrow forward
+-- enter 4 for arrow right
+-- enter 5 for round
 local mon1version = 1
 local mon2version = 1
 local mon3version = 1
