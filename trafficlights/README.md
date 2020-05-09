@@ -46,3 +46,21 @@ The standard green-yellow-red traffic light sequence.
 
 **The UK/German Sequence**  
 A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green.
+
+
+
+
+# Use Cases
+
+ArchiTech Traffic Lights cover the following use cases:
+
+| **Use Case** | **Folder** | **Description** |
+|:------------- |:-------------|:----------|
+| *Traffic lights for vehicles* | Core | Only 
+| *Traffic lights for vehicles and pedestrians* | fjidosa |
+| *Traffic lights for vehicles and pedestrians, with pedestrian detection* | fdsa |
+| *Traffic lights for vehicles and pedestrians, with pedestrian detection and audible indicators* | fdsa |
+
+In short
+
+Only explain the logic behind the files names, not list them all. Also indicate that other variations can be created upon demand though issue opening.
