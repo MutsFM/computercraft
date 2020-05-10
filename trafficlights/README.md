@@ -56,10 +56,11 @@ ArchiTech Traffic Lights cover the following use cases:
 
 | **Use Case** | **Folder** | **Description** |
 |:------------- |:-------------|:----------|
-| *Traffic lights for vehicles* | Core | Only 
-| *Traffic lights for vehicles and pedestrians* | fjidosa |
-| *Traffic lights for vehicles and pedestrians, with pedestrian detection* | fdsa |
-| *Traffic lights for vehicles and pedestrians, with pedestrian detection and audible indicators* | fdsa |
+| *Traffic lights for vehicles* | Core | Core set of traffic lights for vehicles |
+| *Traffic lights for vehicles and pedestrians* | WPL | Core + traffic lights for pedestrians. The pedestrian lights are included automatically in the sequence|
+| *Traffic lights for vehicles and pedestrians, with pedestrian detection* | WPD | WPL + pedestrian detection. The pedestrian lights only become part of the sequence once the player requests a green light for pedestrians. |
+| *Traffic lights for vehicles and pedestrians* | WPLS | WPL + Audible Sound for pedestrians. The pedestrian lights are included automatically in the sequence. Will play alternating sounds, depending on the traffic light situation for the pedestrian. |
+| *Traffic lights for vehicles and pedestrians, with pedestrian detection and audible indicators* | WPDS | WPD + Audible Sound for pedestrians. Same sounds as WPLS, but will only play the appropriate sounds once the player has requested a green light for pedestrians. |
 
 In short
 
