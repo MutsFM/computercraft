@@ -14,7 +14,7 @@ Several files in this repository need to be titled differently on your computer 
 
 Each section below will indicate which files need to be titled differently on your computer in Minecraft, and will provide the correct title for use in Minecraft.
 
-For example, the 'startup-ps' needs to be titled as followed on your computer in Minecraft: 'startup'
+For example, the `startup-ps` needs to be titled as followed on your computer in Minecraft: `startup` 
 
 # ArchiTech Traffic Lights Overview
 
@@ -22,9 +22,12 @@ ArchiTech Traffic Lights provides traffic lights for several main use cases:
 * Traffic lights for vehicles
 * Traffic lights for vehicles and pedestrians
 * Traffic lights for vehicles and pedestrians, with pedestrian detection
+* Traffic lights for vehicles and pedestrians, with audible indicators
 * Traffic lights for vehicles and pedestrians, with pedestrian detection and audible indicators
 
 How to set up the traffic lights for these use cases is described in more detail below in the section **"Use Cases"**.
+
+**The files for the use cases are furthermore subdivided based on traffic scenarios, e.g. 3 traffic lights on a through road and 1 on a side street, or 6 traffic lights on a through road and 2 on a side street. If your traffic scenario is not covered, open an issue and I would be happy to add a file for your scenario. (Of course you can always edit a scenario from this repository manually on your computers in Minecraft to fit your needs).**
 
 ## Traffic Lights for Vehicles
 The traffic light for vehicles comes with 4 different lighting sequences and with 5 icons.
