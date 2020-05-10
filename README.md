@@ -98,5 +98,14 @@ A variation on the standard sequence, in which before a red light turns green, i
 </table><p>In short</p>
 <p>Only explain the logic behind the files names, not list them all. Also indicate that other variations can be created upon demand though issue opening.</p>
 <h2 id="traffic-lights-for-vehicles-1">Traffic lights for vehicles</h2>
-<p>This use case only requires you to place <strong>one</strong> computer and</p>
+<p>This use case only requires you to place <strong>one</strong> traffic light computer and the monitors necessary for the desired amount of traffic lights. Note that one traffic light consist of 2 monitors placed on top of each other. You then need to connect the traffic lights to the computer using network cables. To make the cables going into the ground more visually pleasing, you can use a modem block (note: not the modem object itself, but the block!) as floor tile.</p>
+<p>You need to place the <code>startup-tl</code> file from the main traffic lights folder on your computer, and title it <code>startup</code>.</p>
+<p>You then need to select from the <code>core</code> folder the traffic scenario that fits your needs. You however need to title this program as <code>trafficlight.lua</code> on your traffic light computer in Minecraft.</p>
+<blockquote>
+<p>For example, the program <code>tl-2plus1</code> should be named <code>trafficlight.lua</code> on your traffic light computer in Minecraft.</p>
+</blockquote>
+<p>The file names for the trafficlight programs are build up as followed, so that you can identify which program you need.</p>
+<ul>
+<li>The numbers indicate how many traffic lights</li>
+</ul>
 
