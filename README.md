@@ -104,8 +104,23 @@ A variation on the standard sequence, in which before a red light turns green, i
 <blockquote>
 <p>For example, the program <code>tl-2plus1</code> should be named <code>trafficlight.lua</code> on your traffic light computer in Minecraft.</p>
 </blockquote>
-<p>The file names for the trafficlight programs are build up as followed, so that you can identify which program you need.</p>
+<p>The file names for the traffic light programs are constructed as followed, so that you can identify which program you need.</p>
 <ul>
-<li>The numbers indicate how many traffic lights</li>
+<li>The <code>tl</code> at the beginning indicates that the program is for the traffic lights for vehicles.</li>
+<li>The numbers indicate how many traffic lights are per section. A section is a (group of) traffic light(s) that displays the same status.</li>
+<li>The <code>plus</code> indicates an additional section.</li>
 </ul>
+<blockquote>
+<p>For example, the program <code>tl-3plus1</code> is a traffic light program with two sections: the first section with three traffic lights, and a second section with one traffic light.</p>
+<p>One possible set up with this file is for a three lane, one-way street, with a single lane side street, as shown below:<br>
+[insert image]</p>
+<p>Another possible set up is for a two-plus-one lane street, with one single-lane side street, as shown below.<br>
+[insert image]</p>
+<p>In this example, the lights on the main street are all green at the same time - the two traffic lights on the left as well as the one on the right side of the main street. When the side street has green, all main street traffic lights are red.</p>
+</blockquote>
+<blockquote>
+<p>Another example is the <code>tl-2plus1plus1</code> file. This is a traffic light program with three sections: one main street with two traffic lights that are on opposite sides, and two side streets that do not have green at the same time.<br>
+[insert image]<br>
+Note: if you want the side streets to have green at the same time, choose the <code>tl-2plus2</code> file.</p>
+</blockquote>
 
