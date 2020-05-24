@@ -1,8 +1,17 @@
-term.clear()
-term.setCursorPos(16,1)
-print("MutsFM Elevator Inc.")
-term.setCursorPos(1,4)
-print("Lowest Floor Controller Operating")
+local redstoneSide = "back" 		-- Adjust if the controller computer is not placed with its back against the elevator track (or the block in between it and the elevator track)
 
-redstone.setOutput("back", true)
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
+
+term.clear()
+term.setTextColor(colors.red)
+term.setCursorPos(16,1)
+print("ArchiTech Elevator Inc.")
+term.setTextColor(colors.white)
+term.setCursorPos(1,3)
+print("Floor Controller OS Operating.")
+print("Operating for: Lowest Floor")
+
+redstone.setOutput(redstoneSide, true)
 

@@ -262,6 +262,23 @@ In addition, this file will replicate a computer booting - which sole purpose is
 Upon receiving a "cart request" rednet message, this programme applies a redstone to the cart dispenser, making it dispense one cart, which is then propelled by the redstone powered booster track towards the elevator tracks.
 
 ---
+
+## Floor Plan
+
+To be added
+
+### Building Name Position Table
+
+The following table is a cheat sheet to see which position should be entered, in order for the building name to be centered. Character number includes spaces. Maximum number of characters is 18, due to the size of two monitors.
+
+Amount of Characters | buildingNamePos
+|:---:|:---:|
+| 12 | 5  |
+| 15 | 3 |
+
+
+
+---
 Github repository files
 =====
 
