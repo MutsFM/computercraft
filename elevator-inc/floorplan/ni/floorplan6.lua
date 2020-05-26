@@ -1,3 +1,12 @@
+-- ArchiTech Elevators Inc.
+-- Floor Plan Software
+-- Version for 6 floors
+-- Non-Interactive
+
+-- ********************
+-- Adjustable variables
+-- ********************
+
 local monitorSide = "right"				-- Replace "right" with side to which the monitor is connected.
 
 -- Floorplan Information
@@ -8,27 +17,27 @@ local subtitle = "Floor Plan"
 local subtitlePos = 5 				-- See table in readme for positions.
 local indicationPos = 2				-- 1 for max 18 characters, 2 for max 17 characters, 3 for max 16 characters - Including spaces
 
-local nameGroundFloor = "Reception & Exit" 
-local nameFloor1 = "Offices"
-local nameFloor2 = "Showrooms"
-local nameFloor3 = "Showrooms"
-local nameFloor4 = "Meeting Rooms"
-local nameFloor5 = "Offices"
-local nameFloor6 = "Executive Offices"
+local indicationGroundFloor = "Reception & Exit" 
+local indicationFloor1 = "Offices"
+local indicationFloor2 = "Showrooms"
+local indicationFloor3 = "Showrooms"
+local indicationFloor4 = "Meeting Rooms"
+local indicationFloor5 = "Offices"
+local indicationFloor6 = "Executive Offices"
 
 -- Color Customisation Options
 
-local sbckc = colors.white				-- Screen background color. Replace 'white' with another color code.
+local fpsbckc = colors.white			-- Screen background color. Replace 'white' with another color code.
 local tttxtc = colors.black				-- Color of the title at the top. Replace 'black' with another color code. 
 local ttbckc = colors.white				-- Color of the background for the title at the top. Replace 'white' with another color code.
 local tstxtc = colors.black				-- Color of the subtitle at the top. Replace 'black' with another color code.
 local tsbckc = colors.white				-- Color of the background for the subtitle at the top. Replace 'white' with another color code.
 local bbckc = colors.white				-- Color of the background for the text at the bottom. Replace 'white' with another color code.
 local btxtc = colors.black				-- Color of the text on the botom. Replace 'black' with another color code.
-local fbckc = colors.black				-- Color of the background of the floors. Replace 'black' with another color code.
-local ftxtc = colors.white				-- Color of the text of the floors. Replace 'white' with another color code.
-local ibckc = colors.white				-- Color of the background of the floors' explanation. Replace 'white' with another color code.
-local itxtc = colors.black				-- Color of the text of the floors' explanation. Replace 'black' with another color code.
+local fpfbckc = colors.black			-- Color of the background of the floors. Replace 'black' with another color code.
+local fpftxtc = colors.white			-- Color of the text of the floors. Replace 'white' with another color code.
+local ibckc = colors.white				-- Color of the background of the floors' indication. Replace 'white' with another color code.
+local itxtc = colors.black				-- Color of the text of the floors' indication. Replace 'black' with another color code.
 local mbckc = colors.black				-- Color of the background of the menu buttons. Replace 'black' with another color code.
 local mtxtc = colors.white				-- Color of the text of the menu buttons. Replace 'white' with another color code.
 
@@ -54,7 +63,7 @@ print("Version for 6 floors, non-interactive")
 function topScreen()
 
 	-- Background Color
-	mon.setBackgroundColor(sbckc)
+	mon.setBackgroundColor(fpsbckc)
 	mon.clear()
 	
 	-- Title
@@ -76,44 +85,44 @@ function mainScreen()
 	topScreen()
 	
 	-- Ground Floor
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,5)
 	mon.write("Ground Floor")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,6)
-	mon.write(nameGroundFloor)
+	mon.write(indicationGroundFloor)
 	
 	-- Floor 1
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,8)
 	mon.write("Floor 1")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,9)
-	mon.write(nameFloor1)
+	mon.write(indicationFloor1)
 	
 	-- Floor 2	
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,11)
 	mon.write("Floor 2")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,12)
-	mon.write(nameFloor2)
+	mon.write(indicationFloor2)
 	
 	-- Floor 3	
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,14)
 	mon.write("Floor 3")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,15)
-	mon.write(nameFloor3)
+	mon.write(indicationFloor3)
 	
 	-- Menu Button to Floors 4-6
 	mon.setBackgroundColor(mbckc)
@@ -142,34 +151,34 @@ function secondMainScreen()
 	topScreen()
 	
 	-- Floor 4
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,5)
 	mon.write("Floor 4")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,6)
-	mon.write(nameFloor4)
+	mon.write(indicationFloor4)
 	
 	-- Floor 5
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,8)
 	mon.write("Floor 5")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,9)
-	mon.write(nameFloor5)
+	mon.write(indicationFloor5)
 	
 	-- Floor 6	
-	mon.setBackgroundColor(fbckc)
-	mon.setTextColor(ftxtc)
+	mon.setBackgroundColor(fpfbckc)
+	mon.setTextColor(fpftxtc)
 	mon.setCursorPos(1,11)
 	mon.write("Floor 6")
 	mon.setBackgroundColor(ibckc)
 	mon.setTextColor(itxtc)
 	mon.setCursorPos(indicationPos,12)
-	mon.write(nameFloor6)
+	mon.write(indicationFloor6)
 	
 	-- Menu Button to mainScreen
 	mon.setBackgroundColor(mbckc)
