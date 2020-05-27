@@ -1,3 +1,6 @@
+-- ArchiTech Elevators Inc.
+-- Cart Dispenser Software
+
 local redstoneSide = "left"		-- Adjust based on position of redstone
 
 -- ******************************

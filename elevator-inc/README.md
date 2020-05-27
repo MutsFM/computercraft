@@ -7,14 +7,15 @@ ArchiTech Elevator Inc. requires the Computer Craft (CC:Tweaked) and Railcraft m
 **This repository for ArchiTech Elevator Inc. includes controller, touchscreen and floor plan programmes that cover a limited amount of scenarios (said differently, only cover a limited number of different amounts of floors). Should your desired scenario not be covered by the files in this repository, feel free to open an issue with the description of your desired scenario, and I would be happy to add the appropriate files. You can of course also download the files on your computer (either IRL or in Minecraft) and adjust the files from this repository to suit your needs. In such case, feel free to also create a pull request with your new files, so that the library of covered scenarios by ArchiTech Elevator Inc. can be expanded.**
 
 # Table of Contents
-- [Important](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#important)
+- [Important #1 - File Titles](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#important-1---file-titles)
+- [Important #2 - Numbering](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#important-2---numbering)
 - [How the Elevator System Works](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#how-the-elevator-system-works)
 - [Quick Start Guide for Setting Up the Software](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#quick-start-guide-for-setting-up-the-software)
 - [Invidual Files](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#individual-files)
   - [Controller Computer](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#controller-computer-1)
   - [Touchscreen Computer](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#touchscreen-computer-1)
   - [Cart Dispenser Computer](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#cart-dispenser-1)
-  - Floor Plan
+  - [Floor Plan](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#floor-plan-1)
 - [Github Repository Files](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#github-repository-files)
 
 IMPORTANT #1 - File Titles
@@ -68,9 +69,6 @@ The cart dispenser feature is however optional. Should you not wish to have such
 **NOTE:** The cart dispenser system as pictured can only supply three minecarts, due to the limited storage capacity of the cart dispenser. A cart dispenser system with more capacity is currently in development.
 
 #### Floor Plan
-
-** ADD IMAGE**
-
 The floor plan can be used to provide players with information, displayed on (touch)screens, on what they can find on each floor. The floor plan programme is available for standalone monitors as well as a baked-in feature in touchscreen floor selector programmes. 
 
 The floor plans come in two varieties: 
@@ -141,9 +139,9 @@ The explanations below are ordered by the type of computer that uses them.
 - [Cart Dispenser Computer](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#cart-dispenser-1)
   - [startup-d](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#startup-d)
   - [cartdispenser](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#cartdispenser)
-- Floor Plan
-  - startup-fp
-  - floorplan
+- [Floor Plan](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#floor-plan-1)
+  - [startup-fp](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#startup-fp)
+  - [floorplan](https://github.com/MutsFM/computercraft/tree/master/elevator-inc#floorplan)
 
 ---
 ## Controller Computer

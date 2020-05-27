@@ -1,3 +1,8 @@
+-- ArchiTech Elevators Inc.
+-- Touchscreen Software
+-- Version: Groundfloor + 20 floors
+-- Design: Numpad
+
 local floor = "Floor1" 				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Groundfloor should be added as "Floor0".
 monitorSide = "right"				-- Replace "right" with side to which the monitor is connected.
 

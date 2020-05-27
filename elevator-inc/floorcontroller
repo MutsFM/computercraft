@@ -1,3 +1,8 @@
+-- ArchiTech Elevators Inc.
+-- Floor Controler Software
+-- Regular Version
+
+
 local floor = "Floor1"	-- Replace "Floor1" with the corresponding floor number, e.g. "Floor 6"
 local redstoneSide = "back" 		-- Adjust if the controller computer is not placed with its back against the elevator track (or the block in between it and the elevator track)
 

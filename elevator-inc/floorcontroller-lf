@@ -1,3 +1,8 @@
+-- ArchiTech Elevators Inc.
+-- Floor Controler Software
+-- Lowest Floor Version
+
+
 local redstoneSide = "back" 		-- Adjust if the controller computer is not placed with its back against the elevator track (or the block in between it and the elevator track)
 
 -- ******************************
