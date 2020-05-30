@@ -1,23 +1,15 @@
--- ArchiTech Elevators Inc.
--- TouchScreen Software
--- Start-up Software
-
-local modemSide = "left"		-- Enter the side to which the modem is placed
-
--- ******************************
--- CODE BELOW IS NOT ADJUSTABLE!!
--- ******************************
+modemSide = "back"
 
 term.clear()
 term.setTextColor(colors.red)
 term.setCursorPos(19,1)
 print("ArchiTech Inc.")
 term.setTextColor(colors.white)
-term.setCursorPos(17,2)
-print("Elevator Solutions")
+term.setCursorPos(14,2)
+print("Traffic Light Solutions")
 term.setCursorPos(1,5)
-print("Software: TouchScreen OS")
-print("Version : 1.1")
+print("Software: Pedestrian ControllerOS")
+print("Version : 1.0")
 term.setCursorPos(1,9)
 write("Loading Software.")
 sleep(.3)
@@ -49,4 +41,5 @@ write("Starting Application.")
 sleep(.3)
 write(".")
 sleep(.3)
-shell.run("touchscreen")
+shell.run("pedestrianLightController")
+

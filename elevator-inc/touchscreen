@@ -1,4 +1,10 @@
-floor = "Floor1" 				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Groundfloor should be added as "Floor0".
+-- ArchiTech Elevators Inc.
+-- Touchscreen Software
+-- Version: Groundfloor + 7 floors
+-- Design: Original
+
+local floor = "Floor1" 				-- Replace "Floor1" with corresponding floor number, e.g. "Floor6". Groundfloor should be added as "Floor0".
+monitorSide = "right"				-- Replace "right" with side to which the monitor is connected.
 
 -- Color Customisation Options
 	-- Floor Selection Screen
@@ -12,14 +18,21 @@ txtc = colors.white				-- Color of the text of the other floors. Replace 'white'
 csbckc = colors.black				-- Screen background color. Replace 'black' with another color code.
 cstextc = colors.white				-- Color of the text on the selection confirmation screen. Replace 'white' with another color code.
 
--- Code
-mon = peripheral.wrap("right")
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
+
+mon = peripheral.wrap(monitorSide)
 
 term.clear()
+term.setTextColor(colors.red)
 term.setCursorPos(16,1)
-print("MutsFM Elevator Inc.")
-term.setCursorPos(1,4)
-print("Touchscreen Operating")
+print("ArchiTech Elevator Inc.")
+term.setTextColor(colors.white)
+term.setCursorPos(1,3)
+print("Touchscreen Operating Software")
+print("Version: 7 floors in original design")
+print("Operating for: "..floor)
 
 function screen()
 while true do
@@ -130,10 +143,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -146,10 +159,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
       end
     
@@ -162,10 +175,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -178,10 +191,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -194,10 +207,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -210,10 +223,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -226,10 +239,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -242,10 +255,10 @@ function listen()
         mon.write("Selected")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
@@ -257,10 +270,10 @@ function listen()
         mon.write("Cart Requested")
 		mon.setCursorPos(5,17)
 		mon.write("Powered By:")
-		mon.setCursorPos(3,18)
-		mon.write("MutsFM Elevator")
+		mon.setCursorPos(6,18)
+		mon.write("ArchiTech")
 		mon.setCursorPos(4,19)
-		mon.write("Incorporated")
+		mon.write("Elevator Inc.")
         sleep(3)
         end
     
