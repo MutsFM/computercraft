@@ -1,16 +1,29 @@
-floor = "Floor1"	-- Replace "Floor1" with the corresponding floor number, e.g. "Floor 6"
+-- ArchiTech Elevators Inc.
+-- Floor Controler Software
+-- Regular Version
+
+
+local floor = "Floor1"	-- Replace "Floor1" with the corresponding floor number, e.g. "Floor 6"
+local redstoneSide = "back" 		-- Adjust if the controller computer is not placed with its back against the elevator track (or the block in between it and the elevator track)
+
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
 
 term.clear()
+term.setTextColor(colors.red)
 term.setCursorPos(16,1)
-print("MutsFM Elevator Inc.")
-term.setCursorPos(1,4)
-print("Floor Controller Operating")
+print("ArchiTech Elevator Inc.")
+term.setTextColor(colors.white)
+term.setCursorPos(1,3)
+print("Floor Controller OS Operating.")
+print("Operating for: "..floor)
 
 function receive()
     senderID, message = rednet.receive()
     if message==(floor)
     	then   
-            redstone.setOutput("back", true)
+            redstone.setOutput(redstoneSide, true)
 			print("Floor Activated")
         end
     if message==("Cart")
@@ -19,7 +32,7 @@ function receive()
         end
     if message~=(floor or "Cart")
         then
-            redstone.setOutput("back", false)
+            redstone.setOutput(redstoneSide, false)
 			print("Floor Not Activated")
         end
     restart()

@@ -1,2 +1,5 @@
+-- ArchiTech Elevators Inc.
+-- Floor Deactivation Software
+
 redstone.setOutput("back", false)
 
