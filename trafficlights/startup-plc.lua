@@ -1,4 +1,12 @@
-modemSide = "back"
+-- ArchiTech Traffic Lights
+-- Pedestrian ControllerOS
+-- Start-up Software
+
+modemSide = "back"						-- Enter the side to which the modem is placed
+
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
 
 term.clear()
 term.setTextColor(colors.red)
@@ -41,5 +49,5 @@ write("Starting Application.")
 sleep(.3)
 write(".")
 sleep(.3)
-shell.run("pedestrianLightController")
+shell.run("plc")
 

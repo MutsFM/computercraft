@@ -1,3 +1,11 @@
+-- ArchiTech Traffic Lights
+-- Pedestrian SoundOS
+-- Start-up Software
+
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
+
 term.clear()
 term.setTextColor(colors.red)
 term.setCursorPos(19,1)

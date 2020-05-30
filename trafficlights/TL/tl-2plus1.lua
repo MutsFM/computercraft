@@ -3,13 +3,14 @@ mon1 = peripheral.wrap('monitor_5') -- traffic light cars for through way
 mon2 = peripheral.wrap('monitor_8') -- traffic light cars for through way
 mon3 = peripheral.wrap('monitor_4') -- traffic light cars for side street
 
-pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
+modemSide = "back"
 
 -- traffic light sequence mode
 -- enter 1 for standard, enter 2 for British/German, enter 3 for warning, enter 4 for stop light
 -- see readme for more information
 local sequence = 1
 
+-- traffic light shape
 -- traffic light shape
 -- enter 1 for block
 -- enter 2 for arrow left
@@ -490,34 +491,6 @@ function standardSequence()
 	reset(mon3)
 	redLight(mon3)
 	sleep(timeforturnred)
-	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				sleep(timeforturnred)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			restart()
-		
-		end
-	end
 
 	restart()
 
@@ -553,63 +526,20 @@ function germanSequence()
 	reset(mon3)
 	greenLight(mon3)
 	sleep(timeforgreen2)
-	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			yellowLight(mon3)
-			sleep(timeforyellow)
 
-			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
-			sleep(timeforturnred)
-	
-			-- Tell pedComputer pedestrians can go
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				yellowLight(mon1)
-				yellowLight(mon2)
-				sleep(timeforyellow)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			yellowLight(mon1)
-			yellowLight(mon2)
-			yellowLight(mon3)
-			sleep(timeforyellow)
+	-- Side street turns yellow // through street remains red
+	reset(mon3)
+	yellowLight(mon1)
+	yellowLight(mon2)
+	yellowLight(mon3)
+	sleep(timeforyellow)
 
-			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
-			sleep(timeforturnred)
-
-			restart()
-		
-		end
-	end
+	-- Side street gets set to red
+	reset(mon3)
+	redLight(mon3)
+	sleep(timeforturnred)
 
 	restart()
-
-	
 
 end
 
@@ -664,35 +594,10 @@ function restart()
 	end
 end
 
-function printInfo()
-
-	term.clear()
-	term.setTextColor(colors.red)
-	term.setCursorPos(19,1)
-	print("ArchiTech Inc.")
-	term.setTextColor(colors.white)
-	term.setCursorPos(14,2)
-	print("Traffic Light Solutions")
-	term.setCursorPos(15,3)
-	print("Traffic ControllerOS")
-	
-	term.setCursorPos(1,5)
-	if sequence == 1 then print("Sequence: Standard") end
-	if sequence == 2 then print("Sequence: German/UK") end	
-	if sequence == 3 then print("Sequence: Warning Light") end	
-	if sequence == 4 then print("Sequence: StopLight") end
-	
-	term.setCursorPos(1,6)
-	if middle == 1 then print("Color   : Orange") end
-	if middle == 2 then print("Color   : Yellow") end	
-
-end
-
 function start()
 	
-	printInfo()
-	
-	
+	rednet.open(modemSide)
+
 	if middle == 1 then
 		middleColor = colors.orange
 	end

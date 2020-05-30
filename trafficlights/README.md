@@ -17,8 +17,9 @@ For example, the `startup-ps` needs to be titled as followed on your computer in
 # Important #2 - File Naming Convention
 The file names for the traffic light programs are constructed as followed, so that you can identify which program you need.
 
-* The `tl` at the beginning indicates that the program is for the traffic lights for vehicles. **ADD PEDESTRIAN**
-* The numbers indicate how many traffic lights are per section. A section is a (group of) traffic light(s) that displays the same status.
+### Traffic Lights for Vehicles
+* The `tl` at the beginning indicates that the program is for the traffic lights for vehicles.
+* The numbers indicate how many traffic lights are included per section. A section is a (group of) traffic light(s) that displays the same status.
 * The `plus` indicates an additional section.
 
 > For example, the program `tl-3plus1` is a traffic light program with two sections: the first section with three traffic lights, and a second section with one traffic light.
@@ -35,6 +36,20 @@ The file names for the traffic light programs are constructed as followed, so th
 > [insert image]
 >
 > **Note:** if you want the side streets to have green at the same time, choose the `tl-2plus2` file.
+
+### Pedestrian Lights
+
+* The `plc` at the beginning indicates that the program is for pedestrian lights.
+* The numbers indicate the amount of pedestrian lights supported by the file.
+
+> For example, the `plc-2` file is a pedestrian light programme supporting 2 pedestrian lights.
+>
+> **Note:** Pedestrian lights all have green at the same time, while all traffic lights have red during that time.
+
+### Traffic Lights for Vehicles and Pedestrians combined
+
+To add.
+
 
 # ArchiTech Traffic Lights Overview
 ArchiTech Traffic Lights provides traffic lights for several main use cases:
@@ -72,20 +87,98 @@ ArchiTech Traffic Lights cover the following use cases:
 
 | **Use Case** | **Folder** | **Description** |
 |:---:|:---:|:---:|
-| *Traffic lights for vehicles* | Vehicle | Set of traffic lights for vehicles only. |
+| *Traffic lights for vehicles* | TL | Set of traffic lights for vehicles only. |
 | *Traffic lights for vehicles and pedestrians* | WPL | Expands on the vehicles set with traffic lights for pedestrians. The pedestrian traffic lights are part of the sequence. |
 | *Traffic lights for vehicles and pedestrians, with pedestrian detection* | WPD | Expands the WPL set by adding pedestrian detection. The pedestrian traffic lights only become part of the sequence once the player requests a green light for pedestrians. |
 | *Traffic lights for vehicles and pedestrians, with pedestrian sounds* | WPLS | Expands the WPL set by adding an audible indication to pedestrians. It plays an alternating sequence of sounds, depending on whether the pedestrian traffic light is green, yellow/orange, or red. The pedestrian traffic lights are part of the sequence. |
 | *Traffic lights for vehicles and pedestrians, with pedestrian detection and sounds* | WPDS | Expands the WPD set by adding an audible indication to pedestrians. It plays an alternating sequence of sounds, depending on whether the pedestrian traffic light is green, yellow/orange, or red. The pedestrian traffic lights only become part of the sequence once the player requests a green light for pedestrians. The sounds will only start to play once the player has made a request. |
 
-## Traffic lights for vehicles
+## Traffic Lights for Vehicles
 
 This use case only requires you to place **one** traffic light computer and the monitors necessary for the desired amount of traffic lights. Note that one traffic light consist of 2 monitors placed on top of each other. You then need to connect the traffic lights to the computer using network cables. To make the cables going into the ground more visually pleasing, you can use a modem block (note: not the modem object itself, but the block!) as floor tile.
 
 You need to place the **startup-tl** file from the main traffic lights folder on your computer, and title it `startup`.
 
-You then need to select the traffic scenario that fits your needs from the `core` folder. You however need to title this program as `trafficlight` on your traffic light computer in Minecraft.
+You then need to select the traffic scenario that fits your needs from the `TL` folder. You however need to title this program as `trafficlight` on your traffic light computer in Minecraft.
 
 > For example, the program `tl-2plus1` should be named `trafficlight` on your traffic light computer in Minecraft.
 
 See the 'File Naming Convention' near the top of this readme to identify which file suits your traffic scenario.
+
+For more information on the trafficlight programme, see its  detailed section.
+
+*See if more to add*
+
+## Traffic Lights for Vehicles and Pedestrians
+
+This use case requires you to place only **one** computer: a traffic light computer. You also need to install the monitors for the desired amount of traffic lights and pedestrian lights. 
+
+Note that one traffic light consist of 2 monitors placed on top of each other, and that one pedestrian light consist of 1 monitor. 
+
+You then need to connect the traffic lights, pedestrian lights and the traffic light computer using network cables - make sure all are on the same wired network. To make the cables going into the ground more visually pleasing, you can use a modem block (note: not the modem object itself, but the block!) as floor tile. You can branch of pedestrian lights from the 'pole' that is created by the traffic light.
+
+You need to place the **startup-tl** file from the main traffic lights folder on your computer, and title it `startup`.
+
+You then need to select the traffic scenario that fits your needs from the `WPL` folder. You however need to title this program as `trafficlight` on your traffic light computer in Minecraft.
+
+> TOO ADJUST For example, the program `tl-2plus1` should be named `trafficlight` on your traffic light computer in Minecraft.
+
+## Traffic Lights for Vehicles and Pedestrians, with Pedestrian Detection
+
+This use case requires you to place **two** computers: a traffic light computer and a pedestrian light computer. You also need to install the monitors for the desired amount of traffic lights and pedestrian lights. 
+
+Note that one traffic light consist of 2 monitors placed on top of each other, and that one pedestrian light consist of 1 monitor. 
+
+You then need to connect the traffic lights, pedestrian lights and both computers using network cables - make sure all are on the same wired network. To make the cables going into the ground more visually pleasing, you can use a modem block (note: not the modem object itself, but the block!) as floor tile. You can branch of pedestrian lights from the 'pole' that is created by the traffic light.
+
+You need to make sure the pressure plates are connected via redstone to the side of the pedestrian light computer. (If not on the right side, make sure to adjust the file.)
+
+You need to place the **startup-tl** file from the main traffic lights folder on your traffic light computer, and title it `startup`.
+
+You need to place the **startup-plc** file from the main traffic lights folder on your pedestrian light computer, and title it `startup`.
+
+You then need to select the files for the traffic scenario that fits your needs from the `WPD` folder. 
+
+You however need to title the traffic light program as `trafficlight` on your traffic light computer in Minecraft.
+
+> For example, the program `tl-2plus2.lua` should be named `trafficlight` on your traffic light computer in Minecraft.
+
+You also need to title the pedestrian light program as `plc` on your pedestrian light computer. 
+
+> For example, `plc-2.lua` should be named `plc` on your pedestrian light computer in Minecraft.
+
+## Traffic Lights for Vehicles and Pedestrians, with Pedestrian Sounds
+
+To add.
+
+## Traffic Lights for Vehicles and Pedestrians, with Pedestrian Detection and Sounds
+
+This use case requires you to place **three** computers: a traffic light computer, a pedestrian light computer and a pedestrian sound computer. You also need to install the monitors for the desired amount of traffic lights and pedestrian lights. 
+
+You also need to place one speaker next to the pedestrian sound computer, and it is advised to place these right underneath the asphalt in the middle of the junction.
+
+Note that one traffic light consist of 2 monitors placed on top of each other, and that one pedestrian light consist of 1 monitor. 
+
+You then need to connect the traffic lights, pedestrian lights, the traffic light and pedestrian light computers using network cables - make sure all are on the same wired network. To make the cables going into the ground more visually pleasing, you can use a modem block (note: not the modem object itself, but the block!) as floor tile. You can branch of pedestrian lights from the 'pole' that is created by the traffic light.
+
+You need to make sure the pressure plates are connected via redstone to the side of the pedestrian light computer. (If not on the right side, make sure to adjust the file.)
+
+You need to make sure to connect the pedestrian light computer to the pedestrian sound computer using a bundled wire. **The pedestrian sound computer should not be connected to the wired rednet network!** Make sure to connect the bundled wire is connected to the right side of the pedestrian sound computer and the speaker on its left - or otherwise adjust the file accordingly.
+
+You need to place the **startup-tl** file from the main traffic lights folder on your traffic light computer, and title it `startup`.
+
+You need to place the **startup-plc** file from the main traffic lights folder on your pedestrian light computer, and title it `startup`.
+
+You need to place the **startup-ps** file from the main traffic lights folder on your pedestrian sound computer, and title it `startup`.
+
+You then need to select the files for the traffic scenario that fits your needs from the `WPD` folder. 
+
+You however need to title the traffic light program as `trafficlight` on your traffic light computer in Minecraft.
+
+> For example, the program `tl-2plus2.lua` should be named `trafficlight` on your traffic light computer in Minecraft.
+
+You also need to title the pedestrian light program as `plc` on your pedestrian light computer. 
+
+> For example, `plc-2.lua` should be named `plc` on your pedestrian light computer in Minecraft.
+
+The pedestrian sound program should be named `pedestrianSound` on your pedestrian sound computer in Minecraft.

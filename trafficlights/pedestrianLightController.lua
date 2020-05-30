@@ -1,27 +1,29 @@
+-- ArchiTech Traffic Lights
+-- Pedestrian ControllerOS
+-- For 2 Pedestrian Lights
+
 -- adjust figure below to set to correct pedestrian lights
-ped1 = peripheral.wrap('monitor_6')
-ped2 = peripheral.wrap('monitor_7')
+local ped1 = peripheral.wrap('monitor_6')
+local ped2 = peripheral.wrap('monitor_7')
 
-redstoneInput = "right"			-- redstone input from pressure plates
-bundleSide = "left"				-- side to which the redstone bundled wires are attached
-tlComputer = 24 				-- enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
+local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
+local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
+local tlComputer = 24 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
 
--- sequence selection
--- enter 1 for steady; enter 2 for blinking bottom
+-- Sequence Selection
+-- Enter 1 for steady
+-- Enter 2 for blinking bottom on yellow/orange
 sequence = 2
 
--- display customisation
-
+-- Display Customisation
 local topLightColor = colors.red
 local bottomLightColor = colors.green
 local bottomWaitColor = colors.white
 
-
--- adjust figures below to set how long each light is on
+-- Timing Customisation
+-- adjust figures below to set how long each light is on.
 local timeforgreen = 5			-- time for how long the bottom light is on
 local timeforyellow = 5			-- not yet used
-
-
 
 -- ******************************
 -- CODE BELOW IS NOT ADJUSTABLE!!
@@ -30,12 +32,14 @@ local timeforyellow = 5			-- not yet used
 local pedRequest = false
 local flashspeed = 0.5
 
--- controller function
+-- Controller Function
 
 function listen()
 
+    print("waiting for event")
     event, senderID, message = os.pullEvent()
     
+    print("received event")
 	
     if event == "rednet_message" then
 		print(senderID)
@@ -92,11 +96,6 @@ function listen()
 	listen()
 
 end
-
--- coordination functions
-
--- to add
-
 
 -- pedestrian traffic light sequences
 
@@ -197,28 +196,8 @@ function startSequence()
 
 end
 
-function printInfo()
-
-	term.clear()
-	term.setTextColor(colors.red)
-	term.setCursorPos(19,1)
-	print("ArchiTech Inc.")
-	term.setTextColor(colors.white)
-	term.setCursorPos(14,2)
-	print("Traffic Light Solutions")
-	term.setCursorPos(15,3)
-	print("Pedestrian ControllerOS")
-	
-	term.setCursorPos(1,5)
-	if sequence == 1 then print("Sequence: Standard") end
-	if sequence == 2 then print("Sequence: Blink") end
-	
-
-end
-
 function start()
 	
-	printInfo()
 	redstone.setBundledOutput(bundleSide, 0)
 	
 	reset(ped1)
