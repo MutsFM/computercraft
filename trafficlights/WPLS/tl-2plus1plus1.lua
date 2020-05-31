@@ -1,14 +1,14 @@
 -- ArchiTech Traffic Lights
 -- Traffic ControllerOS
--- For 2+2 Traffic Lights
+-- For 2+1+1 Traffic Lights
 
 -- Adjust figure below to set to correct monitor
 local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
 local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
-local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
-local mon4 = peripheral.wrap('monitor_12') -- traffic light cars for side street
+local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for first side street
+local mon4 = peripheral.wrap('monitor_12') -- traffic light cars for second side street
 
-local pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
+local pedComputer = 1 -- Enter ComputerID for the pedestrianLightController computer
 
 -- Traffic Light Sequence Mode
 -- Enter 1 for standard
@@ -36,7 +36,8 @@ local middle = 1
 -- Time Customisation
 -- Adjust figures below to set how long each light is on
 local timeforgreen1 = 10		-- set time for how long the through street has green
-local timeforgreen2 = 5			-- set time for how long the side street had green
+local timeforgreen2 = 5			-- set time for how long the first side street has green
+local timeforgreen3 = 5			-- set time for how long the second side street has green
 local timeforyellow = 3			-- set time for duration yellow light
 local timeforturnred = 1		-- set time for pause in between having turned red on one light, and turning green on the other
 local warninginterval = 1		-- set time for how quickly the warning and stop lights flashes
@@ -310,7 +311,7 @@ end
 
 function standardSequence()
 
-	-- Through Street has Green	// Side Street has Red
+	-- Through Street has Green	// First and Second side Streets have Red
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
@@ -321,7 +322,7 @@ function standardSequence()
 	redLight(mon4)
 	sleep(timeforgreen1)
 
-	-- Through Street turns Yellow // Side Street Still Red
+	-- Through Street turns Yellow // First and Second Side Streets Still Red
 	reset(mon1)
 	reset(mon2)
 	yellowLight(mon1)
@@ -335,24 +336,33 @@ function standardSequence()
 	redLight(mon2)
 	sleep(timeforturnred)
 
-	--Side street gets set to green
+	-- First Side street gets set to green
 	reset(mon3)
-	reset(mon4)
 	greenLight(mon3)
-	greenLight(mon4)
 	sleep(timeforgreen2)
 
-	-- Side street turns yellow // through street remains red
+	-- First Side street turns yellow // through street and second side street remain red
 	reset(mon3)
-	reset(mon4)
 	yellowLight(mon3)
+	sleep(timeforyellow)
+
+	-- First Side street gets set to red
+	reset(mon3)
+	redLight(mon3)
+	sleep(timeforturnred)
+	
+	-- Second Side street gets set to green
+	reset(mon4)
+	greenLight(mon4)
+	sleep(timeforgreen3)
+
+	-- Second Side street turns yellow // through street and first side street remain red
+	reset(mon4)
 	yellowLight(mon4)
 	sleep(timeforyellow)
 
-	-- Side street gets set to red
-	reset(mon3)
+	-- Second Side street gets set to red
 	reset(mon4)
-	redLight(mon3)
 	redLight(mon4)
 	sleep(timeforturnred)
 	
@@ -390,7 +400,7 @@ end
 
 function germanSequence()
 
-	-- Through Street has Green	// Side Street has Red
+	-- Through Street has Green	// First and Second Side Streets has Red
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
@@ -401,13 +411,12 @@ function germanSequence()
 	redLight(mon4)
 	sleep(timeforgreen1)
 
-	-- Through Street turns Yellow // Side Street Still Red
+	-- Through Street turns Yellow // First Side Street Still Red, but adds yellow // Second side street still red
 	reset(mon1)
 	reset(mon2)
 	yellowLight(mon1)
 	yellowLight(mon2)
 	yellowLight(mon3)
-	yellowLight(mon4)
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
@@ -417,12 +426,26 @@ function germanSequence()
 	redLight(mon2)
 	sleep(timeforturnred)
 
-	--Side street gets set to green
+	-- First Side street gets set to green
 	reset(mon3)
-	reset(mon4)
 	greenLight(mon3)
-	greenLight(mon4)
 	sleep(timeforgreen2)
+	
+	-- First Side Street turns to Yellow // Second Side Street still red, but adds yellow // Through street remains red
+	reset(mon3)
+	yellowLight(mon3)
+	yellowLight(mon4)
+	sleep(timeforyellow)
+	
+	-- First Side Street turn to red
+	reset(mon3)
+	redLight(mon3)
+	sleep(timeforturnred)
+	
+	-- Second Side street gets set to green
+	reset(mon4)
+	greenLight(mon4)
+	sleep(timeforgreen3)
 	
 	-- Ask for Pedestrian Status
 	rednet.send(pedComputer, "Pedestrian Detected?")
@@ -433,17 +456,13 @@ function germanSequence()
 	
 		if message == "Yes" then
 		
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
+			-- Second Side street turns yellow // through street and first side street remain red
 			reset(mon4)
-			yellowLight(mon3)
 			yellowLight(mon4)
 			sleep(timeforyellow)
 
-			-- Side street gets set to red
-			reset(mon3)
+			-- Second side street gets set to red
 			reset(mon4)
-			redLight(mon3)
 			redLight(mon4)
 			sleep(timeforturnred)
 	
@@ -465,19 +484,16 @@ function germanSequence()
 		
 		if message == "No" then
 			
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			reset(mon4)
+			-- Second Side street turns yellow // through street remains red but adds yellow // first side street remains red
+			
 			yellowLight(mon1)
 			yellowLight(mon2)
-			yellowLight(mon3)
+			reset(mon4)
 			yellowLight(mon4)
 			sleep(timeforyellow)
 
-			-- Side street gets set to red
-			reset(mon3)
+			-- Second side street gets set to red
 			reset(mon4)
-			redLight(mon3)
 			redLight(mon4)
 			sleep(timeforturnred)
 
@@ -568,7 +584,7 @@ function printInfo()
 	if middle == 1 then print("Color   : Orange") end
 	if middle == 2 then print("Color   : Yellow") end	
 	
-	print("Setup	: 2 + 2")
+	print("Setup	: 2 + 1 + 1")
 
 end
 

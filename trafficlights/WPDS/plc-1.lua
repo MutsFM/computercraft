@@ -2,11 +2,10 @@
 -- Pedestrian ControllerOS
 -- With Pedestrain Detection 
 -- With Pedestrian Sound
--- For 2 Pedestrian Lights
+-- For 1 Pedestrian Light
 
 -- adjust figure below to set to correct pedestrian lights
 local ped1 = peripheral.wrap('monitor_1')
-local ped2 = peripheral.wrap('monitor_2')
 
 local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
 local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
@@ -46,7 +45,7 @@ term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
 print("With Pedestrian Detection")
 print("With Pedestrian Sound")
-print("For 2 Pedestrian Lights")
+print("For 1 Pedestrian Light")
 
 -- Controller Function
 
@@ -102,7 +101,6 @@ function listen()
 			
 				pedRequest = true;
 				bottomWait(ped1)
-				bottomWait(ped2)
 				redstone.setBundledOutput(bundleSide, colors.white)
 			
 			end
@@ -118,23 +116,17 @@ end
 function standardSequence()
 
 	reset(ped1)
-	reset(ped2)
 	bottomLight(ped1)
-	bottomLight(ped2)
 	sleep(timeforgreen)
 	reset(ped1)
-	reset(ped2)
 	topLight(ped1)
-	topLight(ped2)
 	
 end
 
 function blinkSequence()
 
 	reset(ped1)
-	reset(ped2)
 	bottomLight(ped1)
-	bottomLight(ped2)
 	sleep(timeforgreen)
 	
 	redstone.setBundledOutput(bundleSide, colors.orange)
@@ -144,10 +136,8 @@ function blinkSequence()
 		while i > 0 do
 			
 			reset(ped1)
-			reset(ped2)
 			sleep(flashspeed)
 			bottomLight(ped1)
-			bottomLight(ped2)
 			sleep(flashspeed)
 						
 			i = i - 1
@@ -155,53 +145,40 @@ function blinkSequence()
 		end
 	
 	reset(ped1)
-	reset(ped2)
 	topLight(ped1)
-	topLight(ped2)
 	
 end
 
 function sliderSequence()
 
 	reset(ped1)	
-	reset(ped2)	
 	
 	slider1(ped1)
-	slider1(ped2)
 	sleep(sliderSleep)
 	
 	slider2(ped1)
-	slider2(ped2)
 	sleep(sliderSleep)
 	
 	slider3(ped1)
-	slider3(ped2)
 	sleep(sliderSleep)
 
 	slider4(ped1)
-	slider4(ped2)
 	sleep(sliderSleep)
 
 	slider5(ped1)
-	slider5(ped2)
 	sleep(sliderSleep)
 	
 	slider6(ped1)
-	slider6(ped2)
 	sleep(sliderSleep)
 	
 	slider7(ped1)
-	slider7(ped2)
 	sleep(sliderSleep)
 
 	slider8(ped1)
-	slider8(ped2)
 	sleep(sliderSleep)
 	
 	reset(ped1)
-	reset(ped2)
 	topLight(ped1)
-	topLight(ped2)
 	
 end
 
@@ -394,9 +371,7 @@ function start()
 	calculateSlider()
 	
 	reset(ped1)
-	reset(ped2)
 	topLight(ped1)
-	topLight(ped2)
 	
 	listen()
 	

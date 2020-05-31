@@ -3,12 +3,10 @@
 -- For 2+2 Traffic Lights
 
 -- Adjust figure below to set to correct monitor
-local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
-local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
-local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
-local mon4 = peripheral.wrap('monitor_12') -- traffic light cars for side street
-
-local pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
+local mon1 = peripheral.wrap('monitor_1') -- traffic light cars for through way
+local mon2 = peripheral.wrap('monitor_2') -- traffic light cars for through way
+local mon3 = peripheral.wrap('monitor_3') -- traffic light cars for first side street
+local mon4 = peripheral.wrap('monitor_4') -- traffic light cars for second side street
 
 -- Traffic Light Sequence Mode
 -- Enter 1 for standard
@@ -356,34 +354,6 @@ function standardSequence()
 	redLight(mon4)
 	sleep(timeforturnred)
 	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				sleep(timeforturnred)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			restart()
-		
-		end
-	end
-
 	restart()
 
 end
@@ -424,67 +394,21 @@ function germanSequence()
 	greenLight(mon4)
 	sleep(timeforgreen2)
 	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			reset(mon4)
-			yellowLight(mon3)
-			yellowLight(mon4)
-			sleep(timeforyellow)
+	-- Side street turns yellow // through street remains red
+	reset(mon3)
+	reset(mon4)
+	yellowLight(mon1)
+	yellowLight(mon2)
+	yellowLight(mon3)
+	yellowLight(mon4)
+	sleep(timeforyellow)
 
-			-- Side street gets set to red
-			reset(mon3)
-			reset(mon4)
-			redLight(mon3)
-			redLight(mon4)
-			sleep(timeforturnred)
-	
-			-- Tell pedComputer pedestrians can go
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			-- Wait for pedComputer to say it is back to red
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				yellowLight(mon1)
-				yellowLight(mon2)
-				sleep(timeforyellow)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			reset(mon4)
-			yellowLight(mon1)
-			yellowLight(mon2)
-			yellowLight(mon3)
-			yellowLight(mon4)
-			sleep(timeforyellow)
-
-			-- Side street gets set to red
-			reset(mon3)
-			reset(mon4)
-			redLight(mon3)
-			redLight(mon4)
-			sleep(timeforturnred)
-
-			restart()
-		
-		end
-	end
+	-- Side street gets set to red
+	reset(mon3)
+	reset(mon4)
+	redLight(mon3)
+	redLight(mon4)
+	sleep(timeforturnred)
 
 	restart()
 

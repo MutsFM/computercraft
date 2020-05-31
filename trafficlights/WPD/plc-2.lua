@@ -1,7 +1,6 @@
 -- ArchiTech Traffic Lights
 -- Pedestrian ControllerOS
 -- With Pedestrain Detection 
--- With Pedestrian Sound
 -- For 2 Pedestrian Lights
 
 -- adjust figure below to set to correct pedestrian lights
@@ -9,7 +8,6 @@ local ped1 = peripheral.wrap('monitor_1')
 local ped2 = peripheral.wrap('monitor_2')
 
 local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
-local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
 local tlComputer = 1 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
 
 -- Sequence Selection
@@ -45,7 +43,6 @@ term.setTextColor(colors.white)
 term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
 print("With Pedestrian Detection")
-print("With Pedestrian Sound")
 print("For 2 Pedestrian Lights")
 
 -- Controller Function
@@ -79,10 +76,8 @@ function listen()
 					
 					if senderID == tlComputer and message == "Pedestrian Allowed" then
 					
-						redstone.setBundledOutput(bundleSide, colors.yellow)
 						startSequence()
 						pedRequest = false
-						redstone.setBundledOutput(bundleSide, 0)
 						rednet.send(tlComputer, "Pedestrian Crossed")
 						listen()						
 						
@@ -103,7 +98,6 @@ function listen()
 				pedRequest = true;
 				bottomWait(ped1)
 				bottomWait(ped2)
-				redstone.setBundledOutput(bundleSide, colors.white)
 			
 			end
 		end
@@ -136,8 +130,6 @@ function blinkSequence()
 	bottomLight(ped1)
 	bottomLight(ped2)
 	sleep(timeforgreen)
-	
-	redstone.setBundledOutput(bundleSide, colors.orange)
 	
 	i = timeforyellow
 	
@@ -389,8 +381,7 @@ function calculateSlider()
 end
 
 function start()
-	
-	redstone.setBundledOutput(bundleSide, 0)
+
 	calculateSlider()
 	
 	reset(ped1)

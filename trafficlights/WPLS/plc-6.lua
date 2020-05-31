@@ -1,14 +1,16 @@
 -- ArchiTech Traffic Lights
 -- Pedestrian ControllerOS
--- With Pedestrain Detection 
 -- With Pedestrian Sound
--- For 2 Pedestrian Lights
+-- For 6 Pedestrian Lights
 
 -- adjust figure below to set to correct pedestrian lights
 local ped1 = peripheral.wrap('monitor_1')
 local ped2 = peripheral.wrap('monitor_2')
+local ped3 = peripheral.wrap('monitor_3')
+local ped4 = peripheral.wrap('monitor_4')
+local ped5 = peripheral.wrap('monitor_5')
+local ped6 = peripheral.wrap('monitor_6')
 
-local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
 local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
 local tlComputer = 1 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
 
@@ -44,9 +46,8 @@ print("ArchiTech Traffic Lights")
 term.setTextColor(colors.white)
 term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
-print("With Pedestrian Detection")
 print("With Pedestrian Sound")
-print("For 2 Pedestrian Lights")
+print("For 6 Pedestrian Lights")
 
 -- Controller Function
 
@@ -61,54 +62,18 @@ function listen()
 		print(senderID)
 		print(message)
 	
-        if senderID == tlComputer then
-			
-			if message == "Pedestrian Detected?" then
-			
-				if pedRequest == false then
-				
-					rednet.send(tlComputer, "No")
-					listen()
-				end	
-				
-				if pedRequest == true then
+       	if senderID == tlComputer and message == "Pedestrian Allowed" then
 					
-					rednet.send(tlComputer, "Yes")
-					
-					senderID, message = rednet.receive()
-					
-					if senderID == tlComputer and message == "Pedestrian Allowed" then
-					
-						redstone.setBundledOutput(bundleSide, colors.yellow)
-						startSequence()
-						pedRequest = false
-						redstone.setBundledOutput(bundleSide, 0)
-						rednet.send(tlComputer, "Pedestrian Crossed")
-						listen()						
+			redstone.setBundledOutput(bundleSide, colors.yellow)
+			startSequence()
+			redstone.setBundledOutput(bundleSide, colors.white)
+			rednet.send(tlComputer, "Pedestrian Crossed")
+			listen()						
 						
-					end
-				end
-			end
+			
 		end 
     end
-    
-    if event == "redstone" then
-		
-		local rsStatus = redstone.getInput(redstoneInput)
-		
-		if rsStatus == true then
-			
-			if pedRequest == false then
-			
-				pedRequest = true;
-				bottomWait(ped1)
-				bottomWait(ped2)
-				redstone.setBundledOutput(bundleSide, colors.white)
-			
-			end
-		end
-    end
-    
+        
 	listen()
 
 end
@@ -119,13 +84,29 @@ function standardSequence()
 
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	bottomLight(ped1)
 	bottomLight(ped2)
+	bottomLight(ped3)
+	bottomLight(ped4)
+	bottomLight(ped5)
+	bottomLight(ped6)
 	sleep(timeforgreen)
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
+	topLight(ped5)
+	topLight(ped6)
 	
 end
 
@@ -133,8 +114,16 @@ function blinkSequence()
 
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	bottomLight(ped1)
 	bottomLight(ped2)
+	bottomLight(ped3)
+	bottomLight(ped4)
+	bottomLight(ped5)
+	bottomLight(ped6)
 	sleep(timeforgreen)
 	
 	redstone.setBundledOutput(bundleSide, colors.orange)
@@ -145,9 +134,17 @@ function blinkSequence()
 			
 			reset(ped1)
 			reset(ped2)
+			reset(ped3)
+			reset(ped4)
+			reset(ped5)
+			reset(ped6)
 			sleep(flashspeed)
 			bottomLight(ped1)
 			bottomLight(ped2)
+			bottomLight(ped3)
+			bottomLight(ped4)
+			bottomLight(ped5)
+			bottomLight(ped6)
 			sleep(flashspeed)
 						
 			i = i - 1
@@ -156,52 +153,104 @@ function blinkSequence()
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
+	topLight(ped5)
+	topLight(ped6)
 	
 end
 
 function sliderSequence()
 
-	reset(ped1)	
-	reset(ped2)	
+	reset(ped1)
+	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	
 	slider1(ped1)
 	slider1(ped2)
+	slider1(ped3)
+	slider1(ped4)
+	slider1(ped5)
+	slider1(ped6)
 	sleep(sliderSleep)
 	
 	slider2(ped1)
 	slider2(ped2)
+	slider2(ped3)
+	slider2(ped4)
+	slider2(ped5)
+	slider2(ped6)
 	sleep(sliderSleep)
 	
 	slider3(ped1)
 	slider3(ped2)
+	slider3(ped3)
+	slider3(ped4)
+	slider3(ped5)
+	slider3(ped6)
 	sleep(sliderSleep)
 
 	slider4(ped1)
 	slider4(ped2)
+	slider4(ped3)
+	slider4(ped4)
+	slider4(ped5)
+	slider4(ped6)	
 	sleep(sliderSleep)
 
 	slider5(ped1)
 	slider5(ped2)
+	slider5(ped3)
+	slider5(ped4)
+	slider5(ped5)
+	slider5(ped6)
 	sleep(sliderSleep)
 	
 	slider6(ped1)
 	slider6(ped2)
+	slider6(ped3)
+	slider6(ped4)
+	slider6(ped5)
+	slider6(ped6)
 	sleep(sliderSleep)
 	
 	slider7(ped1)
 	slider7(ped2)
+	slider7(ped3)
+	slider7(ped4)
+	slider7(ped5)
+	slider7(ped6)
 	sleep(sliderSleep)
 
 	slider8(ped1)
 	slider8(ped2)
+	slider8(ped3)
+	slider8(ped4)
+	slider8(ped5)
+	slider8(ped6)	
 	sleep(sliderSleep)
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
+	topLight(ped5)
+	topLight(ped6)
 	
 end
 
@@ -390,13 +439,21 @@ end
 
 function start()
 	
-	redstone.setBundledOutput(bundleSide, 0)
+	redstone.setBundledOutput(bundleSide, colors.white)
 	calculateSlider()
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
+	reset(ped5)
+	reset(ped6)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
+	topLight(ped5)
+	topLight(ped6)
 	
 	listen()
 	

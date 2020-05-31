@@ -1,31 +1,36 @@
--- adjust figure below to set to correct monitor
-mon1 = peripheral.wrap('monitor_5') -- traffic light cars for through way
-mon2 = peripheral.wrap('monitor_8') -- traffic light cars for through way
-mon3 = peripheral.wrap('monitor_4') -- traffic light cars for side street
+-- ArchiTech Traffic Lights
+-- Traffic ControllerOS
+-- For 2+1 Traffic Lights
 
-modemSide = "back"
+-- Adjust figure below to set to correct monitor
+local mon1 = peripheral.wrap('monitor_1') -- traffic light cars for through way
+local mon2 = peripheral.wrap('monitor_2') -- traffic light cars for through way
+local mon3 = peripheral.wrap('monitor_3') -- traffic light cars for side street
 
--- traffic light sequence mode
--- enter 1 for standard, enter 2 for British/German, enter 3 for warning, enter 4 for stop light
--- see readme for more information
-local sequence = 1
+-- Traffic Light Sequence Mode
+-- Enter 1 for standard
+-- Enter 2 for British/German
+-- Enter 3 for warning
+-- Enter 4 for stop light
+local sequence = 2
 
--- traffic light shape
--- traffic light shape
--- enter 1 for block
--- enter 2 for arrow left
--- enter 3 for arrow forward
--- enter 4 for arrow right
--- enter 5 for round
+-- Traffic Light Shape
+-- Enter 1 for block
+-- Enter 2 for arrow left
+-- Enter 3 for arrow forward
+-- Enter 4 for arrow right
+-- Enter 5 for round
 local mon1version = 1
 local mon2version = 1
 local mon3version = 1
 
 -- Yellow or Orange? Depending on your country, the color may differ
--- Enter 1 for orange, enter 2 for yellow
+-- Enter 1 for orange
+-- Enter 2 for yellow
 local middle = 1 
 
--- adjust figures below to set how long each light is on
+-- Time Customisation
+-- Adjust figures below to set how long each light is on
 local timeforgreen1 = 10		-- set time for how long the through street has green
 local timeforgreen2 = 5			-- set time for how long the side street had green
 local timeforyellow = 3			-- set time for duration yellow light
@@ -53,17 +58,13 @@ function shape(lvmon)
 	if lvmon == mon1 then
 		if mon1version == 1 then
 			return 1
-		end
-		if mon1version == 2 then
+		elseif mon1version == 2 then
 			return 2
-		end
-		if mon1version == 3 then
+		elseif mon1version == 3 then
 			return 3
-		end
-		if mon1version == 4 then
+		elseif mon1version == 4 then
 			return 4
-		end
-		if mon1version == 5 then
+		elseif mon1version == 5 then
 			return 5
 		end
 	end
@@ -71,17 +72,13 @@ function shape(lvmon)
 	if lvmon == mon2 then
 		if mon2version == 1 then
 			return 1
-		end
-		if mon2version == 2 then
+		elseif mon2version == 2 then
 			return 2
-		end
-		if mon2version == 3 then
+		elseif mon2version == 3 then
 			return 3
-		end
-		if mon2version == 4 then
+		elseif mon2version == 4 then
 			return 4
-		end
-		if mon2version == 5 then
+		elseif mon2version == 5 then
 			return 5
 		end
 	end
@@ -89,17 +86,13 @@ function shape(lvmon)
 	if lvmon == mon3 then
 		if mon3version == 1 then
 			return 1
-		end
-		if mon3version == 2 then
+		elseif mon3version == 2 then
 			return 2
-		end
-		if mon3version == 3 then
+		elseif mon3version == 3 then
 			return 3
-		end
-		if mon3version == 4 then
+		elseif mon3version == 4 then
 			return 4
-		end
-		if mon3version == 5 then
+		elseif mon3version == 5 then
 			return 5
 		end
 	end
@@ -110,344 +103,189 @@ end
 
 function redLight(mon)
 
+	mon.setBackgroundColor(colors.red)
 	lightShape = shape(mon)
 	
-	if lightShape == 1 then
-
-		mon.setBackgroundColor(colors.red)
-		mon.setCursorPos(4,2)
-		mon.write("         ")
-		mon.setCursorPos(4,3)
-		mon.write("         ")
-		mon.setCursorPos(4,4)
-		mon.write("         ")
-		mon.setCursorPos(4,5)
-		mon.write("         ")
-		mon.setCursorPos(4,6)
-		mon.write("         ")
-		mon.setCursorPos(4,7)
-		mon.write("         ")
-		
-	end
-	
-	if lightShape == 2 then
-			
-		mon.setBackgroundColor(colors.red)
-		mon.setCursorPos(5,1)
-		mon.write("  ")
-		mon.setCursorPos(4,2)
-		mon.write("   ")
-		mon.setCursorPos(3,3)
-		mon.write("    ")
-		mon.setCursorPos(2,4)
-		mon.write("             ")
-		mon.setCursorPos(2,5)
-		mon.write("             ")
-		mon.setCursorPos(3,6)
-		mon.write("    ")
-		mon.setCursorPos(4,7)
-		mon.write("   ")
-		mon.setCursorPos(5,8)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 3 then
-			
-		mon.setBackgroundColor(colors.red)
-		mon.setCursorPos(7,1)
-		mon.write("  ")
-		mon.setCursorPos(6,2)
-		mon.write("    ")
-		mon.setCursorPos(5,3)
-		mon.write("      ")
-		mon.setCursorPos(4,4)
-		mon.write("        ")
-		mon.setCursorPos(4,5)
-		mon.write("        ")
-		mon.setCursorPos(7,6)
-		mon.write("  ")
-		mon.setCursorPos(7,7)
-		mon.write("  ")
-		mon.setCursorPos(7,8)
-		mon.write("  ")
-		mon.setCursorPos(7,9)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 4 then
-			
-		mon.setBackgroundColor(colors.red)
-		mon.setCursorPos(10,1)
-		mon.write("  ")
-		mon.setCursorPos(10,2)
-		mon.write("   ")
-		mon.setCursorPos(10,3)
-		mon.write("    ")
-		mon.setCursorPos(2,4)
-		mon.write("             ")
-		mon.setCursorPos(2,5)
-		mon.write("             ")
-		mon.setCursorPos(10,6)
-		mon.write("    ")
-		mon.setCursorPos(10,7)
-		mon.write("   ")
-		mon.setCursorPos(10,8)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 5 then
-			
-		mon.setBackgroundColor(colors.red)
-		mon.setCursorPos(5,1)
-		mon.write("       ")
-		mon.setCursorPos(4,2)
-		mon.write("         ")
-		mon.setCursorPos(3,3)
-		mon.write("           ")
-		mon.setCursorPos(2,4)
-		mon.write("             ")
-		mon.setCursorPos(2,5)
-		mon.write("             ")
-		mon.setCursorPos(3,6)
-		mon.write("           ")
-		mon.setCursorPos(4,7)
-		mon.write("         ")
-		mon.setCursorPos(5,8)
-		mon.write("       ")
-		
+	if lightShape == 1 then shapeBlock(mon, "red")
+	elseif lightShape == 2 then shapeLeftArrow(mon, "red")	
+	elseif lightShape == 3 then shapeForwardArrow(mon, "red")
+	elseif lightShape == 4 then shapeRightArrow(mon, "red")
+	elseif lightShape == 5 then shapeRound(mon, "red")
 	end
 
 end
 
 function yellowLight(mon)
 
+	mon.setBackgroundColor(middleColor)
 	lightShape = shape(mon)
 	
-	if lightShape == 1 then
-	
-		mon.setBackgroundColor(middleColor)
-		mon.setCursorPos(4,10)
-		mon.write("         ")
-		mon.setCursorPos(4,11)
-		mon.write("         ")
-		mon.setCursorPos(4,12)
-		mon.write("         ")
-		mon.setCursorPos(4,13)
-		mon.write("         ")
-		mon.setCursorPos(4,14)
-		mon.write("         ")
-		mon.setCursorPos(4,15)
-		mon.write("         ")
-		
-	end
-	
-	if lightShape == 2 then
-			
-		mon.setBackgroundColor(middleColor)
-		mon.setCursorPos(5,9)
-		mon.write("  ")
-		mon.setCursorPos(4,10)
-		mon.write("   ")
-		mon.setCursorPos(3,11)
-		mon.write("    ")
-		mon.setCursorPos(2,12)
-		mon.write("             ")
-		mon.setCursorPos(2,13)
-		mon.write("             ")
-		mon.setCursorPos(3,14)
-		mon.write("    ")
-		mon.setCursorPos(4,15)
-		mon.write("   ")
-		mon.setCursorPos(5,16)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 3 then
-			
-		mon.setBackgroundColor(middleColor)
-		mon.setCursorPos(7,9)
-		mon.write("  ")
-		mon.setCursorPos(6,10)
-		mon.write("    ")
-		mon.setCursorPos(5,11)
-		mon.write("      ")
-		mon.setCursorPos(4,12)
-		mon.write("        ")
-		mon.setCursorPos(4,13)
-		mon.write("        ")
-		mon.setCursorPos(7,14)
-		mon.write("  ")
-		mon.setCursorPos(7,15)
-		mon.write("  ")
-		mon.setCursorPos(7,16)
-		mon.write("  ")
-		mon.setCursorPos(7,17)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 4 then
-			
-		mon.setBackgroundColor(middleColor)
-		mon.setCursorPos(10,9)
-		mon.write("  ")
-		mon.setCursorPos(10,10)
-		mon.write("   ")
-		mon.setCursorPos(10,11)
-		mon.write("    ")
-		mon.setCursorPos(2,12)
-		mon.write("             ")
-		mon.setCursorPos(2,13)
-		mon.write("             ")
-		mon.setCursorPos(10,14)
-		mon.write("    ")
-		mon.setCursorPos(10,15)
-		mon.write("   ")
-		mon.setCursorPos(10,16)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 5 then
-			
-		mon.setBackgroundColor(middleColor)
-		mon.setCursorPos(5,9)
-		mon.write("       ")
-		mon.setCursorPos(4,10)
-		mon.write("         ")
-		mon.setCursorPos(3,11)
-		mon.write("           ")
-		mon.setCursorPos(2,12)
-		mon.write("             ")
-		mon.setCursorPos(2,13)
-		mon.write("             ")
-		mon.setCursorPos(3,14)
-		mon.write("           ")
-		mon.setCursorPos(4,15)
-		mon.write("         ")
-		mon.setCursorPos(5,16)
-		mon.write("       ")
-		
+	if lightShape == 1 then	shapeBlock(mon, "yellow")
+	elseif lightShape == 2 then shapeLeftArrow(mon, "yellow")
+	elseif lightShape == 3 then shapeForwardArrow(mon, "yellow")
+	elseif lightShape == 4 then shapeRightArrow(mon, "yellow")
+	elseif lightShape == 5 then shapeRound(mon, "yellow")
 	end
 
 end
 
 function greenLight(mon)
 
+	mon.setBackgroundColor(colors.green)
 	lightShape = shape(mon)
-	
-	if lightShape == 1 then
-	
-		mon.setBackgroundColor(colors.green)
-		mon.setCursorPos(4,18)
-		mon.write("         ")
-		mon.setCursorPos(4,19)
-		mon.write("         ")
-		mon.setCursorPos(4,20)
-		mon.write("         ")
-		mon.setCursorPos(4,21)
-		mon.write("         ")
-		mon.setCursorPos(4,22)
-		mon.write("         ")
-		mon.setCursorPos(4,23)
-		mon.write("         ")
 		
-	end
-	
-	if lightShape == 2 then
-			
-		mon.setBackgroundColor(colors.green)
-		mon.setCursorPos(5,17)
-		mon.write("  ")
-		mon.setCursorPos(4,18)
-		mon.write("   ")
-		mon.setCursorPos(3,19)
-		mon.write("    ")
-		mon.setCursorPos(2,20)
-		mon.write("             ")
-		mon.setCursorPos(2,21)
-		mon.write("             ")
-		mon.setCursorPos(3,22)
-		mon.write("    ")
-		mon.setCursorPos(4,23)
-		mon.write("   ")
-		mon.setCursorPos(5,24)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 3 then
-			
-		mon.setBackgroundColor(colors.green)
-		mon.setCursorPos(7,16)
-		mon.write("  ")
-		mon.setCursorPos(6,17)
-		mon.write("    ")
-		mon.setCursorPos(5,18)
-		mon.write("      ")
-		mon.setCursorPos(4,19)
-		mon.write("        ")
-		mon.setCursorPos(4,20)
-		mon.write("        ")
-		mon.setCursorPos(7,21)
-		mon.write("  ")
-		mon.setCursorPos(7,22)
-		mon.write("  ")
-		mon.setCursorPos(7,23)
-		mon.write("  ")
-		mon.setCursorPos(7,24)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 4 then
-			
-		mon.setBackgroundColor(colors.green)
-		mon.setCursorPos(10,17)
-		mon.write("  ")
-		mon.setCursorPos(10,18)
-		mon.write("   ")
-		mon.setCursorPos(10,19)
-		mon.write("    ")
-		mon.setCursorPos(2,20)
-		mon.write("             ")
-		mon.setCursorPos(2,21)
-		mon.write("             ")
-		mon.setCursorPos(10,22)
-		mon.write("    ")
-		mon.setCursorPos(10,23)
-		mon.write("   ")
-		mon.setCursorPos(10,24)
-		mon.write("  ")
-		
-	end
-	
-	if lightShape == 5 then
-			
-		mon.setBackgroundColor(colors.green)
-		mon.setCursorPos(5,17)
-		mon.write("       ")
-		mon.setCursorPos(4,18)
-		mon.write("         ")
-		mon.setCursorPos(3,19)
-		mon.write("           ")
-		mon.setCursorPos(2,20)
-		mon.write("             ")
-		mon.setCursorPos(2,21)
-		mon.write("             ")
-		mon.setCursorPos(3,22)
-		mon.write("           ")
-		mon.setCursorPos(4,23)
-		mon.write("         ")
-		mon.setCursorPos(5,24)
-		mon.write("       ")
-		
+	if lightShape == 1 then shapeBlock(mon, "green")
+	elseif lightShape == 2 then shapeLeftArrow(mon, "green")
+	elseif lightShape == 3 then	shapeForwardArrow(mon, "green")
+	elseif lightShape == 4 then shapeRightArrow(mon, "green")
+	elseif lightShape == 5 then shapeRound(mon, "green")		
 	end
 
+end
+
+-- Draw Shape Functions
+
+function shapeBlock(mon, lightSelected)
+
+	if lightSelected == "red" then
+		line1, line2, line3, line4, line5, line6 = 2,3,4,5,6,7
+	elseif lightSelected == "yellow" then
+		line1, line2, line3, line4, line5, line6 = 10,11,12,13,14,15
+	elseif lightSelected == "green" then
+		line1, line2, line3, line4, line5, line6 = 18,19,20,21,22,23
+	end
+	
+	mon.setCursorPos(4,line1)
+	mon.write("         ")
+	mon.setCursorPos(4,line2)
+	mon.write("         ")
+	mon.setCursorPos(4,line3)
+	mon.write("         ")
+	mon.setCursorPos(4,line4)
+	mon.write("         ")
+	mon.setCursorPos(4,line5)
+	mon.write("         ")
+	mon.setCursorPos(4,line6)
+	mon.write("         ")
+
+end
+
+function shapeLeftArrow(mon, lightSelected)
+
+	if lightSelected == "red" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 1,2,3,4,5,6,7,8
+	elseif lightSelected == "yellow" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 9,10,11,12,13,14,15,16
+	elseif lightSelected == "green" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 17,18,19,20,21,22,23,24
+	end
+	
+	mon.setCursorPos(5,line1)
+	mon.write("  ")
+	mon.setCursorPos(4,line2)
+	mon.write("   ")
+	mon.setCursorPos(3,line3)
+	mon.write("    ")
+	mon.setCursorPos(2,line4)
+	mon.write("             ")
+	mon.setCursorPos(2,line5)
+	mon.write("             ")
+	mon.setCursorPos(3,line6)
+	mon.write("    ")
+	mon.setCursorPos(4,line7)
+	mon.write("   ")
+	mon.setCursorPos(5,line8)
+	mon.write("  ")
+
+end
+
+function shapeForwardArrow(mon, lightSelected)
+
+	if lightSelected == "red" then
+		line1, line2, line3, line4, line5, line6, line7, line8, line9 = 1,2,3,4,5,6,7,8,9
+	elseif lightSelected == "yellow" then
+		line1, line2, line3, line4, line5, line6, line7, line8, line9 = 9,10,11,12,13,14,15,16,17
+	elseif lightSelected == "green" then
+		line1, line2, line3, line4, line5, line6, line7, line8, line9 = 16,17,18,19,20,21,22,23,24
+	end
+
+	mon.setCursorPos(7,line1)
+	mon.write("  ")
+	mon.setCursorPos(6,line2)
+	mon.write("    ")
+	mon.setCursorPos(5,line3)
+	mon.write("      ")
+	mon.setCursorPos(4,line4)
+	mon.write("        ")
+	mon.setCursorPos(4,line5)
+	mon.write("        ")
+	mon.setCursorPos(7,line6)
+	mon.write("  ")
+	mon.setCursorPos(7,line7)
+	mon.write("  ")
+	mon.setCursorPos(7,line8)
+	mon.write("  ")
+	mon.setCursorPos(7,line9)
+	mon.write("  ")
+			
+end
+
+function shapeRightArrow(mon, lightSelected)
+
+	if lightSelected == "red" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 1,2,3,4,5,6,7,8
+	elseif lightSelected == "yellow" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 9,10,11,12,13,14,15,16
+	elseif lightSelected == "green" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 17,18,19,20,21,22,23,24
+	end
+
+	mon.setCursorPos(10,line1)
+	mon.write("  ")
+	mon.setCursorPos(10,line2)
+	mon.write("   ")
+	mon.setCursorPos(10,line3)
+	mon.write("    ")
+	mon.setCursorPos(2,line4)
+	mon.write("             ")
+	mon.setCursorPos(2,line5)
+	mon.write("             ")
+	mon.setCursorPos(10,line6)
+	mon.write("    ")
+	mon.setCursorPos(10,line7)
+	mon.write("   ")
+	mon.setCursorPos(10,line8)
+	mon.write("  ")
+		
+end
+
+function shapeRound(mon, lightSelected)
+
+	if lightSelected == "red" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 1,2,3,4,5,6,7,8
+	elseif lightSelected == "yellow" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 9,10,11,12,13,14,15,16
+	elseif lightSelected == "green" then
+		line1, line2, line3, line4, line5, line6, line7, line8 = 17,18,19,20,21,22,23,24
+	end
+	
+	mon.setCursorPos(5,line1)
+	mon.write("       ")
+	mon.setCursorPos(4,line2)
+	mon.write("         ")
+	mon.setCursorPos(3,line3)
+	mon.write("           ")
+	mon.setCursorPos(2,line4)
+	mon.write("             ")
+	mon.setCursorPos(2,line5)
+	mon.write("             ")
+	mon.setCursorPos(3,line6)
+	mon.write("           ")
+	mon.setCursorPos(4,line7)
+	mon.write("         ")
+	mon.setCursorPos(5,line8)
+	mon.write("       ")
+		
 end
 
 -- Traffic Light Sequence Functions
@@ -491,7 +329,7 @@ function standardSequence()
 	reset(mon3)
 	redLight(mon3)
 	sleep(timeforturnred)
-
+	
 	restart()
 
 end
@@ -526,7 +364,7 @@ function germanSequence()
 	reset(mon3)
 	greenLight(mon3)
 	sleep(timeforgreen2)
-
+	
 	-- Side street turns yellow // through street remains red
 	reset(mon3)
 	yellowLight(mon1)
@@ -540,7 +378,7 @@ function germanSequence()
 	sleep(timeforturnred)
 
 	restart()
-
+		
 end
 
 function warningSequence()
@@ -592,23 +430,44 @@ function restart()
 	if sequence == 4 then
 		stopSequence()
 	end
+	
+end
+
+function printInfo()
+
+	term.clear()
+	term.setTextColor(colors.red)
+	term.setCursorPos(19,1)
+	print("ArchiTech Inc.")
+	term.setTextColor(colors.white)
+	term.setCursorPos(14,2)
+	print("Traffic Light Solutions")
+	term.setCursorPos(15,3)
+	print("Traffic ControllerOS")
+	
+	term.setCursorPos(1,5)
+	if sequence == 1 then print("Sequence: Standard") end
+	if sequence == 2 then print("Sequence: German/UK") end	
+	if sequence == 3 then print("Sequence: Warning Light") end	
+	if sequence == 4 then print("Sequence: StopLight") end
+	
+	term.setCursorPos(1,6)
+	if middle == 1 then print("Color   : Orange") end
+	if middle == 2 then print("Color   : Yellow") end	
+	
+	print("Setup	: 2 + 1")
+
 end
 
 function start()
 	
-	rednet.open(modemSide)
-
-	if middle == 1 then
-		middleColor = colors.orange
-	end
+	printInfo()
 	
-	if middle == 2 then
-		middleColor = colors.yellow
-	end
+	if middle == 1 then middleColor = colors.orange	end
+	if middle == 2 then middleColor = colors.yellow	end
 	
 	restart()
 	
 end
 
 start()
-

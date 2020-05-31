@@ -2,11 +2,13 @@
 -- Pedestrian ControllerOS
 -- With Pedestrain Detection 
 -- With Pedestrian Sound
--- For 2 Pedestrian Lights
+-- For 4 Pedestrian Lights
 
 -- adjust figure below to set to correct pedestrian lights
 local ped1 = peripheral.wrap('monitor_1')
 local ped2 = peripheral.wrap('monitor_2')
+local ped3 = peripheral.wrap('monitor_3')
+local ped4 = peripheral.wrap('monitor_4')
 
 local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
 local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
@@ -46,7 +48,7 @@ term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
 print("With Pedestrian Detection")
 print("With Pedestrian Sound")
-print("For 2 Pedestrian Lights")
+print("For 4 Pedestrian Lights")
 
 -- Controller Function
 
@@ -103,6 +105,8 @@ function listen()
 				pedRequest = true;
 				bottomWait(ped1)
 				bottomWait(ped2)
+				bottomWait(ped3)
+				bottomWait(ped4)
 				redstone.setBundledOutput(bundleSide, colors.white)
 			
 			end
@@ -119,13 +123,21 @@ function standardSequence()
 
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	bottomLight(ped1)
 	bottomLight(ped2)
+	bottomLight(ped3)
+	bottomLight(ped4)
 	sleep(timeforgreen)
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
 	
 end
 
@@ -133,8 +145,12 @@ function blinkSequence()
 
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	bottomLight(ped1)
 	bottomLight(ped2)
+	bottomLight(ped3)
+	bottomLight(ped4)
 	sleep(timeforgreen)
 	
 	redstone.setBundledOutput(bundleSide, colors.orange)
@@ -145,9 +161,13 @@ function blinkSequence()
 			
 			reset(ped1)
 			reset(ped2)
+			reset(ped3)
+			reset(ped4)
 			sleep(flashspeed)
 			bottomLight(ped1)
 			bottomLight(ped2)
+			bottomLight(ped3)
+			bottomLight(ped4)
 			sleep(flashspeed)
 						
 			i = i - 1
@@ -156,8 +176,12 @@ function blinkSequence()
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
 	
 end
 
@@ -165,43 +189,65 @@ function sliderSequence()
 
 	reset(ped1)	
 	reset(ped2)	
+	reset(ped3)	
+	reset(ped4)	
 	
 	slider1(ped1)
 	slider1(ped2)
+	slider1(ped3)
+	slider1(ped4)
 	sleep(sliderSleep)
 	
 	slider2(ped1)
 	slider2(ped2)
+	slider2(ped3)
+	slider2(ped4)
 	sleep(sliderSleep)
 	
 	slider3(ped1)
 	slider3(ped2)
+	slider3(ped3)
+	slider3(ped4)
 	sleep(sliderSleep)
 
 	slider4(ped1)
 	slider4(ped2)
+	slider4(ped3)
+	slider4(ped4)	
 	sleep(sliderSleep)
 
 	slider5(ped1)
 	slider5(ped2)
+	slider5(ped3)
+	slider5(ped4)
 	sleep(sliderSleep)
 	
 	slider6(ped1)
 	slider6(ped2)
+	slider6(ped3)
+	slider6(ped4)
 	sleep(sliderSleep)
 	
 	slider7(ped1)
 	slider7(ped2)
+	slider7(ped3)
+	slider7(ped4)
 	sleep(sliderSleep)
 
 	slider8(ped1)
 	slider8(ped2)
+	slider8(ped3)
+	slider8(ped4)	
 	sleep(sliderSleep)
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
 	
 end
 
@@ -395,8 +441,12 @@ function start()
 	
 	reset(ped1)
 	reset(ped2)
+	reset(ped3)
+	reset(ped4)
 	topLight(ped1)
 	topLight(ped2)
+	topLight(ped3)
+	topLight(ped4)
 	
 	listen()
 	

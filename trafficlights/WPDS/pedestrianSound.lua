@@ -19,6 +19,15 @@ local volume = 1
 local speaker = peripheral.wrap(speakerSide)
 local selectedSound
 
+-- Terminal Info
+term.clear()
+term.setTextColor(colors.red)
+term.setCursorPos(14,1)
+print("ArchiTech Traffic Lights")
+term.setTextColor(colors.white)
+term.setCursorPos(1,3)
+print("Pedestrian Sound Controller")
+
 -- Listening Function
 
 function listen()
