@@ -186,3 +186,136 @@ You also need to title the pedestrian light program as `plc` on your pedestrian 
 The pedestrian sound program should be named `pedestrianSound` on your pedestrian sound computer in Minecraft.
 
 For more detailed information on the files, see the section on individual files.
+
+
+# Individual Files
+
+Table of contents to be added.
+
+## Traffic Light Computer
+
+The traffic light computer handles the traffic lights for vehicles. It requires the following two scrips:
+
+* startup-tl
+* trafficlight
+
+### startup-tl
+
+**Important!** This files should be titled `startup` on your traffic light computer in Minecraft. This file will be automatically loaded when your traffic light computer in Minecraft boots. It has two main purposes:
+
+* To connect your computer to the rednet network. (Make sure you connect the wired modem on the back side of the computer - or adjust the programme accordingly).
+* To automatically start the trafficlight programme.
+
+In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
+
+### trafficlight
+
+Choose the traffic light programme from the folder covering your use case and covers the needs of your traffic scenario. See the 'File Naming Convention' near the top of this readme to identify which file suits your traffic scenario.
+
+**Important!** Make sure to title the programme on your traffic light computer as `trafficlight`.
+
+This programme handles the traffic lights for vehicles, and if applicable for your use case, handles the coordination with the pedestrian traffic light computer.
+
+Make sure to enter all monitors' IDs for each vehicle traffic light that is included in your traffic scenario, by adjusting the x in `monitor_x` to the number of the monitor for each `mon#` variable. You can identify the monitor ID in the chat in Minecraft when activating and deactivating the monitor's wired modem.
+
+If applicable to your use case, make sure to add the pedestrian light computer's ID in the `pedComputer` varbiable.
+
+Enter the sequence you want the traffic lights to display in the `sequence` variable. For a visualisation of the available sequences, see the sequences sections of this ReadMe. 
+* Enter `1` for the standard sequence
+* Enter `2` for the UK/German sequence
+* Enter `3` for the warning sequence
+* Enter `4` for the stop light sequence
+
+Depending on your country, the middle colour may be yellow or orange. Enter `1` in the `middle` variable for an orange light, and enter `2` for a yellow light.
+
+You can adjust the duration of each light type in the Time Customisation section. 
+* `timeforgreen#` You can adjust the duration of the green light for each road section separately.
+* `timeforyellow` Adjust the duration of the yellow light. Applies to all road sections.
+* `timeforturnred` Adjust the duration between the light of section A turning red and the light of the next section turning green. Applies to all road sections.
+* `warning interval` Adjust the speed at which the light blinks in the warning sequence and the stop light sequence.
+
+## Pedestrian Light Computer
+
+The pedestrian light computer handles the traffic lights for pedestrians. It requires the following two scrips:
+
+* startup-plc
+* plc
+
+### startup-tl
+
+**Important!** This files should be titled `startup` on your pedestrian light computer in Minecraft. This file will be automatically loaded when your pedestrian light computer in Minecraft boots. It has two main purposes:
+
+* To connect your computer to the rednet network. (Make sure you connect the wired modem on the back side of the computer - or adjust the programme accordingly).
+* To automatically start the plc programme.
+
+In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
+
+### plc
+
+Choose the pedestrian light programme from the folder covering your use case and covers the needs of your traffic scenario. See the 'File Naming Convention' near the top of this readme to identify which file suits your traffic scenario.
+
+**Important!** Make sure to title the programme on your pedestrian light computer as `plc`.
+
+This programme handles the traffic lights for pedestrians, handles the coordination with the pedestrian traffic light computer, and if applicable for your use case, handles the coordination with the pedestrian sound computer.
+
+Make sure to enter all monitors' IDs for each pedestrian traffic light that is included in your traffic scenario, by adjusting the x in `monitor_x` to the number of the monitor for each `ped#` variable. You can identify the monitor ID in the chat in Minecraft when activating and deactivating the monitor's wired modem.
+
+If applicable to your chosen use case: adjust `redstoneInput` to the side where the redstone signal coming from the pressure plates (wheter via redstone dust or via a cable) is going into the pedestrian light computer. *(Only in use cases with pedestrian detection.)*
+
+If applicable to your chosen use case: adjust `bundleSide` to the side of the pedestrian light computer where the bundled wire going to the pedestrian sound computer is connected to the pedestrian light computer. *(Only in use cases with pedestrian sounds.)*
+
+Make sure to add the traffic light computer's ID in the `tlComputer` varbiable.
+
+Enter the sequence you want the pedestrian lights to display in the `sequence` variable. For a visualisation of the available sequences, see the sequences sections of this ReadMe. 
+* Enter `1` for the steady sequence
+* Enter `2` for the blinking sequence on the bottom light
+* Enter `3` for the slider sequence
+
+You can customise the colours to be displayed on the pedestrian light. 
+* Adjust `topLightColor` to change the color in which the word STOP is displayed in the upper part of the pedestrian light in all sequences. 
+* Adjust `bottomLightColor` to change the color in which the word WALK is displayed in the bottom part of the pedestrian light in the steady and blink sequences, or the color of the sliding part in the slider sequence.
+* If applicable, adjust `bottomWaitColor` to change the color of the word WAIT, which appears when the player requests the pedestrian light to turn green. *(Only applicable to pedestrian detection use cases.)*
+
+You can adjust the duration of each light type in the Time Customisation section. 
+* `timeforgreen#` You can adjust the duration of the green light.
+* `timeforyellow` Adjust this variable to change how long the bottom light blinks before turning red.
+
+## Pedestrian Sound Computer
+
+The pedestrian sound computer is used to control the auditory indication to player on the status of the pdestrian lights. It requires the following two scrips:
+
+* startup-ps
+* pedestrianSound
+
+### startup-ps
+
+**Important!** This files should be titled `startup` on your pedestrian sound computer in Minecraft. This file will be automatically loaded when your pedestrian sound computer in Minecraft boots.
+
+The sole purpose of this programme is to automatically start the pedestrianSound programme.
+
+In addition, this file will replicate a computer booting - which sole purpose is immersion only, with no real function.
+
+### pedestrianSound
+**Important!** Make sure to title the programme on your pedestrian light computer as `pedestrianSound`.
+
+This programme handles the redstone inputs received from the pedestrian light computer in order to determine which of three sound patterns to play:
+* **Slow pattern.** Used to indicate to players that the pedestrian light is red.
+* **Fast pattern.** Used to indicate to players that the pedestrian light is green.
+* **Burst pattern.** Used to indicate to players that the pedestrian light is blinking.
+
+In use cases with pedestrian detection, the slow pattern will only start when the player has requested a green light by stepping on the pressure plates.
+
+Make sure that the bundled wire coming from the pedestrian light computer is connected to the right side of the pedestrian sound computer - or adjust the `bundleSide` variable accordingly.
+
+Make sure that the speaker is connected to the left side of the pedestrian sound computer - or adjust the `speakerSide` variable accordingly.
+
+Enter in the `sound` variable which sound you would like the speaker to make.
+* Enter `1` for a High Click
+* Enter `2` for a Mid Click
+* Enter `3` for a Low Click
+* Enter `4` for an even Lower Click
+* Enter `5` for a Bell
+* Enter `6` for a Plop
+* Enter `7`, `8`, `9`, or `10` for a nonsense sound
+
+Enter in the `volume` variable the range at which the sound is heard by players. Enter `1` for the default range, `2` for an extended range, and `3` for the maximum range.
