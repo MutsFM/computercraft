@@ -5,14 +5,36 @@ This readme explains how the ArchiTech traffic lights function and can be instal
 This readme will first show the different traffic lights and auxiliary equipment. The traffic lights are customisable and come with different lighting sequences, icons to be displayed, and colours to choose from.
 
 # Table of Contents
-To be added
+- [Important #1 - File Titles](https://github.com/MutsFM/computercraft/tree/master/trafficlights#important-1---file-titles)
+- [Important #2 - File Naming Convention](https://github.com/MutsFM/computercraft/tree/master/trafficlights#important-2---file-naming-convention)
+- [ArchiTech Traffic Lights Overview](https://github.com/MutsFM/computercraft/tree/master/trafficlights#architech-traffic-lights-overview)
+    - [Showcase of Traffic Lights for Vehicles](https://github.com/MutsFM/computercraft/tree/master/trafficlights#showcase-of-traffic-lights-for-vehicles)
+        - [Sequences](https://github.com/MutsFM/computercraft/tree/master/trafficlights#sequences)
+        - [Icons](https://github.com/MutsFM/computercraft/tree/master/trafficlights#icons)
+    - [Showcase Traffic Lights for Pedestrians](https://github.com/MutsFM/computercraft/tree/master/trafficlights#showcase-traffic-lights-for-pedestrians)
+- TO FIX [Use Cases & Quick Start for Setting Up](https://github.com/MutsFM/computercraft/tree/master/trafficlights#architech-traffic-lights-overview)
+    - [Traffic Lights for Vehicles](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-1)
+    - [Traffic Lights for Vehicles and Pedestrians](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians)
+    - [Traffic Lights for Vehicles and Pedestrians, with Pedestrian Detection](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians-with-pedestrian-detection)
+    - [Traffic Lights for Vehicles and Pedestrians, with Pedestrian Sounds](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians-with-pedestrian-sounds)
+    - [Traffic Lights for Vehicles and Pedestrians, with Pedestrian Detection and Sounds](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians-with-pedestrian-detection-and-sounds)
+- [Individual Files](https://github.com/MutsFM/computercraft/tree/master/trafficlights#individual-files)
+    - [Traffic Light Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-light-computer)
+        - [startup-tl](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-tl)
+        - [trafficlight](https://github.com/MutsFM/computercraft/tree/master/trafficlights#trafficlight)
+    - [Pedestrian Light Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestrian-light-computer)
+        - [startup-plc](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-plc)
+        - [plc](https://github.com/MutsFM/computercraft/tree/master/trafficlights#plc)
+    - [Pedestrian Sound Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestrian-sound-computer)
+        - [startup-ps](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-ps)
+        - [pedestrianSound](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestriansound)
 
 # Important #1 - File Titles
 Several files in this repository need to be titled differently on your computer in Minecraft in order to work. These files have been titled differently from their intended Minecraft file title in order to be quickly able to identify which file suits your use case.
 
 Each section below will indicate which files need to be titled differently on your computer in Minecraft, and will provide the correct title for use in Minecraft.
 
-For example, the `startup-ps` needs to be titled as followed on your computer in Minecraft: `startup`
+> For example, the `startup-ps` needs to be titled as followed on your computer in Minecraft: `startup`
 
 # Important #2 - File Naming Convention
 The file names for the traffic light programs are constructed as followed, so that you can identify which program you need.
@@ -46,9 +68,9 @@ The file names for the traffic light programs are constructed as followed, so th
 >
 > **Note:** Pedestrian lights all have green at the same time, while all traffic lights have red during that time.
 
-### Traffic Lights for Vehicles and Pedestrians combined
+### Pedestrian Sounds
 
-To add.
+The pedestrian sound files for all use cases and traffic scenarios are identical, and titled `pedestrianSound`.
 
 
 # ArchiTech Traffic Lights Overview
@@ -82,7 +104,7 @@ To add
 
 ----
 
-# Use Cases
+# Use Cases & Quick Start for Setting Up
 ArchiTech Traffic Lights cover the following use cases:
 
 | **Use Case** | **Folder** | **Description** |
@@ -232,7 +254,16 @@ For more detailed information on the files, see the section on individual files.
 
 # Individual Files
 
-Table of contents to be added.
+
+- [Traffic Light Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-light-computer)
+    - [startup-tl](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-tl)
+    - [trafficlight](https://github.com/MutsFM/computercraft/tree/master/trafficlights#trafficlight)
+- [Pedestrian Light Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestrian-light-computer)
+    - [startup-plc](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-plc)
+    - [plc](https://github.com/MutsFM/computercraft/tree/master/trafficlights#plc)
+- [Pedestrian Sound Computer](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestrian-sound-computer)
+    - [startup-ps](https://github.com/MutsFM/computercraft/tree/master/trafficlights#startup-ps)
+    - [pedestrianSound](https://github.com/MutsFM/computercraft/tree/master/trafficlights#pedestriansound)
 
 ## Traffic Light Computer
 
@@ -283,7 +314,7 @@ The pedestrian light computer handles the traffic lights for pedestrians. It req
 * startup-plc
 * plc
 
-### startup-tl
+### startup-plc
 
 **Important!** This files should be titled `startup` on your pedestrian light computer in Minecraft. This file will be automatically loaded when your pedestrian light computer in Minecraft boots. It has two main purposes:
 
