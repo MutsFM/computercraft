@@ -1,13 +1,12 @@
 -- ArchiTech Traffic Lights
--- Pedestrian ControllerOS
--- With Pedestrian Sound
--- For 1 Pedestrian Light
+-- Pedestrian ControllerOS 
+-- For 2 Pedestrian Lights
 
 -- adjust figure below to set to correct pedestrian lights
-local ped1 = peripheral.wrap('monitor_14')
+local ped1 = peripheral.wrap('monitor_1')
+local ped2 = peripheral.wrap('monitor_2')
 
-local bundleSide = "bottom"				-- Side to which the redstone bundled wires are attached
-local tlComputer = 33 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
+local tlComputer = 1 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
 
 -- Sequence Selection
 -- Enter 1 for steady
@@ -40,8 +39,7 @@ print("ArchiTech Traffic Lights")
 term.setTextColor(colors.white)
 term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
-print("With Pedestrian Sound")
-print("For 1 Pedestrian Light")
+print("For 2 Pedestrian Lights")
 
 -- Controller Function
 
@@ -55,16 +53,13 @@ function listen()
     if event == "rednet_message" then
 		print(senderID)
 		print(message)
-	
-       	if senderID == tlComputer and message == "Pedestrian Allowed" then
+						
+		if senderID == tlComputer and message == "Pedestrian Allowed" then
 					
-			redstone.setBundledOutput(bundleSide, colors.yellow)
 			startSequence()
-			redstone.setBundledOutput(bundleSide, colors.white)
 			rednet.send(tlComputer, "Pedestrian Crossed")
 			listen()						
 						
-			
 		end 
     end
         
@@ -77,28 +72,34 @@ end
 function standardSequence()
 
 	reset(ped1)
+	reset(ped2)
 	bottomLight(ped1)
+	bottomLight(ped2)
 	sleep(timeforgreen)
 	reset(ped1)
+	reset(ped2)
 	topLight(ped1)
+	topLight(ped2)
 	
 end
 
 function blinkSequence()
 
 	reset(ped1)
+	reset(ped2)
 	bottomLight(ped1)
+	bottomLight(ped2)
 	sleep(timeforgreen)
-	
-	redstone.setBundledOutput(bundleSide, colors.orange)
-	
+		
 	i = timeforyellow
 	
 		while i > 0 do
 			
 			reset(ped1)
+			reset(ped2)
 			sleep(flashspeed)
 			bottomLight(ped1)
+			bottomLight(ped2)
 			sleep(flashspeed)
 						
 			i = i - 1
@@ -106,40 +107,53 @@ function blinkSequence()
 		end
 	
 	reset(ped1)
+	reset(ped2)
 	topLight(ped1)
+	topLight(ped2)
 	
 end
 
 function sliderSequence()
 
 	reset(ped1)	
+	reset(ped2)	
 	
 	slider1(ped1)
+	slider1(ped2)
 	sleep(sliderSleep)
 	
 	slider2(ped1)
+	slider2(ped2)
 	sleep(sliderSleep)
 	
 	slider3(ped1)
+	slider3(ped2)
 	sleep(sliderSleep)
 
 	slider4(ped1)
+	slider4(ped2)
 	sleep(sliderSleep)
 
 	slider5(ped1)
+	slider5(ped2)
 	sleep(sliderSleep)
 	
 	slider6(ped1)
+	slider6(ped2)
 	sleep(sliderSleep)
 	
 	slider7(ped1)
+	slider7(ped2)
 	sleep(sliderSleep)
 
 	slider8(ped1)
+	slider8(ped2)
 	sleep(sliderSleep)
 	
 	reset(ped1)
+	reset(ped2)
 	topLight(ped1)
+	topLight(ped2)
 	
 end
 
@@ -328,13 +342,12 @@ end
 
 function start()
 	
-	redstone.setBundledOutput(bundleSide, 0)
-	sleep(0.5)
-	redstone.setBundledOutput(bundleSide, colors.white)
 	calculateSlider()
 	
 	reset(ped1)
+	reset(ped2)
 	topLight(ped1)
+	topLight(ped2)
 	
 	listen()
 	

@@ -439,6 +439,8 @@ end
 
 function start()
 	
+	redstone.setBundledOutput(bundleSide, 0)
+	sleep(0.5)
 	redstone.setBundledOutput(bundleSide, colors.white)
 	calculateSlider()
 	

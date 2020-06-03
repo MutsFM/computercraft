@@ -6,6 +6,7 @@
 local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
 local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
 local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
+local mon4 = peripheral.wrap('monitor_12') -- traffic light cars for side street
 
 local pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
 
@@ -25,6 +26,7 @@ local sequence = 2
 local mon1version = 1
 local mon2version = 1
 local mon3version = 1
+local mon4version = 1
 
 -- Yellow or Orange? Depending on your country, the color may differ
 -- Enter 1 for orange
@@ -95,6 +97,20 @@ function shape(lvmon)
 		elseif mon3version == 4 then
 			return 4
 		elseif mon3version == 5 then
+			return 5
+		end
+	end
+	
+	if lvmon == mon4 then
+		if mon4version == 1 then
+			return 1
+		elseif mon4version == 2 then
+			return 2
+		elseif mon4version == 3 then
+			return 3
+		elseif mon4version == 4 then
+			return 4
+		elseif mon4version == 5 then
 			return 5
 		end
 	end
@@ -298,9 +314,11 @@ function standardSequence()
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
+	reset(mon4)
 	greenLight(mon1)
 	greenLight(mon2)
 	redLight(mon3)
+	redLight(mon4)
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
@@ -319,17 +337,23 @@ function standardSequence()
 
 	--Side street gets set to green
 	reset(mon3)
+	reset(mon4)
 	greenLight(mon3)
+	greenLight(mon4)
 	sleep(timeforgreen2)
 
 	-- Side street turns yellow // through street remains red
 	reset(mon3)
+	reset(mon4)
 	yellowLight(mon3)
+	yellowLight(mon4)
 	sleep(timeforyellow)
 
 	-- Side street gets set to red
 	reset(mon3)
+	reset(mon4)
 	redLight(mon3)
+	redLight(mon4)
 	sleep(timeforturnred)
 	
 	-- Tell Pedestrian Light to Go
@@ -342,6 +366,7 @@ function standardSequence()
 				
 			sleep(timeforturnred)
 			restart()
+				
 		end
 
 	restart()
@@ -354,9 +379,11 @@ function germanSequence()
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
+	reset(mon4)
 	greenLight(mon1)
 	greenLight(mon2)
 	redLight(mon3)
+	redLight(mon4)
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
@@ -365,6 +392,7 @@ function germanSequence()
 	yellowLight(mon1)
 	yellowLight(mon2)
 	yellowLight(mon3)
+	yellowLight(mon4)
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
@@ -376,23 +404,29 @@ function germanSequence()
 
 	--Side street gets set to green
 	reset(mon3)
+	reset(mon4)
 	greenLight(mon3)
+	greenLight(mon4)
 	sleep(timeforgreen2)
 	
 	-- Side street turns yellow // through street remains red
 	reset(mon3)
+	reset(mon4)
 	yellowLight(mon3)
+	yellowLight(mon4)
 	sleep(timeforyellow)
 
 	-- Side street gets set to red
 	reset(mon3)
+	reset(mon4)
 	redLight(mon3)
+	redLight(mon4)
 	sleep(timeforturnred)
 	
 	-- Tell pedComputer pedestrians can go
 	rednet.send(pedComputer, "Pedestrian Allowed")
-			
-	-- Wait for pedComputer to say it is back to red
+	
+	-- Wait for pedComputer to say it is back to red	
 	senderID, message = rednet.receive()
 			
 	if senderID == pedComputer and message == "Pedestrian Crossed" then
@@ -413,10 +447,12 @@ function warningSequence()
 	yellowLight(mon1)
 	yellowLight(mon2)
 	yellowLight(mon3)
+	yellowLight(mon4)
 	sleep(warninginterval)
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
+	reset(mon4)
 	sleep(warninginterval)
 	
 	warningSequence()
@@ -428,10 +464,12 @@ function stopSequence()
 	redLight(mon1)
 	redLight(mon2)
 	redLight(mon3)
+	redLight(mon4)
 	sleep(warninginterval)
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
+	reset(mon4)
 	sleep(warninginterval)
 	
 	stopSequence()
@@ -482,7 +520,7 @@ function printInfo()
 	if middle == 1 then print("Color   : Orange") end
 	if middle == 2 then print("Color   : Yellow") end	
 	
-	print("Setup	: 2 + 1")
+	print("Setup	: 2 + 2")
 
 end
 
