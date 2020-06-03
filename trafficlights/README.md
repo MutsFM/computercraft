@@ -12,7 +12,7 @@ This readme will first show the different traffic lights and auxiliary equipment
         - [Sequences](https://github.com/MutsFM/computercraft/tree/master/trafficlights#sequences)
         - [Icons](https://github.com/MutsFM/computercraft/tree/master/trafficlights#icons)
     - [Showcase Traffic Lights for Pedestrians](https://github.com/MutsFM/computercraft/tree/master/trafficlights#showcase-traffic-lights-for-pedestrians)
-- TO FIX [Use Cases & Quick Start for Setting Up](https://github.com/MutsFM/computercraft/tree/master/trafficlights#architech-traffic-lights-overview)
+- [Use Cases & Quick Start for Setting Up](https://github.com/MutsFM/computercraft/tree/master/trafficlights#use-cases--quick-start-for-setting-up)
     - [Traffic Lights for Vehicles](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-1)
     - [Traffic Lights for Vehicles and Pedestrians](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians)
     - [Traffic Lights for Vehicles and Pedestrians, with Pedestrian Detection](https://github.com/MutsFM/computercraft/tree/master/trafficlights#traffic-lights-for-vehicles-and-pedestrians-with-pedestrian-detection)
