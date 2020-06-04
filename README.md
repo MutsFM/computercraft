@@ -13,4 +13,3 @@ Below is a short overview of the features, with detailed information in the resp
     * To add
   * ArchiTech Building (`ArchiTechBuilding`)
     * A collection of specialised files to demonstrate the ArchiTech programmes in the showrooms of the ArchiTech Building on the ArchiTech server. Not intended for use outside of showrooms.
-      
