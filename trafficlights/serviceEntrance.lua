@@ -1,3 +1,6 @@
+-- ArchiTech Traffic Lights
+-- Service Entrance OS
+
 local name
 local password
 local doorSide = "right"
@@ -168,7 +171,7 @@ end
 
 
 function start()
-	redstone.setOutput(doorSide, false)
+	closeDoor()
 	writeTop()
 	askNaP()
 end

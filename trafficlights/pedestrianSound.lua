@@ -12,7 +12,7 @@ local speakerSide = "left"				-- side to which the speaker is attached
 -- Enter 5 for Bell
 -- Enter 6 for Plop
 -- Enter 7-10 for Nonsense
-local sound = 1
+local sound = 11
 
 -- Volume Customisation
 -- Enter 1 for default, Enter 2 for increased sound range, Enter 3 for max sound range

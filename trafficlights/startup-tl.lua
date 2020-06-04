@@ -1,4 +1,12 @@
-modemSide = "back"
+-- ArchiTech Traffic Lights
+-- Traffic ControllerOS
+-- Start-up Software
+
+modemSide = "back"						-- Enter the side to which the modem is placed
+
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
 
 term.clear()
 term.setTextColor(colors.red)

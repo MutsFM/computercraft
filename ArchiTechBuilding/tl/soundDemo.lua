@@ -1,8 +1,19 @@
 -- ArchiTech Traffic Lights
 -- Pedestrian SoundOS
+-- SoundDemo
 
-local bundleSide = "back"				-- side to which the redstone bundled wires are attached
-local speakerSide = "left"				-- side to which the speaker is attached
+local speakerSide = "front"				-- side to which the speaker is attached
+
+local speedBundle = "back"
+local soundBundle = "right"
+
+-- Volume Customisation
+-- Enter 1 for default, Enter 2 for increased sound range, Enter 3 for max sound range
+local volume = 1
+
+-- ******************************
+-- CODE BELOW IS NOT ADJUSTABLE!!
+-- ******************************
 
 -- Sound Customisation
 -- Enter 1 for High Click
@@ -12,15 +23,7 @@ local speakerSide = "left"				-- side to which the speaker is attached
 -- Enter 5 for Bell
 -- Enter 6 for Plop
 -- Enter 7-10 for Nonsense
-local sound = 1
-
--- Volume Customisation
--- Enter 1 for default, Enter 2 for increased sound range, Enter 3 for max sound range
-local volume = 1
-
--- ******************************
--- CODE BELOW IS NOT ADJUSTABLE!!
--- ******************************
+local sound
 
 local speaker = peripheral.wrap(speakerSide)
 local selectedSound
@@ -33,6 +36,7 @@ print("ArchiTech Traffic Lights")
 term.setTextColor(colors.white)
 term.setCursorPos(1,3)
 print("Pedestrian Sound Controller")
+print("Demo Version")
 
 -- Listening Function
 
@@ -40,16 +44,14 @@ function listen()
 	
 	os.pullEvent("redstone")
 	
-	cable = redstone.getBundledInput(bundleSide)
+	speedCable = redstone.getBundledInput(speedBundle)
+	soundInput()
 	
-	if cable == 1 then
-	
+	if speedCable == 1 then
 		slowSound()
-	
-	end
-	
-	if cable == 16 then
-	
+	elseif speedCable == 2 then
+		endingSound()
+	elseif speedCable == 16 then
 		fastSound()
 	end
 	
@@ -57,13 +59,47 @@ function listen()
 	
 end
 
+-- Sound Selection Function
+-- To optimise, by integrating soundselector
+function soundInput()
+
+	cable = redstone.getBundledInput(soundBundle)
+	
+	if cable == 1 then
+		sound = 1
+	elseif cable == 2 then
+		sound = 2
+	elseif cable == 4 then
+		sound = 3
+	elseif cable == 8 then
+		sound = 4
+	elseif cable == 16 then
+		sound = 5
+	elseif cable == 32 then
+		sound = 6
+	elseif cable == 64 then
+		sound = 7
+	elseif cable == 128 then
+		sound = 8
+	elseif cable == 256 then
+		sound = 9
+	elseif cable == 512 then
+		sound = 10		
+	end
+	
+	soundSelector()
+	
+end
+
+
 -- Sound Functions
 
 function slowSound()
-
+	
+	soundInput()
 	speaker.playSound(selectedSound, volume)
 	
-	cable = redstone.getBundledInput(bundleSide)
+	cable = redstone.getBundledInput(speedBundle)
 	
 	if cable == 1 then
 		sleep(1)
@@ -86,9 +122,10 @@ end
 
 function fastSound()
 	
+	soundInput()
 	speaker.playSound(selectedSound, volume)
 	
-	cable = redstone.getBundledInput(bundleSide)
+	cable = redstone.getBundledInput(speedBundle)
 	
 	if cable == 1 then
 		slowSound()
@@ -110,7 +147,8 @@ end
 
 function endingSound()
 	
-	cable = redstone.getBundledInput(bundleSide)
+	soundInput()
+	cable = redstone.getBundledInput(speedBundle)
 	
 	if cable == 1 then
 		slowSound()
