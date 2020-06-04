@@ -90,19 +90,19 @@ The traffic light for vehicles comes with 4 different lighting sequences and wit
 
 ### Sequences
 
-| The Standard Sequence | The UK/German Sequence | Warning Sequence | Stop Sequence |
+| The Standard Sequence <img width=5000/> | The UK/German Sequence <img width=5000/> | Warning Sequence <img width=5000/> | Stop Sequence <img width=5000/>|
 |:---:|:---:|:---:|:---:|
-| ![StandardSequenceGIF](/images/trafficlights/standardsequence.gif) | ![GermanSequenceGIF](/images/trafficlights/germansequence.gif) | ![WarningSequenceGIF](/images/trafficlights/warningsequence.gif) | ![StopSequenceGIF](/images/trafficlights/stopsequence.gif) |
+| ![StandardSequenceGIF](/images/trafficlights/StandardSequence.gif) | ![GermanSequenceGIF](/images/trafficlights/GermanSequence.gif) | ![WarningSequenceGIF](/images/trafficlights/warningsequence.gif) | ![StopSequenceGIF](/images/trafficlights/stopsequence.gif) |
 | The standard green-yellow/orange-red traffic light sequence. | A variation on the standard sequence, in which before a red light turns green, it will shortly show the yellow/orange light together with the red light to alert drivers that it soon will turn green. | A yellow/orange flashing warning sequence. | A flashing sequence for the red light, which in some countries indicate the traffic light should be seen as a stop sign. |
 
 ### Icons
-| Block Lights | Left Arrow | Forward Arrow | Right Arrow | Round Lights |
+| Block Lights <img width=5000/> | Left Arrow <img width=5000/> | Forward Arrow <img width=5000/> | Right Arrow <img width=5000/> | Round Lights <img width=5000/> |
 |:---:|:---:|:---:|:---:|:---:|
 | ![BlockLightsPNG](/images/trafficlights/blockIcon.png) | ![LeftArrowPNG](/images/trafficlights/leftArrowIcon.png) | ![ForwardArrowPNG](/images/trafficlights/upArrowIcon.png) | ![RightArrowPNG](/images/trafficlights/rightArrowIcon.png) | ![RoundLightsPNG](/images/trafficlights/roundIcon.png) | 
 | A Minecraft-inspired light. | A light for a lane for vehicles turning left. | A light for a lane for vehicles continuing on the same road. | A light for a lane for vehicles turning right. | A traditional traffic light. |
 
 ## Showcase Traffic Lights for Pedestrians
-| Steady Sequence | Blink Sequence | Slider Sequence |
+| Steady Sequence <img width=5000/> | Blink Sequence <img width=5000/> | Slider Sequence <img width=5000/> |
 |:---:|:---:|:---:|
 | ![SteadySequencePLCGIF](/images/trafficlights/steadyPLC.gif) | ![BlinkSequencePLCGIF](/images/trafficlights/blinkPLC.gif) | ![SliderSequencePLCGIF](/images/trafficlights/sliderPLC.gif) |
 | A sequence in which the green light turns to red. | A sequence in which the green light first blinks before turning red. | A sequence in which the green light is replaced by green slider, indicating to the player how long the green light will remain on.|
