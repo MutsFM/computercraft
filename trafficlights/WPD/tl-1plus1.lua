@@ -1,11 +1,10 @@
 -- ArchiTech Traffic Lights
 -- Traffic ControllerOS
--- For 2+1 Traffic Lights
+-- For 1+1 Traffic Lights
 
 -- Adjust figure below to set to correct monitor
 local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
-local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
-local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
+local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for side street
 
 local pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
 
@@ -24,7 +23,6 @@ local sequence = 2
 -- Enter 5 for round
 local mon1version = 1
 local mon2version = 1
-local mon3version = 1
 
 -- Yellow or Orange? Depending on your country, the color may differ
 -- Enter 1 for orange
@@ -84,21 +82,7 @@ function shape(lvmon)
 			return 5
 		end
 	end
-	
-	if lvmon == mon3 then
-		if mon3version == 1 then
-			return 1
-		elseif mon3version == 2 then
-			return 2
-		elseif mon3version == 3 then
-			return 3
-		elseif mon3version == 4 then
-			return 4
-		elseif mon3version == 5 then
-			return 5
-		end
-	end
-	
+		
 end
 
 -- Traffic Light Setting Functions
@@ -297,39 +281,33 @@ function standardSequence()
 	-- Through Street has Green	// Side Street has Red
 	reset(mon1)
 	reset(mon2)
-	reset(mon3)
 	greenLight(mon1)
-	greenLight(mon2)
-	redLight(mon3)
+	redLight(mon2)
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
 	reset(mon1)
-	reset(mon2)
 	yellowLight(mon1)
-	yellowLight(mon2)
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
 	reset(mon1)
-	reset(mon2)
 	redLight(mon1)
-	redLight(mon2)
 	sleep(timeforturnred)
 
 	--Side street gets set to green
-	reset(mon3)
-	greenLight(mon3)
+	reset(mon2)
+	greenLight(mon2)
 	sleep(timeforgreen2)
 
 	-- Side street turns yellow // through street remains red
-	reset(mon3)
-	yellowLight(mon3)
+	reset(mon2)
+	yellowLight(mon2)
 	sleep(timeforyellow)
 
 	-- Side street gets set to red
-	reset(mon3)
-	redLight(mon3)
+	reset(mon2)
+	redLight(mon2)
 	sleep(timeforturnred)
 	
 	-- Ask for Pedestrian Status
@@ -369,30 +347,24 @@ function germanSequence()
 	-- Through Street has Green	// Side Street has Red
 	reset(mon1)
 	reset(mon2)
-	reset(mon3)
 	greenLight(mon1)
-	greenLight(mon2)
-	redLight(mon3)
+	redLight(mon2)
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
 	reset(mon1)
-	reset(mon2)
 	yellowLight(mon1)
 	yellowLight(mon2)
-	yellowLight(mon3)
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
 	reset(mon1)
-	reset(mon2)
 	redLight(mon1)
-	redLight(mon2)
 	sleep(timeforturnred)
 
 	--Side street gets set to green
-	reset(mon3)
-	greenLight(mon3)
+	reset(mon2)
+	greenLight(mon2)
 	sleep(timeforgreen2)
 	
 	-- Ask for Pedestrian Status
@@ -405,13 +377,13 @@ function germanSequence()
 		if message == "Yes" then
 		
 			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			yellowLight(mon3)
+			reset(mon2)
+			yellowLight(mon2)
 			sleep(timeforyellow)
 
 			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
+			reset(mon2)
+			redLight(mon2)
 			sleep(timeforturnred)
 	
 			-- Tell pedComputer pedestrians can go
@@ -423,7 +395,6 @@ function germanSequence()
 			if senderID == pedComputer and message == "Pedestrian Crossed" then
 				
 				yellowLight(mon1)
-				yellowLight(mon2)
 				sleep(timeforyellow)
 				restart()
 				
@@ -433,15 +404,14 @@ function germanSequence()
 		if message == "No" then
 			
 			-- Side street turns yellow // through street remains red
-			reset(mon3)
+			reset(mon2)
 			yellowLight(mon1)
 			yellowLight(mon2)
-			yellowLight(mon3)
 			sleep(timeforyellow)
 
 			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
+			reset(mon2)
+			redLight(mon2)
 			sleep(timeforturnred)
 
 			restart()
@@ -457,11 +427,9 @@ function warningSequence()
 
 	yellowLight(mon1)
 	yellowLight(mon2)
-	yellowLight(mon3)
 	sleep(warninginterval)
 	reset(mon1)
 	reset(mon2)
-	reset(mon3)
 	sleep(warninginterval)
 	
 	warningSequence()
@@ -472,11 +440,9 @@ function stopSequence()
 
 	redLight(mon1)
 	redLight(mon2)
-	redLight(mon3)
 	sleep(warninginterval)
 	reset(mon1)
 	reset(mon2)
-	reset(mon3)
 	sleep(warninginterval)
 	
 	stopSequence()

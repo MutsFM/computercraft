@@ -3,18 +3,18 @@
 -- For 2+1 Traffic Lights
 
 -- Adjust figure below to set to correct monitor
-local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
-local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
-local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
-
-local pedComputer = 26 -- Enter ComputerID for the pedestrianLightController computer
+local mon1 = peripheral.wrap('monitor_1')
+local mon2 = peripheral.wrap('monitor_2')
+local mon3 = peripheral.wrap('monitor_3')
+local mon4 = peripheral.wrap('monitor_4')
+local mon5 = peripheral.wrap('monitor_5')
 
 -- Traffic Light Sequence Mode
 -- Enter 1 for standard
 -- Enter 2 for British/German
 -- Enter 3 for warning
 -- Enter 4 for stop light
-local sequence = 2
+local sequence = 2		-- Is amended specifically for showroom purposes to show all 5 icons.
 
 -- Traffic Light Shape
 -- Enter 1 for block
@@ -23,8 +23,10 @@ local sequence = 2
 -- Enter 4 for arrow right
 -- Enter 5 for round
 local mon1version = 1
-local mon2version = 1
-local mon3version = 1
+local mon2version = 2
+local mon3version = 3
+local mon4version = 4
+local mon5version = 5
 
 -- Yellow or Orange? Depending on your country, the color may differ
 -- Enter 1 for orange
@@ -33,10 +35,10 @@ local middle = 1
 
 -- Time Customisation
 -- Adjust figures below to set how long each light is on
-local timeforgreen1 = 10		-- set time for how long the through street has green
+local timeforgreen1 = 5		-- set time for how long the through street has green
 local timeforgreen2 = 5			-- set time for how long the side street had green
 local timeforyellow = 3			-- set time for duration yellow light
-local timeforturnred = 1		-- set time for pause in between having turned red on one light, and turning green on the other
+local timeforturnred = 5		-- set time for pause in between having turned red on one light, and turning green on the other
 local warninginterval = 1		-- set time for how quickly the warning and stop lights flashes
 
 -- ******************************
@@ -95,6 +97,34 @@ function shape(lvmon)
 		elseif mon3version == 4 then
 			return 4
 		elseif mon3version == 5 then
+			return 5
+		end
+	end
+	
+	if lvmon == mon4 then
+		if mon4version == 1 then
+			return 1
+		elseif mon4version == 2 then
+			return 2
+		elseif mon4version == 3 then
+			return 3
+		elseif mon4version == 4 then
+			return 4
+		elseif mon4version == 5 then
+			return 5
+		end
+	end
+	
+	if lvmon == mon5 then
+		if mon5version == 1 then
+			return 1
+		elseif mon5version == 2 then
+			return 2
+		elseif mon5version == 3 then
+			return 3
+		elseif mon5version == 4 then
+			return 4
+		elseif mon5version == 5 then
 			return 5
 		end
 	end
@@ -292,74 +322,60 @@ end
 
 -- Traffic Light Sequence Functions
 
+function iconChange()
+
+	reset(mon1)
+	mon1version = 1
+	redLight(mon1)
+	yellowLight(mon1)
+	greenLight(mon1)
+	sleep(2)
+	reset(mon1)
+	mon1version = 2	
+	redLight(mon1)
+	yellowLight(mon1)
+	greenLight(mon1)
+	sleep(2)
+	reset(mon1)
+	mon1version = 3
+	redLight(mon1)
+	yellowLight(mon1)
+	greenLight(mon1)
+	sleep(2)
+	reset(mon1)
+	mon1version = 4
+	redLight(mon1)
+	yellowLight(mon1)
+	greenLight(mon1)
+	sleep(2)
+	reset(mon1)
+	mon1version = 5
+	redLight(mon1)
+	yellowLight(mon1)
+	greenLight(mon1)
+	sleep(2)
+
+	iconChange()
+
+end
+
 function standardSequence()
 
 	-- Through Street has Green	// Side Street has Red
 	reset(mon1)
-	reset(mon2)
-	reset(mon3)
 	greenLight(mon1)
-	greenLight(mon2)
-	redLight(mon3)
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
 	reset(mon1)
-	reset(mon2)
 	yellowLight(mon1)
-	yellowLight(mon2)
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
 	reset(mon1)
-	reset(mon2)
 	redLight(mon1)
-	redLight(mon2)
-	sleep(timeforturnred)
-
-	--Side street gets set to green
-	reset(mon3)
-	greenLight(mon3)
-	sleep(timeforgreen2)
-
-	-- Side street turns yellow // through street remains red
-	reset(mon3)
-	yellowLight(mon3)
-	sleep(timeforyellow)
-
-	-- Side street gets set to red
-	reset(mon3)
-	redLight(mon3)
 	sleep(timeforturnred)
 	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				sleep(timeforturnred)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			restart()
-		
-		end
-	end
-
 	restart()
 
 end
@@ -370,98 +386,58 @@ function germanSequence()
 	reset(mon1)
 	reset(mon2)
 	reset(mon3)
+	reset(mon4)
+	reset(mon5)
 	greenLight(mon1)
 	greenLight(mon2)
-	redLight(mon3)
+	greenLight(mon3)
+	greenLight(mon4)
+	greenLight(mon5)	
 	sleep(timeforgreen1)
 
 	-- Through Street turns Yellow // Side Street Still Red
 	reset(mon1)
 	reset(mon2)
+	reset(mon3)
+	reset(mon4)
+	reset(mon5)
 	yellowLight(mon1)
 	yellowLight(mon2)
 	yellowLight(mon3)
+	yellowLight(mon4)
+	yellowLight(mon5)	
 	sleep(timeforyellow)
 
 	-- Through Street gets set to red
 	reset(mon1)
 	reset(mon2)
+	reset(mon3)
+	reset(mon4)
+	reset(mon5)
 	redLight(mon1)
 	redLight(mon2)
+	redLight(mon3)
+	redLight(mon4)
+	redLight(mon5)
 	sleep(timeforturnred)
-
-	--Side street gets set to green
-	reset(mon3)
-	greenLight(mon3)
-	sleep(timeforgreen2)
 	
-	-- Ask for Pedestrian Status
-	rednet.send(pedComputer, "Pedestrian Detected?")
-	
-	senderID, message = rednet.receive()
-	
-	if senderID == pedComputer then
-	
-		if message == "Yes" then
-		
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			yellowLight(mon3)
-			sleep(timeforyellow)
-
-			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
-			sleep(timeforturnred)
-	
-			-- Tell pedComputer pedestrians can go
-			rednet.send(pedComputer, "Pedestrian Allowed")
-			
-			senderID, message = rednet.receive()
-			
-			-- Wait for pedComputer to say it is back to red
-			if senderID == pedComputer and message == "Pedestrian Crossed" then
-				
-				yellowLight(mon1)
-				yellowLight(mon2)
-				sleep(timeforyellow)
-				restart()
-				
-			end
-		end
-		
-		if message == "No" then
-			
-			-- Side street turns yellow // through street remains red
-			reset(mon3)
-			yellowLight(mon1)
-			yellowLight(mon2)
-			yellowLight(mon3)
-			sleep(timeforyellow)
-
-			-- Side street gets set to red
-			reset(mon3)
-			redLight(mon3)
-			sleep(timeforturnred)
-
-			restart()
-		
-		end
-	end
+	-- Side street turns yellow // through street remains red
+	yellowLight(mon1)
+	yellowLight(mon2)
+	yellowLight(mon3)
+	yellowLight(mon4)
+	yellowLight(mon5)	
+	sleep(timeforyellow)
 
 	restart()
-
+		
 end
 
 function warningSequence()
 
 	yellowLight(mon1)
-	yellowLight(mon2)
-	yellowLight(mon3)
 	sleep(warninginterval)
 	reset(mon1)
-	reset(mon2)
-	reset(mon3)
 	sleep(warninginterval)
 	
 	warningSequence()
@@ -471,12 +447,8 @@ end
 function stopSequence()
 
 	redLight(mon1)
-	redLight(mon2)
-	redLight(mon3)
 	sleep(warninginterval)
 	reset(mon1)
-	reset(mon2)
-	reset(mon3)
 	sleep(warninginterval)
 	
 	stopSequence()
@@ -516,6 +488,8 @@ function printInfo()
 	print("Traffic Light Solutions")
 	term.setCursorPos(15,3)
 	print("Traffic ControllerOS")
+	term.setCursorPos(20,4)
+	print("Demo Version")
 	
 	term.setCursorPos(1,5)
 	if sequence == 1 then print("Sequence: Standard") end

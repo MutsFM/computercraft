@@ -1,12 +1,15 @@
 -- ArchiTech Traffic Lights
 -- Pedestrian ControllerOS
+-- With Pedestrain Detection 
+-- With Pedestrian Sound
 -- For 1 Pedestrian Light
--- For demo purposes
 
 -- adjust figure below to set to correct pedestrian lights
-local ped1 = peripheral.wrap('monitor_23')
+local ped1 = peripheral.wrap('monitor_1')
 
-local tlComputer = 33 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
+local redstoneInput = "right"			-- Redstone input from wires connected to the pressure plates
+local bundleSide = "left"				-- Side to which the redstone bundled wires are attached
+local tlComputer = 1 					-- Enter ComputerID for the traffic light controller computer (Make sure it is the computer ID received when entering os.getComputerID() in lua
 
 -- Sequence Selection
 -- Enter 1 for steady
@@ -23,12 +26,12 @@ local bottomWaitColor = colors.white
 -- adjust figures below to set how long each light is on.
 local timeforgreen = 10			-- time for how long the bottom light is on
 local timeforyellow = 5			-- time for how long the bottom light blinks
-local timeforred = 5
 
 -- ******************************
 -- CODE BELOW IS NOT ADJUSTABLE!!
 -- ******************************
 
+local pedRequest = false
 local flashspeed = 0.5
 local sliderSleep
 
@@ -40,6 +43,8 @@ print("ArchiTech Traffic Lights")
 term.setTextColor(colors.white)
 term.setCursorPos(1,3)
 print("Pedestrian Light Controller")
+print("With Pedestrian Detection")
+print("With Pedestrian Sound")
 print("For 1 Pedestrian Light")
 
 -- Controller Function
@@ -55,16 +60,53 @@ function listen()
 		print(senderID)
 		print(message)
 	
-       	if senderID == tlComputer and message == "Pedestrian Allowed" then
-					
-			startSequence()
-			rednet.send(tlComputer, "Pedestrian Crossed")
-			listen()						
-						
+        if senderID == tlComputer then
 			
+			if message == "Pedestrian Detected?" then
+			
+				if pedRequest == false then
+				
+					rednet.send(tlComputer, "No")
+					listen()
+				end	
+				
+				if pedRequest == true then
+					
+					rednet.send(tlComputer, "Yes")
+					
+					senderID, message = rednet.receive()
+					
+					if senderID == tlComputer and message == "Pedestrian Allowed" then
+					
+						redstone.setBundledOutput(bundleSide, colors.yellow)
+						startSequence()
+						pedRequest = false
+						redstone.setBundledOutput(bundleSide, 0)
+						rednet.send(tlComputer, "Pedestrian Crossed")
+						listen()						
+						
+					end
+				end
+			end
 		end 
     end
-        
+    
+    if event == "redstone" then
+		
+		local rsStatus = redstone.getInput(redstoneInput)
+		
+		if rsStatus == true then
+			
+			if pedRequest == false then
+			
+				pedRequest = true;
+				bottomWait(ped1)
+				redstone.setBundledOutput(bundleSide, colors.white)
+			
+			end
+		end
+    end
+    
 	listen()
 
 end
@@ -78,9 +120,6 @@ function standardSequence()
 	sleep(timeforgreen)
 	reset(ped1)
 	topLight(ped1)
-	sleep(timeforred)
-	
-	startSequence()
 	
 end
 
@@ -89,7 +128,9 @@ function blinkSequence()
 	reset(ped1)
 	bottomLight(ped1)
 	sleep(timeforgreen)
-		
+	
+	redstone.setBundledOutput(bundleSide, colors.orange)
+	
 	i = timeforyellow
 	
 		while i > 0 do
@@ -105,9 +146,6 @@ function blinkSequence()
 	
 	reset(ped1)
 	topLight(ped1)
-	sleep(timeforred)
-	
-	startSequence()
 	
 end
 
@@ -141,9 +179,6 @@ function sliderSequence()
 	
 	reset(ped1)
 	topLight(ped1)
-	sleep(timeforred)
-	
-	startSequence()
 	
 end
 
@@ -332,12 +367,13 @@ end
 
 function start()
 	
+	redstone.setBundledOutput(bundleSide, 0)
 	calculateSlider()
 	
 	reset(ped1)
 	topLight(ped1)
 	
-	startSequence()
+	listen()
 	
 end
 
