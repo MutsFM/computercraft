@@ -3,11 +3,11 @@
 -- For 2+1 Traffic Lights
 
 -- Adjust figure below to set to correct monitor
-local mon1 = peripheral.wrap('monitor_9') -- traffic light cars for through way
-local mon2 = peripheral.wrap('monitor_10') -- traffic light cars for through way
-local mon3 = peripheral.wrap('monitor_11') -- traffic light cars for side street
-local ped1 = peripheral.wrap('monitor_1')
-local ped2 = peripheral.wrap('monitor_2')
+local mon1 = peripheral.wrap('monitor_24') -- traffic light cars for through way
+local mon2 = peripheral.wrap('monitor_25') -- traffic light cars for through way
+local mon3 = peripheral.wrap('monitor_26') -- traffic light cars for side street
+local ped1 = peripheral.wrap('monitor_27')
+local ped2 = peripheral.wrap('monitor_28')
 
 ----------------------------------
 -- Traffic Lights Customisation --
@@ -17,7 +17,7 @@ local ped2 = peripheral.wrap('monitor_2')
 -- Enter 2 for British/German
 -- Enter 3 for warning
 -- Enter 4 for stop light
-local sequence = 2
+local sequence = 5
 
 -- Traffic Light Shape
 -- Enter 1 for block
@@ -27,7 +27,7 @@ local sequence = 2
 -- Enter 5 for round
 local mon1version = 1
 local mon2version = 1
-local mon3version = 1
+local mon3version = 4
 
 -- Yellow or Orange? Depending on your country, the color may differ
 -- Enter 1 for orange
@@ -50,9 +50,9 @@ local bottomWaitColor = colors.white
 
 -- Traffic Lights Time Customisation
 -- Adjust figures below to set how long each light is on
-local timeforgreen1 = 10		-- set time for how long the through street has green
+local timeforgreen1 = 15		-- set time for how long the through street has green
 local timeforgreen2 = 5			-- set time for how long the side street had green
-local timeforyellow = 3			-- set time for duration yellow light
+local timeforyellow = 5			-- set time for duration yellow light
 local timeforturnred = 1		-- set time for pause in between having turned red on one light, and turning green on the other
 local warninginterval = 1		-- set time for how quickly the warning and stop lights flashes
 
@@ -69,7 +69,7 @@ local middleColor		-- Variable for the orange or yellow color of traffic lights
 
 local flashspeed = 0.5	-- Variable for the pedestrian lights "yellow" blinking part
 
-local calculatedPedWaitTimer
+local calculatedPedWaitTimer = 1
 local currentPedWaitTimer
 local currentPedGreenTimer
 
@@ -361,12 +361,13 @@ end
 function waitCounter(mon, timeToDisplay)
 	
 	if timeToDisplay < 10 then
+		mon.clearLine(2)
 		mon.setCursorPos(3,2)
 		mon.setTextColor(topLightColor)
 		mon.write(timeToDisplay)
 	else
-		mon.setCursorPos(2,2)
 		mon.setTextColor(topLightColor)
+		mon.setCursorPos(2,2)
 		mon.write(timeToDisplay)
 	end
 	
@@ -375,12 +376,13 @@ end
 function greenCounter(mon, timeToDisplay)
 
 	if timeToDisplay < 10 then
+		mon.clearLine(1)
 		mon.setCursorPos(3,1)
 		mon.setTextColor(bottomLightColor)
 		mon.write(timeToDisplay)
 	else
-		mon.setCursorPos(2,1)
 		mon.setTextColor(bottomLightColor)
+		mon.setCursorPos(2,1)
 		mon.write(timeToDisplay)
 	end
 	
